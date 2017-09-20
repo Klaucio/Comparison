@@ -18,7 +18,6 @@ class CreateBancosTable extends Migration
             $table->string('designacao')->unique();
             $table->string('abreviatura')->unique();
             $table->string('logo')->nullable();
-            $table->integer('numero_agencias')->nullable();
             $table->timestamps();
         });
     }

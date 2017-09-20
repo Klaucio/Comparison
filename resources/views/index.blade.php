@@ -316,24 +316,221 @@
                                 data-paddingbottom="[0,0,0,0]"
                                 data-paddingleft="[0,0,0,0]"
 
-                                style="z-index: 17; white-space: nowrap;text-transform:left;">With over 10 years of experience helping businesses to find<br>comprehensive solutions   
+                                style="z-index: 17; white-space: nowrap;text-transform:left;">Comece Já A Fazer A Comparação De Preços<br> Para iniciar seleccione os bancos, depois os serviços!
                             </div>
 
-                            <a href="#" target="_self" class="tp-caption flat-button-slider bg-transparent"         
+                            <a href="#section_comparar" target="_self" class="tp-caption flat-button-slider bg-transparent"
 
                             data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                         
-                            data-x="['center','center','center','center']" data-hoffset="['-18','-18','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['100','100','100','70']" 
+
+                            data-x="['center','center','center','center']" data-hoffset="['-18','-18','0','0']"
+                            data-y="['middle','middle','middle','middle']" data-voffset="['100','100','100','70']"
                             data-fontsize="['14',14','14','14']"
                             data-width="['188']"
-                            data-height="['auto']">Purchase Theme
+                            data-height="['auto']"><h2><i class="fa fa-chevron-circle-down"></i></h2>
                             </a><!-- END LAYER LINK -->
                         </li>                         
                     </ul>
                 </div>
         </div><!-- END REVOLUTION SLIDER -->
 
+		<!-- Testes-->
+		<section id="section_comparar" class="flat-row flat-iconbox bg-theme">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="title-section left">
+							<h2>FAÇA JÁ A COMPARAÇÃO</h2>
+						</div><!-- /.title-section -->
+					</div>
+				</div><!-- /.row -->
+
+				<div class="row">
+
+					<div class="col-md-4">
+						<article class="post style2">
+							<div class="featured-post">
+								<a href="blog.html" title="" class="post-image">
+									<img src="images/news/large-01.jpg" alt="">
+								</a>
+								<ul class="post-date">
+									<li class="day">BCI</li>
+									<li class="month">JAN</li>
+								</ul>
+							</div><!-- /.featured-post -->
+							<div class="content-post">
+								<h4 class="title-post">
+									<a href="blog.html" title="">Why Do I Need To Use Financial ?</a>
+								</h4>
+								<div class="entry-post">
+									<p>Sed facilisis lorem in orci bibendum
+										ullamcorper. Mauris vitae augue
+										elementum, ...</p>
+								</div>
+							</div><!-- /.content-post -->
+						</article><!-- /.post -->
+					</div><!-- /.col-md-4 -->
+
+					<div class="col-md-4">
+						<article class="post style2">
+							<div class="featured-post">
+								<a href="blog.html" title="" class="post-image">
+									<img src="images/news/large-02.jpg" alt="">
+								</a>
+								<ul class="post-date">
+									<li class="day">BIM</li>
+									<li class="month">JAN</li>
+								</ul>
+							</div><!-- /.featured-post -->
+							<div class="content-post">
+								<h4 class="title-post">
+									<a href="blog.html" title="">Why your sales forecast is off</a>
+								</h4>
+								<div class="entry-post">
+									<p>Sed facilisis lorem in orci bibendum
+										ullamcorper. Mauris vitae augue
+										elementum, ...
+									</p>
+								</div>
+							</div><!-- /.content-post -->
+						</article><!-- /.post -->
+					</div><!-- /.col-md-4 -->
+
+					<div class="col-md-4">
+						<div class="iconbox-item">
+							<div class="iconbox style1">
+								<div class="box-header">
+									<div class="icon-rounded ion-clipboard">
+
+									</div><!-- /.icon-rounded -->
+									<div class="box-title">
+										<a href="%27.html#" title="">Accumulation</a>
+									</div><!-- /.box-title -->
+								</div><!-- /.box-header -->
+								<div class="box-content">
+									Donec lacinia mi rutrum sagittis
+									consequat. Donec sagittis, tellus sodales
+									sollicitudin commodo
+								</div><!-- /.box-content -->
+							</div><!-- /.iconbox -->
+						</div><!-- /.iconbox-item -->
+					</div><!-- /.col-md-4 -->
+
+					<div class="col-md-4">
+						<div class="iconbox-item">
+							<div class="iconbox style1">
+								<div class="box-header">
+									<div class="icon-rounded line-chart">
+
+									</div>
+									<div class="box-title">
+										<a href="%27.html#" title="">Mutual Funds</a>
+									</div>
+								</div><!-- /.box-header -->
+								<div class="box-content">
+									Donec lacinia mi rutrum sagittis
+									consequat. Donec sagittis, tellus sodales
+									sollicitudin commodo
+								</div><!-- /.box-content -->
+							</div><!-- /.iconbox -->
+						</div><!-- /.iconbox-item -->
+					</div><!-- /.col-md-4 -->
+
+					<div class="col-md-4">
+						<div class="iconbox-item">
+							<div class="iconbox style1">
+								<div class="box-header">
+									<div class="icon-rounded clock">
+
+									</div>
+									<div class="box-title">
+										<a href="%27.html#" title="">Risk Management</a>
+									</div>
+								</div><!-- /.box-header -->
+								<div class="box-content">
+									Donec lacinia mi rutrum sagittis
+									consequat. Donec sagittis, tellus sodales
+									sollicitudin commodo
+								</div><!-- /.box-content -->
+							</div><!-- /.iconbox -->
+						</div><!-- /.iconbox-item -->
+					</div><!-- /.col-md-4 -->
+
+				</div><!-- /.row -->
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="height80"></div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="iconbox-item">
+							<div class="iconbox style1">
+								<div class="box-header">
+									<div class="icon-rounded magic">
+
+									</div>
+									<div class="box-title">
+										<a href="%27.html#" title="">Estate Planning</a>
+									</div>
+								</div><!-- /.box-header -->
+								<div class="box-content">
+									Donec lacinia mi rutrum sagittis
+									consequat. Donec sagittis, tellus sodales
+									sollicitudin commodo
+								</div><!-- /.box-content -->
+							</div><!-- /.iconbox -->
+						</div><!-- /.iconbox-item -->
+					</div><!-- /.col-md-4 -->
+
+					<div class="col-md-4">
+						<div class="iconbox-item">
+							<div class="iconbox style1">
+								<div class="box-header">
+									<div class="icon-rounded artboard">
+
+									</div>
+									<div class="box-title">
+										<a href="%27.html#" title="">Retirement Planning</a>
+									</div>
+								</div><!-- /.box-header -->
+								<div class="box-content">
+									Donec lacinia mi rutrum sagittis
+									consequat. Donec sagittis, tellus sodales
+									sollicitudin commodo
+								</div><!-- /.box-content -->
+							</div><!-- /.iconbox -->
+						</div><!-- /.iconbox-item -->
+					</div><!-- /.col-md-4 -->
+
+					<div class="col-md-4">
+						<div class="iconbox-item">
+							<div class="iconbox style1">
+								<div class="box-header">
+									<div class="icon-rounded global">
+
+									</div>
+									<div class="box-title">
+										<a href="%27.html#" title="">Business Planning</a>
+									</div>
+								</div><!-- /.box-header -->
+								<div class="box-content">
+									Donec lacinia mi rutrum sagittis
+									consequat. Donec sagittis, tellus sodales
+									sollicitudin commodo
+								</div><!-- /.box-content -->
+							</div><!-- /.iconbox -->
+						</div><!-- /.iconbox-item -->
+					</div><!-- /.col-md-4 -->
+				</div><!-- /.row -->
+
+			</div><!-- /.container -->
+		</section><!-- /.flat-row-iconbox -->
+
+		<!-- Fim dos testes -->
 		<section class="flat-row pd-imagebox">
 			<div class="container">
 				<div class="row">

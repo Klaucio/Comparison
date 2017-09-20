@@ -6,9 +6,17 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "doctrine/dbal": "~2.3",
         "fideloper/proxy": "~3.3",
+        "infyomlabs/adminlte-templates": "5.5.x-dev",
+        "infyomlabs/laravel-generator": "5.5.x-dev",
+        "infyomlabs/swagger-generator": "dev-master",
+        "jlapp/swaggervel": "dev-master",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.5.0",
+        "yajra/laravel-datatables-buttons": "^3.0",
+        "yajra/laravel-datatables-oracle": "^8.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -28,7 +36,12 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "classmap": [
+            "tests/TestCase.php",
+            "tests/ApiTestTrait.php",
+            "tests/traits"
+        ]
     },
     "extra": {
         "laravel": {
