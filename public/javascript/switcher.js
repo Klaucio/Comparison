@@ -3,7 +3,6 @@ window.console = window.console || function() {
    e.log = e.warn = e.debug = e.info = e.error = e.time = e.dir = e.profile = e.clear = e.exception = e.trace = e.assert = function() {};
    return e
 }();
-
 $(document).ready(function() {
 	var e =  '<div class="switcher-container">'+
                '<h2>STYLE SWITCHER<a href="#" class="sw-click"><i class="fa fa-cog"></i></a></h2>'+
@@ -76,11 +75,11 @@ $(document).ready(function() {
     },
     loadEvent: function() {
         var e = switchColor.colorObj;
-        if ($.cookie(e.colorCookie)) {
-            switchColor.setColor($.cookie(e.colorCookie))
-        } else {
-            switchColor.setColor(e.defaultColor)
-        }
+        // if ($.cookie(e.colorCookie)) {
+        //     switchColor.setColor($.cookie(e.colorCookie))
+        // } else {
+        //     switchColor.setColor(e.defaultColor)
+        // }
         $(e.colorItem).on("click", function() {           
             var e = $(this).attr("id");
             switchColor.setColor(e)

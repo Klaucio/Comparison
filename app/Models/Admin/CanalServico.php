@@ -37,7 +37,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class CanalServico extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
     public $table = 'canal_servico';
     
@@ -80,7 +80,7 @@ class CanalServico extends Model
      **/
     public function banco()
     {
-        return $this->belongsTo(\App\Models\Admin\Banco::class);
+        return $this->belongsTo(\App\Banco::class);
     }
 
     /**
@@ -96,6 +96,6 @@ class CanalServico extends Model
      **/
     public function servico()
     {
-        return $this->belongsTo(\App\Models\Admin\Servico::class);
+        return $this->belongsTo(Servico::class);
     }
 }

@@ -15,8 +15,26 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('example-component',require('./components/Example.vue'));
 
-const app = new Vue({
-    el: '#app'
+new Vue({
+    el: '#bank-form',
+    data: {
+        checkedBanks: []
+    },
+    methods:{
+        // test: axios.get('servicesByBank',{
+        //     checkedBanks:this.checkedBanks
+        // }),
+        onSubmit(){
+            axios.post('/serviceByBank',{
+                checkedBanks:this.checkedBanks
+            })
+        }
+
+
+    },
+    mounted(){
+      axios.get('/bankData').then(response =>{ console.log(response)});
+    }
 });

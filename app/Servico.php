@@ -8,7 +8,7 @@ class Servico extends Model
 {
     //
     protected $fillable = [
-        'nome', 'descricao'
+        'categoria_id','nome', 'descricao'
     ];
     public function bancos()
     {
@@ -17,5 +17,9 @@ class Servico extends Model
     public function recursos()
     {
         return $this->belongsToMany(Recurso::class)->withTimestamps();
+    }
+    public function canalServicos()
+    {
+        return $this->hasMany(\App\Models\Admin\CanalServico::class);
     }
 }

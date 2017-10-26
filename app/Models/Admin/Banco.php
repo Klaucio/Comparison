@@ -3,7 +3,7 @@
 namespace App\Models\Admin;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+//use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @SWG\Definition(
@@ -34,7 +34,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Banco extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
     public $table = 'bancos';
     

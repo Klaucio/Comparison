@@ -10,13 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*Routes for data data*/
+Route::get('/bankData', function () {
+    $banks=\App\Models\Admin\Banco::all();
+    return response()->json($banks);
+});
+Route::get('/serviceData', function () {
+    $servicos=\App\Models\Admin\Banco::all();
+    dd($servicos->toArray());
+    return json_encode($servicos->toArray());
+});
+/* View Routes*/
 Route::get('/teste', function () {
     return view('welcome');
 });
-Route::get('/', function () {
-    return view('index');
+Route::get('/servicosBanco', function () {
+//    return view('servicoPorbanco');
+    $servicos=\App\Servico::paginate(10);
+    return view('servicoPorbanco')->with(['servicos'=>$servicos]);
 });
+
+Route::get('/resultado', function () {
+    return view('resultado');
+});
+Route::get('/', 'HomeFrontController@index');
+Route::get('/servicos', 'ServicoController@index');
+Route::post('/serviceByBank', ['as'=> 'servicos', 'uses' => 'HomeFrontController\BancoController@servicosByBank']);
 
 
 Auth::routes();

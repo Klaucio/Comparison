@@ -3,7 +3,7 @@
 namespace App\Models\Admin;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+//use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @SWG\Definition(
@@ -29,7 +29,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Canal extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
     public $table = 'canals';
     
@@ -68,8 +68,8 @@ class Canal extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function canalServicos()
+    public function servicos()
     {
-        return $this->hasMany(\App\Models\Admin\CanalServico::class);
+        return $this->belongsToMany(Servico::class);
     }
 }

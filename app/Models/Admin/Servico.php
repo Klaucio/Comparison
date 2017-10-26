@@ -3,7 +3,7 @@
 namespace App\Models\Admin;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+//use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @SWG\Definition(
@@ -35,10 +35,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Servico extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
     public $table = 'servicos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -57,12 +57,12 @@ class Servico extends Model
      *
      * @var array
      */
-    protected $casts = [
-        'id' => 'integer',
-        'categoria_id' => 'integer',
-        'nome' => 'string',
-        'descricao' => 'string'
-    ];
+//    protected $casts = [
+//        'id' => 'integer',
+//        'categoria_id' => 'integer',
+//        'nome' => 'string',
+//        'descricao' => 'string'
+//    ];
 
     /**
      * Validation rules
@@ -70,7 +70,7 @@ class Servico extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -92,8 +92,8 @@ class Servico extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function canalServicos()
+    public function canals()
     {
-        return $this->hasMany(\App\Models\Admin\CanalServico::class);
+        return $this->belongsToMany(Canal::class);
     }
 }
