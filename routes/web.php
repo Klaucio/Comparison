@@ -22,7 +22,7 @@ Route::get('/serviceData', function () {
 });
 /* View Routes*/
 Route::get('/teste', function () {
-    return view('welcome');
+    return view('index_organising');
 });
 Route::get('/servicosBanco', function () {
 //    return view('servicoPorbanco');

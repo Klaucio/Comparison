@@ -6,7 +6,7 @@
 // Multi chart
 var densityCanvas = document.getElementById("densityChart");
 
-Chart.defaults.global.defaultFontFamily = "Lato";
+// Chart.defaults.global.defaultFontFamily = "Lato";
 Chart.defaults.global.defaultFontSize = 18;
 
 var densityData = {
@@ -14,7 +14,7 @@ var densityData = {
     data: [27, 43, 55, 33, 26, 87],
     backgroundColor: 'rgba(255, 99, 132, 0.2)',
     borderWidth: 0,
-    yAxisID: "y-axis-density"
+    yAxisID: "y-axis-densitygravity"
 };
 
 var gravityData = {
