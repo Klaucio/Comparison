@@ -19,12 +19,20 @@ Vue.component('example-component',require('./components/Example.vue'));
 
 new Vue({
     el: '#bank-form',
+    ready:function () {
+        this.getBanksList();
+    },
     data: {
-        checkedBanks: []
+        checkedBanks: [],
+        mensagem:"Message",
+        testes:[
+            {name:'name'},{name:'teste2'}
+        ],
+        banks:[]
     },
     methods:{
-        // test: axios.get('servicesByBank',{
-        //     checkedBanks:this.checkedBanks
+        // getBanksList: axios.get('/api/bankData').then((response)=>{
+        //     this.set('banks', response.data)
         // }),
         onSubmit(){
             axios.post('/serviceByBank',{
@@ -35,6 +43,13 @@ new Vue({
 
     },
     mounted(){
-      axios.get('/bankData').then(response =>{ console.log(response)});
+      axios.get('/api/bankData').then(response =>{
+          console.log(response);
+          this.banks=response.data;
+
+          this.set('banks',response.data);
+
+          console.log(this.banks);
+      });
     }
 });

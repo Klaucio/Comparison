@@ -10,17 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*Routes for data data*/
-Route::get('/bankData', function () {
-    $banks=\App\Models\Admin\Banco::all();
-    return response()->json($banks);
+/*----------------------------------------
+ *              Routes for Json data
+ * --------------------------------------*/
+
+Route::prefix('api')->group(function() {
+    Route::get('/bankData', function () {
+        $banks=\App\Models\Admin\Banco::all();
+        return response()->json($banks);
+    });
+    Route::get('/serviceData', function () {
+        $servicos=\App\Models\Admin\Banco::all();
+        return json_encode($servicos->toArray());
+    });
+    Route::get('/canalData', function () {
+        $canais=\App\Models\Admin\Canal::all();
+        return json_encode($canais->toArray());
+    });
+    Route::get('/canalServicoData', function () {
+        $canal_servico=\App\Models\Admin\CanalServico::all();
+        return json_encode($canal_servico->toArray());
+    });
+
 });
-Route::get('/serviceData', function () {
-    $servicos=\App\Models\Admin\Banco::all();
-    dd($servicos->toArray());
-    return json_encode($servicos->toArray());
-});
-/* View Routes*/
+/*----------------------------------------
+ *              Routes for Views
+ * --------------------------------------*/
 Route::get('/teste', function () {
     return view('index_organising');
 });

@@ -1,4 +1,8 @@
 /*for close card*/
+[v-cloak] {
+    display: none;
+}
+
 .close-icon {
     cursor: pointer;
 }

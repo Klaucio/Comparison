@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="{{ app()->getLocale() }}"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
 
 <!-- Mirrored from corpthemes.com/html/finance/ by HTTrack Website Copier/3.x [XR&CO'2013], Tue, 18 Jul 2017 15:45:59 GMT -->
 <head>
@@ -342,26 +342,25 @@
 				<div id="bank-form" class="form-group">
                 	<form method="POST" action="/serviceByBank" @submit.prevent="onSubmit">
                         <div class="row">
-                                <div class="searchable-container">
-                                    @forelse ($bancos as $banco)
-                                        <div class="items col-xs-5 col-sm-5 col-lg-3 col-md-2">
+                                <div class="searchable-container"><!--	A div a seguir percorre a lista de bancos para preencher os cards	-->
+                                        <div class="items col-xs-5 col-sm-5 col-lg-3 col-md-2" v-for="bank in banks">
                                             <label for="cb">
                                                 <article class="post style2 clearfix info-block block-info ">
-                                                    <label for="{{$banco->abreviatura}}" class="btn btn-default  featured-post img-card" >
+                                                    <label fi="@{{bank.id}}"  class="btn btn-default  featured-post img-card" >
                                                         <div class="bizcontent post-image">
-                                                            <input id="{{$banco->abreviatura}}" v-model="checkedBanks" type="checkbox" onclick="handleClick(this);" autocomplete="off" value="{{$banco->id}}">
-                                                            <img width="175" height="175" title="" class="post-image" src="{{asset('storage/logos/'.$banco->logo)}}" alt="">
-                                                            <span class="glyphicon glyphicon-check glyphicon-lg"></span>
+                                                            <input v-bind:id="bank.id" v-bind:value="bank.id" id="@{{bank.abreviatura}}" v-model="checkedBanks" type="checkbox" onclick="handleClick(this);" autocomplete="off">
+                                                            <img :src="'storage/logos/' + bank.logo" width="175" height="175" title="" class="post-image" alt=""> <!--.bank.logo-->
+                                                            {{--<span class="glyphicon glyphicon-check glyphicon-lg"></span>--}}
                                                         </div>
                                                         <ul class="post-date">
-                                                            <li class="day">{{$banco->abreviatura}}</li>
+                                                            <li class="day">@{{ bank.abreviatura }}</li>
                                                             {{--<li class="month">JAN</li>--}}
                                                         </ul>
                                                     </label>
 
                                                     <div class="content-post">
                                                         <h5 class="title-post">
-                                                            <a href="" title="">{{$banco->designacao}}</a>
+                                                            <a href="" title="">@{{bank.designacao}}</a>
                                                         </h5>
                                                         <div class="entry-post">
 
@@ -370,9 +369,9 @@
                                                 </article><!-- /.post -->
                                             </label>
                                         </div><!-- /.col-md-2 -->
-                                    @empty
-                                        <p>No Bank created.</p>
-                                    @endforelse
+                                    {{--@empty--}}
+                                        {{--<p>No Bank created.</p>--}}
+                                    {{--@endforelse--}}
                                 </div>
                         </div><!-- /.row -->
 						<div class="row">
