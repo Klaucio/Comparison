@@ -157,24 +157,29 @@
                         </div>
                         <div class="row">
                             <div class="form-group">
-                                <div class="searchable-container">
-                                    @forelse ($servicos as $servico)
-                                    <div class="servicos col-xs-5 col-sm-5 col-md-3 col-lg-3">
-                                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                                            <label class="btn btn-default">
-                                                <div class="bizcontent">
-                                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                    <h5 class="wordwrap">{{$servico->nome}}</h5>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    @empty
-                                        <p>No Service created.</p>
-                                    @endforelse
+                                {{--@php--}}
+                                    {{--var_dump($bancos);--}}
+                                    {{--die();--}}
+                                {{--@endphp--}}
+                                {{$bancos}}
+                                {{--<div class="searchable-container">--}}
+                                    {{--@forelse ($servicos as $servico)--}}
+                                    {{--<div class="servicos col-xs-5 col-sm-5 col-md-3 col-lg-3">--}}
+                                        {{--<div data-toggle="buttons" class="btn-group bizmoduleselect">--}}
+                                            {{--<label class="btn btn-default">--}}
+                                                {{--<div class="bizcontent">--}}
+                                                    {{--<input type="checkbox" name="var_id[]" autocomplete="off" value="">--}}
+                                                    {{--<span class="glyphicon glyphicon-ok glyphicon-lg"></span>--}}
+                                                    {{--<h5 class="wordwrap">{{$servico->nome}}</h5>--}}
+                                                {{--</div>--}}
+                                            {{--</label>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--@empty--}}
+                                        {{--<p>No Service created.</p>--}}
+                                    {{--@endforelse--}}
 
-                                </div>
+                                {{--</div>--}}
                             </div>
                         </div>
                     </div>

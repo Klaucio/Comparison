@@ -86,7 +86,7 @@ class Servico extends Model
      **/
     public function bancos()
     {
-        return $this->belongsToMany(\App\Models\Admin\Banco::class, 'banco_servico');
+        return $this->belongsToMany(Banco::class, 'banco_servico');
     }
 
     /**

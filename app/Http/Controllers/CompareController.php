@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin\Banco;
-use App\Servico;
+use App\Banco;
+use App\Models\Admin\Servico;
+use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
+use function Psy\debug;
+use Psy\Util\Json;
 
-
-class HomeFrontController extends Controller
+class CompareController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,21 +19,7 @@ class HomeFrontController extends Controller
     public function index()
     {
         //
-        $bancos=Banco::paginate(10);
-        $servicos=Banco::paginate(10);
-        return view('index')->with(['bancos'=>$bancos,'servicos'=>$servicos]);
-
-    }
-    public function servicosByBank(Request $request)
-    {
-        $data=$request->input('data');
-
-        $bancos=json_decode($data,true);
-//        print_r($bancos);
-//        die();
-
-        return view('servicoPorbanco')->with(['bancos'=>$bancos]);
-
+        return json_encode(['resposta'=>'Persistido']);
     }
 
     /**
@@ -53,7 +40,10 @@ class HomeFrontController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bancos=$request->input('bancos');
+        $servicos=Banco::with('servicos')->findOrFail($bancos);
+//        redirect('servicoPorbanco')->with(
+        return json_encode($servicos);
     }
 
     /**

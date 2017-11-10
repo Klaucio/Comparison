@@ -18,7 +18,7 @@ class Banco extends Model
      */
     public function servicos()
     {
-        return $this->belongsToMany(Servico::class)->withTimestamps();
+        return $this->belongsToMany(Servico::class,'banco_servico')->withTimestamps();
     }
     public function user()
     {

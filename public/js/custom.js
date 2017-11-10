@@ -41,7 +41,7 @@ function display(msg) {
     document.body.appendChild(p);
     var d = document.getElementById('results');
     d.innerHTML = msg;
-    document.d.appendChild(d);
+    document.p.appendChild(d);
 
     // var resulcard = document.createElement(document.getElementById('resultCard'));
     // document.getElementById('resultName').innerHTML = msg;

@@ -801,22 +801,32 @@ Vue.component('example-component', __webpack_require__(36));
 
 new Vue({
     el: '#bank-form',
-    ready: function ready() {
-        this.getBanksList();
-    },
+
+    ready: function ready() {},
     data: {
         checkedBanks: [],
         mensagem: "Message",
         testes: [{ name: 'name' }, { name: 'teste2' }],
         banks: []
+
     },
     methods: {
-        // getBanksList: axios.get('/api/bankData').then((response)=>{
-        //     this.set('banks', response.data)
-        // }),
         onSubmit: function onSubmit() {
-            axios.post('/serviceByBank', {
-                checkedBanks: this.checkedBanks
+            // this.checkedBanks = this.$refs.checkedBanks.value;
+            // console.log(this.checkedBanks);
+            // alert('teste '+ this.checkedBanks);
+            axios.post('/api/compare', { 'bancos': this.checkedBanks }).then(function (resp) {
+                // app.$router.push({path: '/'});
+                $bancos = resp.data;
+                // for (let banco of $bancos)
+                //     for (let servico of banco.servicos)
+                //     console.log(servico.nome);
+                // alert(resp.data);
+                window.location.href = '/servicosPorBanco?data=' + btoa(JSON.stringify({ bancos: $bancos }));
+                // window.location.href='/servicosPorBanco?data='+(resp.data);
+            }).catch(function (resp) {
+                console.log(resp);
+                alert("Could not create your company" + resp);
             });
         }
     },
@@ -824,7 +834,6 @@ new Vue({
         var _this = this;
 
         axios.get('/api/bankData').then(function (response) {
-            console.log(response);
             _this.banks = response.data;
 
             _this.set('banks', response.data);
@@ -833,6 +842,8 @@ new Vue({
         });
     }
 });
+
+//create method global
 
 /***/ }),
 /* 10 */

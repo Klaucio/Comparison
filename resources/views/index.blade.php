@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="{{ app()->getLocale() }}"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+	  xmlns:v-on="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
 
 <!-- Mirrored from corpthemes.com/html/finance/ by HTTrack Website Copier/3.x [XR&CO'2013], Tue, 18 Jul 2017 15:45:59 GMT -->
 <head>
@@ -341,6 +342,8 @@
                 </div><!-- end of the results-->
 				<div id="bank-form" class="form-group">
                 	<form method="POST" action="/serviceByBank" @submit.prevent="onSubmit">
+                        {{--{{csrf_token()}}--}}
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="row">
                                 <div class="searchable-container"><!--	A div a seguir percorre a lista de bancos para preencher os cards	-->
                                         <div class="items col-xs-5 col-sm-5 col-lg-3 col-md-2" v-for="bank in banks">
@@ -383,8 +386,9 @@
 								</div>
 							</div>
 							<div class="col-md-2">
-								<a type="submit" href="servicosBanco" class="btn btn-success"> Seguir >> </a>
-								{{--<button href="servicos" class="btn btn-success"> Seguir >> </button>--}}
+								{{--<a type="submit" href="servicosBanco" class="btn btn-success"> Seguir >> </a>--}}
+								<button class="btn btn-success"> Seguir >> </button>
+								{{--<button v-on:click="greet">Greet</button>--}}
 							</div>
 
 						</div>

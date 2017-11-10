@@ -32,6 +32,8 @@ Route::prefix('api')->group(function() {
         return json_encode($canal_servico->toArray());
     });
 
+    Route::resource('compare', 'CompareController');
+
 });
 /*----------------------------------------
  *              Routes for Views
@@ -39,19 +41,22 @@ Route::prefix('api')->group(function() {
 Route::get('/teste', function () {
     return view('index_organising');
 });
-Route::get('/servicosBanco', function () {
-//    return view('servicoPorbanco');
-    $servicos=\App\Servico::paginate(10);
-    return view('servicoPorbanco')->with(['servicos'=>$servicos]);
-});
+
+Route::get('/servicosPorBanco',['as'=> 'servicos',
+    'uses' => 'HomeFrontController@servicosByBank']);
+
+//Route::get('/servicosBanco', function () {
+////    return view('servicoPorbanco');
+//    $servicos=\App\Servico::paginate(10);
+//    return view('servicoPorbanco')->with(['servicos'=>$servicos]);
+//});
 
 Route::get('/resultado', function () {
     return view('resultado');
 });
 Route::get('/', 'HomeFrontController@index');
-Route::get('/servicos', 'ServicoController@index');
-Route::post('/serviceByBank', ['as'=> 'servicos', 'uses' => 'HomeFrontController\BancoController@servicosByBank']);
-
+//Route::get('/servicos', 'ServicoController@index');
+//Route::post('/serviceByBank', ['as'=> 'servicos', 'uses' => 'HomeFrontController@servicosByBank']);
 
 Auth::routes();
 
