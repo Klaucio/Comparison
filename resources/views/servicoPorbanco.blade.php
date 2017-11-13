@@ -43,13 +43,6 @@
 
 </head>
 <body>
-
-<script type="text/javascript">
-    $bank_data='<?php echo $data ?>';
-    $bank_data=json.parse($bank_data);
-    alert($bank_data);
-</script>
-
 <div class="boxed">
     <!-- Preloader -->
     <div class="preloader">
@@ -142,13 +135,11 @@
     <!-- Testes-->
     <section id="section_comparar" class="flat-row flat-iconbox bg-theme">
         <div id="service-form" class="container">
-            <script> alert(this.mensagem)</script>
-
 
             <div class="row">
                 <div class="col-md-12">
                     <div class="title-section left">
-                        <h2>Escolha Serviços Do Seu Interesse</h2>
+                        <h2>Escolha Serviços Que Deseja</h2>
                     </div><!-- /.title-section -->
                 </div>
             </div><!-- /.row -->
@@ -168,44 +159,62 @@
                             <div class="form-group">
 
 {{--                                {{var_dump($bancos)}}--}}
+{{--                                {{count($bancos['bancos'])}}--}}
+{{--                                {{var_dump(count($bancos['bancos']))}}--}}
 
                                 <div class="searchable-container">
-                                @for($i = 0; $i <count($bancos); $i++)
+                                @for($i = 0; $i <count($bancos['bancos']); $i++)
                                     @for($j=0; $j<count($bancos['bancos'][$i]['servicos']); $j++)
-
+                                        @php
+                                            $service_id=$bancos['bancos'][$i]['servicos'][$j]['id'];
+                                            $service_name=$bancos['bancos'][$i]['servicos'][$j]['nome'];
+                                        @endphp
                                     <div class="servicos col-xs-5 col-sm-5 col-md-3 col-lg-3">
-                                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                                            <label class="btn btn-default">
-                                                <div class="bizcontent">
-                                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                    <h5 class="wordwrap">{{$bancos['bancos'][$i]['servicos'][$j]['nome']}}</h5>
-                                                </div>
-                                            </label>
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                                <label fi="{{$service_id}}"  class="btn btn-default">
+                                                    <div class="bizcontent">
+                                                        <input type="checkbox" id="{{$service_id}}" v-model="checked_services" autocomplete="off" value="{{$service_id}}">
+                                                        <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                                        <h5 class="wordwrap">{{$service_name}}</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                     @endfor
                                     @endfor
+                                    <div>
+                                        <input type="checkbox" id="jack" value="Jack" v-model="checked_services">
+                                        <label for="jack">Jack</label>
+                                        <input type="checkbox" id="john" value="John" v-model="checked_services">
+                                        <label for="john">John</label>
+                                        <input type="checkbox" id="mike" value="Mike" v-model="checked_services">
+                                        <label for="mike">Mike</label>
+                                        <br>
+{{--                                        <span>Checked names: {{ checkedNames }}</span>--}}
+                                    </div>
 
-                                    {{--@empty--}}
-                                        {{--<p>No Service created.</p>--}}
-                                    {{--@endforelse--}}
 
-                                {{--</div>--}}
+
+                                </div>
                             </div>
+                        </div>
+                        <div class="row" style="padding-top: 7px!important;">
+                            <div class="col-md-10">
+                                <div for="results" class="row">
+                                    <span >@{{ checked_services}}</span>
+                                    {{--<p id="results">--}}
+                                    {{--<span>Checked names: {{ checkedNames }}</span>--}}
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <a type="submit" href="resultado" class="btn btn-success"> Seguir >> </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="row" style="padding-top: 7px!important;">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <a type="submit" href="resultado" class="btn btn-success"> Seguir >> </a>
-                    </div>
-
-                </div>
-
             </form>
             <div class="row">
 
@@ -214,113 +223,6 @@
         </div><!-- /.container -->
     </section><!-- /.flat-row-iconbox -->
 
-    <!-- Fim dos testes -->
-    <section class="flat-row pd-imagebox">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4">
-                    <div class="imagebox-item">
-                        <div class="imagebox style1">
-                            <div class="imagebox-image">
-                                <img src="images/imagebox/001.jpg" alt="">
-                            </div><!-- /.imagebox-image -->
-
-                            <div class="imagebox-title">
-                                <h3><a href="#" title="">Business Ideas And Innovation</a></h3>
-                            </div><!-- /.iamgebox-title -->
-                            <div class="imagebox-content">
-                                <div class="imagebox-desc">
-                                    Sed ut perspiciatis unde omnis iste error sit voluptatem accusantium doloremque lau dantium, rem aperiam eaque ipsa ab illo inventore veritatis
-                                </div>
-                                <div class="imagebox-button">
-                                    <a href="#" title="">read more</a>
-                                </div>
-                            </div><!-- /.imagebox-content -->
-                        </div><!-- /.imagebox -->
-                    </div><!-- /.imagebox-item -->
-                </div><!-- /.col-md-4 -->
-
-                <div class="col-md-4">
-                    <div class="imagebox-item">
-                        <div class="imagebox style1">
-                            <div class="imagebox-image">
-                                <img src="images/imagebox/002.jpg" alt="">
-                            </div><!-- /.imagebox-image -->
-                            <div class="imagebox-title">
-                                <h3><a href="#" title="">Business Ideas And Innovation</a></h3>
-                            </div><!-- /.imagebox-title -->
-                            <div class="imagebox-content">
-                                <div class="imagebox-desc">
-                                    Sed ut perspiciatis unde omnis iste error sit voluptatem accusantium doloremque lau dantium, rem aperiam eaque ipsa ab illo inventore veritatis
-                                </div>
-                                <div class="imagebox-button">
-                                    <a href="#" title="">read more</a>
-                                </div>
-                            </div><!-- /.imagebox-content -->
-                        </div><!-- /.imagebox -->
-                    </div><!-- /.imagebox-item -->
-                </div><!-- /.col-md-4 -->
-
-                <div class="col-md-4">
-                    <div class="imagebox-item">
-                        <div class="imagebox style1">
-                            <div class="imagebox-image">
-                                <img src="images/imagebox/003.jpg" alt="">
-                            </div><!-- /.imagebox-image -->
-                            <div class="imagebox-title">
-                                <h3><a href="#" title="">Directory Of Finance Businesses</a></h3>
-                            </div><!-- /.imagebox-title -->
-                            <div class="imagebox-content">
-                                <div class="imagebox-desc">
-                                    Sed ut perspiciatis unde omnis iste error sit voluptatem accusantium doloremque lau dantium, rem aperiam eaque ipsa ab illo inventore veritatis
-                                </div>
-                                <div class="imagebox-button">
-                                    <a href="#" title="">learn more</a>
-                                </div>
-                            </div><!-- /.imagebox-content -->
-                        </div><!-- /.imagebox -->
-                    </div><!-- /.imagebox-item -->
-                </div><!-- /.col-md-4 -->
-
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </section><!-- /.flat-row-imagebox -->
-
-
-    <!-- Carousel -->
-    <!-- Carousel -->
-    <section class="flat-row flat-client">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="flat-carousel" data-item="5" data-nav="false" data-dots="false" data-auto="true">
-                        <li class="item">
-                            <img src="images/bancos/Abc.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/bim1.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/bci.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/sdbk.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/BarclIcon.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/bm.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/moza.png" alt="img">
-                        </li>
-                    </ul>
-                </div> <!-- /.col-md-12 -->
-            </div> <!-- /.row -->
-        </div> <!-- /.container -->
-    </section> <!-- /.flat-row -->
     <footer id="footer">
         <div class="footer-widgets">
             <div class="container">
@@ -439,6 +341,10 @@
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script src="{{ asset('js/servicos.js') }}"></script>
+<script type="text/javascript">
+    $bank_data='<?php echo $data ?>';
+    $bank_data=json.parse($bank_data);
+</script>
 
 </body>
 

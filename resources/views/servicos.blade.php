@@ -158,7 +158,7 @@
                     <div class="row">
                         <div class="form-group">
                             <div class="searchable-container">
-                                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3">
+                                <div class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
                                     <div class="info-block block-info clearfix">
                                         {{--<div class="square-box pull-left">--}}
                                             {{--<span class="glyphicon glyphicon-tags glyphicon-lg"></span>--}}
@@ -174,7 +174,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3">
+                                <div class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
                                     <div class="info-block block-info clearfix">
                                         {{--<div class="square-box pull-left">--}}
                                             {{--<span class="glyphicon glyphicon-tags glyphicon-lg"></span>--}}
@@ -190,11 +190,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3">
+                                <div class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
                                     <div class="info-block block-info clearfix">
-                                        {{--<div class="square-box pull-left">--}}
-                                            {{--<span class="glyphicon glyphicon-tags glyphicon-lg"></span>--}}
-                                        {{--</div>--}}
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
                                             <label class="btn btn-default">
                                                 <div class="bizcontent">
@@ -206,7 +203,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3">
+                                <div class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
                                     <div class="info-block block-info clearfix">
                                         {{--<div class="square-box pull-left">--}}
                                             {{--<span class="glyphicon glyphicon-tags glyphicon-lg"></span>--}}

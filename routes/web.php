@@ -55,7 +55,7 @@ Route::get('/resultado', function () {
     return view('resultado');
 });
 Route::get('/', 'HomeFrontController@index');
-//Route::get('/servicos', 'ServicoController@index');
+Route::get('/servicos', 'ServicoController@index');
 //Route::post('/serviceByBank', ['as'=> 'servicos', 'uses' => 'HomeFrontController@servicosByBank']);
 
 Auth::routes();

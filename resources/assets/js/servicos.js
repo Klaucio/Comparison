@@ -5,7 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 
 window.Vue = require('vue');
 
@@ -20,19 +20,18 @@ window.Vue = require('vue');
 new Vue({
     el: '#service-form',
     data: {
-        checkedServices: [],
+        checked_services: [],
         mensagem:"Message",
         testes:[
             {name:'name'},{name:'teste2'}
-        ],
-        banks:[]
+        ]
 
     },
     methods:{
 
 
         onSubmit(){
-            axios.post('/api/compare', {'servicos':this.checkedServices})
+            axios.post('/api/compare', {'servicos':this.checked_services})
                 .then(resp=> {
                     $servicos=resp.data;
                     window.location.href='/servicosPorBanco?data='+JSON.stringify({$servicos:$servicos});
