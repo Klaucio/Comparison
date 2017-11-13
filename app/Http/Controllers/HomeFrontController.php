@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin\Banco;
 use App\Servico;
+use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use function MongoDB\BSON\toJSON;
 
 
 class HomeFrontController extends Controller
@@ -23,15 +25,15 @@ class HomeFrontController extends Controller
         return view('index')->with(['bancos'=>$bancos,'servicos'=>$servicos]);
 
     }
+
+    /**
+     * @param Request $request
+     */
     public function servicosByBank(Request $request)
     {
-        $data=$request->input('data');
-
-        $bancos=json_decode($data,true);
-//        print_r($bancos);
-//        die();
-
-        return view('servicoPorbanco')->with(['bancos'=>$bancos]);
+        $data=$request->input('data');//json em forma de string
+        $bancos=json_decode($data,true);//json em forma de array
+        return view('servicoPorbanco')->with(['bancos'=>$bancos,'data'=>$data]);
 
     }
 

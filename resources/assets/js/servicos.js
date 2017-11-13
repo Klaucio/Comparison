@@ -15,40 +15,39 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component',require('./components/Example.vue'));
+// Vue.component('example-component',require('./components/Example.vue'));
 
 new Vue({
-    el: '#bank-form',
-
-    ready:function () {
-png
-    },
+    el: '#service-form',
     data: {
-        checkedBanks: [],
+        checkedServices: [],
+        mensagem:"Message",
+        testes:[
+            {name:'name'},{name:'teste2'}
+        ],
         banks:[]
 
     },
     methods:{
 
+
         onSubmit(){
-            axios.post('/api/compare', {'bancos':this.checkedBanks})
+            axios.post('/api/compare', {'servicos':this.checkedServices})
                 .then(resp=> {
-                    $bancos=resp.data;
-                     window.location.href='/servicosPorBanco?data='+JSON.stringify({bancos:$bancos});
+                    $servicos=resp.data;
+                    window.location.href='/servicosPorBanco?data='+JSON.stringify({$servicos:$servicos});
+
                 })
                 .catch(function (resp) {
                     console.log(resp);
-                    alert("Falha na busca de serviços correspondentes"+resp);
+                    alert("Falha na busca de resultados sobre preços"+resp);
                 });
         }
 
     },
     mounted(){
-      axios.get('/api/bankData').then(response =>{
-          this.banks=response.data;
 
-          this.set('banks',response.data);
-      });
+
     }
 });
 

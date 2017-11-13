@@ -11,6 +11,7 @@
     <title>Financial Occult</title>
 
     <meta name="author" content="themsflat.com">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Boostrap style -->
     <link rel="stylesheet" type="text/css" href="stylesheet/bootstrap.css">
@@ -43,6 +44,12 @@
 </head>
 <body>
 
+<script type="text/javascript">
+    $bank_data='<?php echo $data ?>';
+    $bank_data=json.parse($bank_data);
+    alert($bank_data);
+</script>
+
 <div class="boxed">
     <!-- Preloader -->
     <div class="preloader">
@@ -51,30 +58,30 @@
         </div>
     </div>
 
-    <div class="top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="flat-infomation">
-                        <li class="phone">Call us: <a href="%2b61383766284.html" title="phone">+61 3 8376 6284</a></li>
-                        <li class="email">Email: <a href="mailto:support24-7@gmail.com" title="email">support24-7@gmail.com</a></li>
-                    </ul><!-- /flatAPPOINTMENT-infomation -->
-                    <div class="flat-questions">
-                        <a href="#" title="" class="questions">Have any questions?</a>
-                        @if (Route::has('login'))
-                            @auth
-                                <a href="{{ url('/home') }}">Home</a>
-                                @else
-                                    <a href="#" title="" class="appointment" href="{{ route('login') }}">Login</a>
-                                    <a href="#" title="" class="appointment" href="{{ route('register') }}">Register</a>
-                                    @endauth
-                                @endif
-                    </div><!-- /.flat-questions -->
-                    <div class="clearfix"></div><!-- /.clearfix -->
-                </div>
-            </div>
-        </div>
-    </div><!-- /.top -->
+    {{--<div class="top">--}}
+        {{--<div class="container">--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-md-12">--}}
+                    {{--<ul class="flat-infomation">--}}
+                        {{--<li class="phone">Call us: <a href="%2b61383766284.html" title="phone">+61 3 8376 6284</a></li>--}}
+                        {{--<li class="email">Email: <a href="mailto:support24-7@gmail.com" title="email">support24-7@gmail.com</a></li>--}}
+                    {{--</ul><!-- /flatAPPOINTMENT-infomation -->--}}
+                    {{--<div class="flat-questions">--}}
+                        {{--<a href="#" title="" class="questions">Have any questions?</a>--}}
+                        {{--@if (Route::has('login'))--}}
+                            {{--@auth--}}
+                                {{--<a href="{{ url('/home') }}">Home</a>--}}
+                                {{--@else--}}
+                                    {{--<a href="#" title="" class="appointment" href="{{ route('login') }}">Login</a>--}}
+                                    {{--<a href="#" title="" class="appointment" href="{{ route('register') }}">Register</a>--}}
+                                    {{--@endauth--}}
+                                {{--@endif--}}
+                    {{--</div><!-- /.flat-questions -->--}}
+                    {{--<div class="clearfix"></div><!-- /.clearfix -->--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div><!-- /.top -->--}}
 
     <header id="header" class="header bg-color">
         <div class="container">
@@ -134,7 +141,9 @@
 
     <!-- Testes-->
     <section id="section_comparar" class="flat-row flat-iconbox bg-theme">
-        <div class="container">
+        <div id="service-form" class="container">
+            <script> alert(this.mensagem)</script>
+
 
             <div class="row">
                 <div class="col-md-12">
@@ -157,24 +166,27 @@
                         </div>
                         <div class="row">
                             <div class="form-group">
-                                {{--@php--}}
-                                    {{--var_dump($bancos);--}}
-                                    {{--die();--}}
-                                {{--@endphp--}}
-                                {{$bancos}}
-                                {{--<div class="searchable-container">--}}
-                                    {{--@forelse ($servicos as $servico)--}}
-                                    {{--<div class="servicos col-xs-5 col-sm-5 col-md-3 col-lg-3">--}}
-                                        {{--<div data-toggle="buttons" class="btn-group bizmoduleselect">--}}
-                                            {{--<label class="btn btn-default">--}}
-                                                {{--<div class="bizcontent">--}}
-                                                    {{--<input type="checkbox" name="var_id[]" autocomplete="off" value="">--}}
-                                                    {{--<span class="glyphicon glyphicon-ok glyphicon-lg"></span>--}}
-                                                    {{--<h5 class="wordwrap">{{$servico->nome}}</h5>--}}
-                                                {{--</div>--}}
-                                            {{--</label>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
+
+{{--                                {{var_dump($bancos)}}--}}
+
+                                <div class="searchable-container">
+                                @for($i = 0; $i <count($bancos); $i++)
+                                    @for($j=0; $j<count($bancos['bancos'][$i]['servicos']); $j++)
+
+                                    <div class="servicos col-xs-5 col-sm-5 col-md-3 col-lg-3">
+                                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                            <label class="btn btn-default">
+                                                <div class="bizcontent">
+                                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                                    <h5 class="wordwrap">{{$bancos['bancos'][$i]['servicos'][$j]['nome']}}</h5>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @endfor
+                                    @endfor
+
                                     {{--@empty--}}
                                         {{--<p>No Service created.</p>--}}
                                     {{--@endforelse--}}
@@ -426,6 +438,7 @@
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+<script src="{{ asset('js/servicos.js') }}"></script>
 
 </body>
 
