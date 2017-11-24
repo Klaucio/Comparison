@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @SWG\Definition(
- *      definition="CanalServico",
+ *      definition="BancoCanalServico",
  *      required={""},
  *      @SWG\Property(
  *          property="canal_id",
@@ -35,7 +35,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *      )
  * )
  */
-class CanalServico extends Model
+class BancoCanalServico extends Model
 {
 //    use SoftDeletes;
 

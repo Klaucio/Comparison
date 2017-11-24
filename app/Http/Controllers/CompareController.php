@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Banco;
+use App\Models\Admin\Banco;
 use App\Models\Admin\Servico;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
@@ -40,10 +39,23 @@ class CompareController extends Controller
      */
     public function store(Request $request)
     {
+//        $bancos=$request->input('bancos');
+//        $servicos=Banco::find($bancos)->all();
+////        var_dump($servicos);
+//        $servicos=Banco::with(['servicos','canals'])->findOrFail($bancos);
+//        return json_encode($servicos);
+    }
+    public function getServicesByBanks(Request $request)
+    {
         $bancos=$request->input('bancos');
-        $servicos=Banco::with('servicos')->findOrFail($bancos);
-//        redirect('servicoPorbanco')->with(
+        $servicos=Banco::with(['servicos','canals'])->findOrFail($bancos);
         return json_encode($servicos);
+    }
+    public function getBankServiceResults(Request $request)
+    {
+        $servicos=$request->input('servicos');
+        $results=Servico::with(['bancos','canals'])->findOrFail($servicos);
+        return json_encode($results);
     }
 
     /**

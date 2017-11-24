@@ -50,32 +50,6 @@
             <span></span>
         </div>
     </div>
-
-    <div class="top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="flat-infomation">
-                        <li class="phone">Call us: <a href="%2b61383766284.html" title="phone">+61 3 8376 6284</a></li>
-                        <li class="email">Email: <a href="mailto:support24-7@gmail.com" title="email">support24-7@gmail.com</a></li>
-                    </ul><!-- /flatAPPOINTMENT-infomation -->
-                    <div class="flat-questions">
-                        <a href="#" title="" class="questions">Have any questions?</a>
-                        @if (Route::has('login'))
-                            @auth
-                                <a href="{{ url('/home') }}">Home</a>
-                                @else
-                                    <a href="#" title="" class="appointment" href="{{ route('login') }}">Login</a>
-                                    <a href="#" title="" class="appointment" href="{{ route('register') }}">Register</a>
-                                    @endauth
-                                @endif
-                    </div><!-- /.flat-questions -->
-                    <div class="clearfix"></div><!-- /.clearfix -->
-                </div>
-            </div>
-        </div>
-    </div><!-- /.top -->
-
     <header id="header" class="header bg-color">
         <div class="container">
             <div class="row">
@@ -131,7 +105,9 @@
             </div><!-- /.row -->
         </div><!-- /.container -->
     </header><!-- /header -->
-
+    {{--<section>--}}
+        {{--<button class="btn btn-success" onclick="showIt()"> JS >> </button>--}}
+    {{--</section>--}}
 
     <!-- Testes-->
     <section id="section_comparar" class="flat-row flat-iconbox bg-theme">
@@ -145,69 +121,32 @@
                 </div>
             </div><!-- /.row -->
 
-            {{--<div class="row">--}}
-                    {{--<div class="container">--}}
+            <div class="row">
+                    <div class="container">
                         <div class="row">
                             <div class="form-group">
-                                {{--<div class="col-sm-12 col-md-12 col-lg-12">--}}
-                                    {{--<canvas id="myChart"  width="800" height="300"></canvas>--}}
-                                {{--</div>--}}
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <canvas id="densityChart" width="800" height="300"></canvas>
+                                    <canvas id="densityChart" width="600" height="300"></canvas>
                                 </div>
                             </div>
                         </div>
-                        {{--<div class="row">--}}
-                            {{--<div class="form-group">--}}
-                                {{--<div class="col-sm-12 col-md-12 col-lg-12">--}}
-                                    {{--<canvas id="multichart" ></canvas>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
 
-                    {{--</div>--}}
+                    </div>
 
-            {{--</div><!-- /.row -->--}}
+            </div><!-- /.row -->
             <div class="row">
-
+                {{$servicos}}
             </div>
 
         </div><!-- /.container -->
     </section><!-- /.flat-row-iconbox -->
 
     <!-- Fim dos testes -->
-    <!-- Carousel -->
-    <section class="flat-row flat-client">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="flat-carousel" data-item="5" data-nav="false" data-dots="false" data-auto="true">
-                        <li class="item">
-                            <img src="images/bancos/Abc.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/bim1.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/bci.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/sdbk.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/BarclIcon.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/bm.png" alt="img">
-                        </li>
-                        <li class="item">
-                            <img src="images/bancos/moza.png" alt="img">
-                        </li>
-                    </ul>
-                </div> <!-- /.col-md-12 -->
-            </div> <!-- /.row -->
-        </div> <!-- /.container -->
-    </section> <!-- /.flat-row -->
 
     <footer id="footer">
         <div class="footer-widgets">
@@ -325,9 +264,16 @@
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{{--<script type="text/javascript" src="js/custom.js"></script>--}}
+{{--<script src="{{ asset('js/resultados.js') }}"></script>--}}
+{{--<script src="{{ asset('js/servicos.js') }}"></script>--}}
+<script type="text/javascript">
+    //pega os resultados e passa para uma variavel(array) javascript
+    var bank_data = {!! json_encode($servicos,JSON_OBJECT_AS_ARRAY) !!};
+    var lista_bancos_ids = {!! json_encode($lista_bancos,JSON_OBJECT_AS_ARRAY) !!};
+</script>
 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
 <script type="text/javascript" src="js/chart_js.js"></script>
 
 </body>

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin\Banco;
-use App\Servico;
+use App\Models\Admin\Servico;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\DB;
 use function MongoDB\BSON\toJSON;
 
 
@@ -17,6 +18,14 @@ class HomeFrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $bancos;
+
+    public function __construct()
+    {
+//        $this->bancos=[];
+
+    }
+
     public function index()
     {
         //
@@ -28,12 +37,42 @@ class HomeFrontController extends Controller
 
     /**
      * @param Request $request
+     sends to view
      */
-    public function servicosByBank(Request $request)
+    public function bindServicesByBank(Request $request)
     {
-        $data=$request->input('data');//json em forma de string
-        $bancos=json_decode($data,true);//json em forma de array
-        return view('servicoPorbanco')->with(['bancos'=>$bancos,'data'=>$data]);
+        $dados=$request->input('data');
+        $dados=json_decode($dados,true);
+        $banks_array = array_map(function($value) { return (int)$value; },$dados['bancos']);
+        $bancos=Banco::with(['servicos','canals'])->findOrFail($banks_array);
+//        print_r(json_encode($bancos, true));
+        return view('servicoPorbanco')->with(['bancos'=>$bancos,
+            'banks_array'=>$banks_array]);
+
+    }
+    public function bindBankServiceResults(Request $request)
+    {
+        $dados=$request->input('data');//json em forma de string
+        $dados=json_decode($dados,true);//json em forma de array
+
+        $this->bancos=$dados['bancos'];
+        $service_array = array_map(function($value) { return (int)$value; },$dados['servicos']);
+
+//        $results=DB::select("select * from servicos as s JOIN banco_canal_servicos as bcs
+//                             on s.id=bcs.servico_id JOIN bancos as b on b.id=bcs.banco_id
+//                            ")->whereIn('bcs.banco_id',$this->bancos);
+        $results=Servico::with(['bancos','canals'])
+                ->whereHas('bancos', function ($query){
+                    $query->whereIn('banco_canal_servicos.banco_id',$this->bancos);
+                })
+                ->findOrFail($service_array);
+
+
+//        return json_encode($results);
+//        dd($results);
+
+//        print_r($servicos);
+        return view('resultado')->with(['servicos'=>$results,'lista_bancos'=>$this->bancos]);
 
     }
 

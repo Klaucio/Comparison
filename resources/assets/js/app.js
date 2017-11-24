@@ -31,15 +31,16 @@ png
     methods:{
 
         onSubmit(){
-            axios.post('/api/compare', {'bancos':this.checkedBanks})
-                .then(resp=> {
-                    $bancos=resp.data;
-                     window.location.href='/servicosPorBanco?data='+JSON.stringify({bancos:$bancos});
-                })
-                .catch(function (resp) {
-                    console.log(resp);
-                    alert("Falha na busca de serviços correspondentes"+resp);
-                });
+            // axios.post('/api/checkServicesFromBank', {'bancos':this.checkedBanks})
+            //     .then(resp=> {
+            //         $bancos=resp.data;
+            //         // alert($bancos);
+                     window.location.href='/services?data='+JSON.stringify({bancos:this.checkedBanks});
+                // })
+                // .catch(function (resp) {
+                //     console.log(resp);
+                //     alert("Falha na busca de serviços correspondentes"+resp);
+                // });
         }
 
     },

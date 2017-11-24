@@ -86,7 +86,8 @@ class Servico extends Model
      **/
     public function bancos()
     {
-        return $this->belongsToMany(Banco::class, 'banco_servico');
+        return $this->belongsToMany(Banco::class,'banco_canal_servicos')
+            ->withPivot('canal_id', 'preco');
     }
 
     /**
@@ -94,6 +95,7 @@ class Servico extends Model
      **/
     public function canals()
     {
-        return $this->belongsToMany(Canal::class);
+        return $this->belongsToMany(Canal::class,'banco_canal_servicos')
+            ->withPivot('banco_id', 'preco');
     }
 }

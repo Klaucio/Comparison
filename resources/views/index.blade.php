@@ -49,30 +49,30 @@
 	        </div>
 	    </div>
 
-		<div class="top">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<ul class="flat-infomation">
-							<li class="phone">Call us: <a href="%2b61383766284.html" title="phone">+61 3 8376 6284</a></li>
-							<li class="email">Email: <a href="mailto:support24-7@gmail.com" title="email">support24-7@gmail.com</a></li>
-						</ul><!-- /flatAPPOINTMENT-infomation -->
-						<div class="flat-questions">
-							<a href="#" title="" class="questions">Have any questions?</a>
-							@if (Route::has('login'))
-								@auth
-									<a href="{{ url('/home') }}">Home</a>
-									@else
-										<a href="#" title="" class="appointment" href="{{ route('login') }}">Login</a>
-										<a href="#" title="" class="appointment" href="{{ route('register') }}">Register</a>
-										@endauth
-								@endif
-						</div><!-- /.flat-questions -->
-						<div class="clearfix"></div><!-- /.clearfix -->
-					</div>
-				</div>
-			</div>
-		</div><!-- /.top -->
+		{{--<div class="top">--}}
+			{{--<div class="container">--}}
+				{{--<div class="row">--}}
+					{{--<div class="col-md-12">--}}
+						{{--<ul class="flat-infomation">--}}
+							{{--<li class="phone">Call us: <a href="%2b61383766284.html" title="phone">+61 3 8376 6284</a></li>--}}
+							{{--<li class="email">Email: <a href="mailto:support24-7@gmail.com" title="email">support24-7@gmail.com</a></li>--}}
+						{{--</ul><!-- /flatAPPOINTMENT-infomation -->--}}
+						{{--<div class="flat-questions">--}}
+							{{--<a href="#" title="" class="questions">Have any questions?</a>--}}
+							{{--@if (Route::has('login'))--}}
+								{{--@auth--}}
+									{{--<a href="{{ url('/home') }}">Home</a>--}}
+									{{--@else--}}
+										{{--<a href="#" title="" class="appointment" href="{{ route('login') }}">Login</a>--}}
+										{{--<a href="#" title="" class="appointment" href="{{ route('register') }}">Register</a>--}}
+										{{--@endauth--}}
+								{{--@endif--}}
+						{{--</div><!-- /.flat-questions -->--}}
+						{{--<div class="clearfix"></div><!-- /.clearfix -->--}}
+					{{--</div>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--</div><!-- /.top -->--}}
 
 		<header id="header" class="header bg-color">
 			<div class="container">
@@ -351,7 +351,7 @@
                                                 <article class="post style2 clearfix info-block block-info ">
                                                     <label fi="@{{bank.id}}"  class="btn btn-default  featured-post img-card" >
                                                         <div class="bizcontent post-image">
-                                                            <input v-bind:id="bank.id" v-bind:value="bank.id" id="@{{bank.abreviatura}}" v-model="checkedBanks" type="checkbox" onclick="handleClick(this);" autocomplete="off">
+                                                            <input type="checkbox" v-bind:id="bank.id" v-bind:value="bank.id" id="@{{bank.abreviatura}}" v-model="checkedBanks"  onclick="handleClick(this);" autocomplete="off">
                                                             <img :src="'storage/logos/' + bank.logo" width="175" height="175" title="" class="post-image" alt=""> <!--.bank.logo-->
                                                             {{--<span class="glyphicon glyphicon-check glyphicon-lg"></span>--}}
                                                         </div>
@@ -386,7 +386,6 @@
 								</div>
 							</div>
 							<div class="col-md-2">
-								{{--<a type="submit" href="servicosBanco" class="btn btn-success"> Seguir >> </a>--}}
 								<button class="btn btn-success"> Seguir >> </button>
 								{{--<button v-on:click="greet">Greet</button>--}}
 							</div>

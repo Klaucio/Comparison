@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RecursoServico extends Migration
+class CreateBancoCanalServicosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class RecursoServico extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('recurso_servico', function (Blueprint $table) {
-            $table->integer('recurso_id')->unsigned();
+        Schema::create('banco_canal_servicos', function (Blueprint $table) {
+            $table->integer('banco_id')->unsigned();
             $table->integer('servico_id')->unsigned();
-            $table->foreign('recurso_id')->references('id')->on('recursos');
+            $table->integer('canal_id')->unsigned()->nullable();
+            $table->foreign('banco_id')->references('id')->on('bancos');
             $table->foreign('servico_id')->references('id')->on('servicos');
+            $table->foreign('canal_id')->references('id')->on('canals');
+            $table->decimal('preco',15,2)->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class RecursoServico extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('banco_canal_servicos');
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="{{ app()->getLocale() }}"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
 
 <!-- Mirrored from corpthemes.com/html/finance/ by HTTrack Website Copier/3.x [XR&CO'2013], Tue, 18 Jul 2017 15:45:59 GMT -->
 <head>
@@ -50,31 +50,6 @@
             <span></span>
         </div>
     </div>
-
-    {{--<div class="top">--}}
-        {{--<div class="container">--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12">--}}
-                    {{--<ul class="flat-infomation">--}}
-                        {{--<li class="phone">Call us: <a href="%2b61383766284.html" title="phone">+61 3 8376 6284</a></li>--}}
-                        {{--<li class="email">Email: <a href="mailto:support24-7@gmail.com" title="email">support24-7@gmail.com</a></li>--}}
-                    {{--</ul><!-- /flatAPPOINTMENT-infomation -->--}}
-                    {{--<div class="flat-questions">--}}
-                        {{--<a href="#" title="" class="questions">Have any questions?</a>--}}
-                        {{--@if (Route::has('login'))--}}
-                            {{--@auth--}}
-                                {{--<a href="{{ url('/home') }}">Home</a>--}}
-                                {{--@else--}}
-                                    {{--<a href="#" title="" class="appointment" href="{{ route('login') }}">Login</a>--}}
-                                    {{--<a href="#" title="" class="appointment" href="{{ route('register') }}">Register</a>--}}
-                                    {{--@endauth--}}
-                                {{--@endif--}}
-                    {{--</div><!-- /.flat-questions -->--}}
-                    {{--<div class="clearfix"></div><!-- /.clearfix -->--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div><!-- /.top -->--}}
 
     <header id="header" class="header bg-color">
         <div class="container">
@@ -143,7 +118,7 @@
                     </div><!-- /.title-section -->
                 </div>
             </div><!-- /.row -->
-            <form method="post" action="/resultado">
+            <form method="POST" action="/resultado" @submit.prevent="onSubmit">
                 {{--<div class="form-group">--}}
 
                 <div class="row">
@@ -158,48 +133,32 @@
                         <div class="row">
                             <div class="form-group">
 
-{{--                                {{var_dump($bancos)}}--}}
-{{--                                {{count($bancos['bancos'])}}--}}
-{{--                                {{var_dump(count($bancos['bancos']))}}--}}
-
                                 <div class="searchable-container">
-                                @for($i = 0; $i <count($bancos['bancos']); $i++)
-                                    @for($j=0; $j<count($bancos['bancos'][$i]['servicos']); $j++)
-                                        @php
-                                            $service_id=$bancos['bancos'][$i]['servicos'][$j]['id'];
-                                            $service_name=$bancos['bancos'][$i]['servicos'][$j]['nome'];
-                                        @endphp
-                                    <div class="servicos col-xs-5 col-sm-5 col-md-3 col-lg-3">
-                                        <div class="info-block block-info clearfix">
-                                            <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                                                <label fi="{{$service_id}}"  class="btn btn-default">
-                                                    <div class="bizcontent">
-                                                        <input type="checkbox" id="{{$service_id}}" v-model="checked_services" autocomplete="off" value="{{$service_id}}">
-                                                        <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                        <h5 class="wordwrap">{{$service_name}}</h5>
-                                                    </div>
-                                                </label>
+                                    @foreach($bancos as $banco)
+                                        @forelse($banco->servicos as $servico)
+                                            <div class="servicos col-xs-5 col-sm-5 col-md-3 col-lg-3">
+                                            {{--<div class="info-block block-info clearfix">--}}
+                                                {{--<div data-toggle="buttons" class="btn-group bizmoduleselect">--}}
+                                                    <label for="{{$servico->id}}"  class="btn btn-default info-block block-info clearfix">
+                                                        <div  class="bizcontent">
+                                                            <input type="checkbox" data-toggle="buttons" v-bind:id="{{$servico->id}}" v-model="checked_services" autocomplete="off" value="{{$servico->id}}">
+                                                            <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                                            <h5 class="wordwrap">{{$servico->nome}}</h5>
+                                                        </div>
+                                                    </label>
+                                                {{--</div>--}}
+                                            {{--</div>--}}
                                             </div>
+                                        @empty
+                                        <div>
+                                            Não existem servicos associados
                                         </div>
-                                    </div>
-                                    @endfor
-                                    @endfor
-                                    <div>
-                                        <input type="checkbox" id="jack" value="Jack" v-model="checked_services">
-                                        <label for="jack">Jack</label>
-                                        <input type="checkbox" id="john" value="John" v-model="checked_services">
-                                        <label for="john">John</label>
-                                        <input type="checkbox" id="mike" value="Mike" v-model="checked_services">
-                                        <label for="mike">Mike</label>
-                                        <br>
-{{--                                        <span>Checked names: {{ checkedNames }}</span>--}}
-                                    </div>
-
-
-
+                                        @endforelse
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
+                        <bancovue :banks='{{json_encode($banks_array,true) }}'> </bancovue>
                         <div class="row" style="padding-top: 7px!important;">
                             <div class="col-md-10">
                                 <div for="results" class="row">
@@ -209,7 +168,8 @@
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <a type="submit" href="resultado" class="btn btn-success"> Seguir >> </a>
+                                {{--<a type="submit" href="resultado" class="btn btn-success"> Seguir >> </a>--}}
+                                <button class="btn btn-success"> Seguir >> </button>
                             </div>
 
                         </div>
@@ -310,41 +270,37 @@
         </a>
     </div>
 
-</div> <!-- /.boxed -->
+{{--</section> <!-- /.boxed -->--}}
 
-<!-- Javascript -->
-<script type="text/javascript" src="javascript/jquery.min.js"></script>
-<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
-<script type="text/javascript" src="javascript/owl.carousel.js"></script>
-<script type="text/javascript" src="javascript/jquery.easing.js"></script>
-<script type="text/javascript" src="javascript/jquery.flexslider-min.js"></script>
-<script type="text/javascript" src="javascript/waypoints.min.js"></script>
-<script type="text/javascript" src="javascript/switcher.js"></script>
-<script type="text/javascript" src="javascript/jquery.cookie.js"></script>
-<script type="text/javascript" src="javascript/main.js"></script>
+    <!-- Javascript -->
+    <script type="text/javascript" src="javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascript/owl.carousel.js"></script>
+    <script type="text/javascript" src="javascript/jquery.easing.js"></script>
+    <script type="text/javascript" src="javascript/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="javascript/waypoints.min.js"></script>
+    <script type="text/javascript" src="javascript/switcher.js"></script>
+    <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
+    <script type="text/javascript" src="javascript/main.js"></script>
 
 
-<!-- Revolution Slider -->
-<script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="revolution/js/slider_v1.js"></script>
+    <!-- Revolution Slider -->
+    <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="revolution/js/slider_v1.js"></script>
 
-<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-<script type="text/javascript" src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-<script type="text/javascript" src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-<script type="text/javascript" src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script type="text/javascript" src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script type="text/javascript" src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-<script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-<script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-<script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<script src="{{ asset('js/servicos.js') }}"></script>
-<script type="text/javascript">
-    $bank_data='<?php echo $data ?>';
-    $bank_data=json.parse($bank_data);
-</script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="{{ asset('js/servicos.js') }}"></script>
 
 </body>
 

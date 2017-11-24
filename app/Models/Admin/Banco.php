@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\User;
 use Eloquent as Model;
 //use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -77,22 +78,27 @@ class Banco extends Model
      **/
     public function servicos()
     {
-        return $this->belongsToMany(Servico::class, 'banco_servico');
+        return $this->belongsToMany(Servico::class, 'banco_canal_servicos')
+            ->withPivot('canal_id', 'preco');
+    }
+    public function canals(){
+        return $this->belongsToMany(Canal::class,'banco_canal_servicos')
+            ->withPivot('servico_id', 'preco');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function canalServicos()
-    {
-        return $this->hasMany(\App\Models\Admin\CanalServico::class);
-    }
+//    public function canalServicos()
+//    {
+//        return $this->hasMany(\App\Models\Admin\BancoCanalServico::class);
+//    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
     public function users()
     {
-        return $this->hasMany(\App\Models\Admin\User::class);
+        return $this->hasMany(User::class);
     }
 }

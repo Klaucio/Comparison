@@ -28,35 +28,39 @@ Route::prefix('api')->group(function() {
         return json_encode($canais->toArray());
     });
     Route::get('/canalServicoData', function () {
-        $canal_servico=\App\Models\Admin\CanalServico::all();
+        $canal_servico=\App\Models\Admin\BancoCanalServico::all();
         return json_encode($canal_servico->toArray());
     });
 
-    Route::resource('compare', 'CompareController');
+//    Route::resource('compare', 'CompareController');
+    /*
+     * Event Rountes...
+     */
+
+    Route::post('/checkServicesFromBank',['as'=> 'getServices',
+        'uses' => 'CompareController@getServicesByBanks']);
+    Route::post('/checkResulsFromServices',['as'=> 'resultado',
+        'uses' => 'CompareController@getBankServiceResults']);
 
 });
-/*----------------------------------------
- *              Routes for Views
- * --------------------------------------*/
+/*------------------------------------------------------
+ *              Routes for Views                        *
+ * -----------------------------------------------------*/
 Route::get('/teste', function () {
     return view('index_organising');
 });
-
-Route::get('/servicosPorBanco',['as'=> 'servicos',
-    'uses' => 'HomeFrontController@servicosByBank']);
-
-//Route::get('/servicosBanco', function () {
-////    return view('servicoPorbanco');
-//    $servicos=\App\Servico::paginate(10);
-//    return view('servicoPorbanco')->with(['servicos'=>$servicos]);
-//});
-
-Route::get('/resultado', function () {
-    return view('resultado');
-});
 Route::get('/', 'HomeFrontController@index');
-Route::get('/servicos', 'ServicoController@index');
-//Route::post('/serviceByBank', ['as'=> 'servicos', 'uses' => 'HomeFrontController@servicosByBank']);
+Route::get('/services',['as'=> 'servicos',
+    'uses' => 'HomeFrontController@bindServicesByBank']);
+Route::get('/bindResults',['as'=> 'servicos',
+    'uses' => 'HomeFrontController@bindBankServiceResults']);
+/*-------------------------------------------------------
+ *              Routes for All about Admin              *
+ * -----------------------------------------------------*/
+
+//Route::get('/resultado', function () {
+//    return view('resultado');
+//});
 
 Auth::routes();
 

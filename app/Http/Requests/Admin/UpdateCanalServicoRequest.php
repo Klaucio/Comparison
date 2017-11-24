@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\CanalServico;
+use App\Models\Admin\BancoCanalServico;
 
 class UpdateCanalServicoRequest extends FormRequest
 {
@@ -25,6 +25,6 @@ class UpdateCanalServicoRequest extends FormRequest
      */
     public function rules()
     {
-        return CanalServico::$rules;
+        return BancoCanalServico::$rules;
     }
 }

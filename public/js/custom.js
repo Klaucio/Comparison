@@ -48,6 +48,15 @@ function display(msg) {
     // document.getElementById('allResuls').appendChild(resulcard);
 }
 
+function showIt() {
+    for (var index in bank_data) {
+        var obj = bank_data[index];
+        console.log(obj.nome);
+        // ...
+    }
+
+}
+
 // $('.close-icon').on('click',function() {
 //     $(this).closest('.card').fadeOut();
 // })

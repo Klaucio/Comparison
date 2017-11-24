@@ -70,6 +70,11 @@ class Canal extends Model
      **/
     public function servicos()
     {
-        return $this->belongsToMany(Servico::class);
+        return $this->belongsToMany(Servico::class, 'banco_canal_servicos')
+            ->withPivot('banco_id', 'preco');
+    }
+    public function bancos(){
+        return $this->belongsToMany(Banco::class,'banco_canal_servicos')
+            ->withPivot('canal_id', 'preco');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Admin\CanalServico;
+use App\Models\Admin\BancoCanalServico;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -27,7 +27,7 @@ class CanalServicoDataTable extends DataTable
      * @param \App\Models\Post $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(CanalServico $model)
+    public function query(BancoCanalServico $model)
     {
         return $model->newQuery();
     }

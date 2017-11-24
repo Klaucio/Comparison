@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\CanalServico;
+use App\Models\Admin\BancoCanalServico;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
@@ -10,9 +10,9 @@ use InfyOm\Generator\Common\BaseRepository;
  * @package App\Repositories\Admin
  * @version September 18, 2017, 10:59 am UTC
  *
- * @method CanalServico findWithoutFail($id, $columns = ['*'])
- * @method CanalServico find($id, $columns = ['*'])
- * @method CanalServico first($columns = ['*'])
+ * @method BancoCanalServico findWithoutFail($id, $columns = ['*'])
+ * @method BancoCanalServico find($id, $columns = ['*'])
+ * @method BancoCanalServico first($columns = ['*'])
 */
 class CanalServicoRepository extends BaseRepository
 {
@@ -31,6 +31,6 @@ class CanalServicoRepository extends BaseRepository
      **/
     public function model()
     {
-        return CanalServico::class;
+        return BancoCanalServico::class;
     }
 }

@@ -22,7 +22,7 @@ class CanalServicoController extends AppBaseController
     }
 
     /**
-     * Display a listing of the CanalServico.
+     * Display a listing of the BancoCanalServico.
      *
      * @param CanalServicoDataTable $canalServicoDataTable
      * @return Response
@@ -33,7 +33,7 @@ class CanalServicoController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new CanalServico.
+     * Show the form for creating a new BancoCanalServico.
      *
      * @return Response
      */
@@ -43,7 +43,7 @@ class CanalServicoController extends AppBaseController
     }
 
     /**
-     * Store a newly created CanalServico in storage.
+     * Store a newly created BancoCanalServico in storage.
      *
      * @param CreateCanalServicoRequest $request
      *
@@ -61,7 +61,7 @@ class CanalServicoController extends AppBaseController
     }
 
     /**
-     * Display the specified CanalServico.
+     * Display the specified BancoCanalServico.
      *
      * @param  int $id
      *
@@ -81,7 +81,7 @@ class CanalServicoController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified CanalServico.
+     * Show the form for editing the specified BancoCanalServico.
      *
      * @param  int $id
      *
@@ -101,7 +101,7 @@ class CanalServicoController extends AppBaseController
     }
 
     /**
-     * Update the specified CanalServico in storage.
+     * Update the specified BancoCanalServico in storage.
      *
      * @param  int              $id
      * @param UpdateCanalServicoRequest $request
@@ -126,7 +126,7 @@ class CanalServicoController extends AppBaseController
     }
 
     /**
-     * Remove the specified CanalServico from storage.
+     * Remove the specified BancoCanalServico from storage.
      *
      * @param  int $id
      *

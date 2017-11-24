@@ -29,6 +29,6 @@ class CreateCanalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recursos');
+        Schema::dropIfExists('canals');
     }
 }
