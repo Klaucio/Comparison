@@ -138,7 +138,7 @@
 
             </div><!-- /.row -->
             <div class="row">
-                {{$servicos}}
+{{--                {{$servicos}}--}}
             </div>
 
         </div><!-- /.container -->
