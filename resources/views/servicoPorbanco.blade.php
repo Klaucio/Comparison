@@ -51,6 +51,7 @@
         </div>
     </div>
 
+
     <header id="header" class="header bg-color">
         <div class="container">
             <div class="row">
@@ -89,14 +90,10 @@
                                         <a href="/servicos" title="">Serviços  <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     </li>
                                     <li>
-                                        <a href="services-v1.html" title="">Sobre Nós  <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                        <a href="/sobre" title="">Sobre Nós  <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     </li>
                                     <li>
-                                        <a href="contact-v1.html" title="">Contact  <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="contact-v1.html" title="">Contact 01</a></li>
-                                            <li><a href="contact-v2.html" title="">Contact 02</a></li>
-                                        </ul><!-- /.sub-menu -->
+                                        <a href="contacto" title="">Contacte-nos  <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     </li>
                                 </ul><!-- /.menu -->
                             </nav><!-- /#mainnav -->
@@ -106,7 +103,6 @@
             </div><!-- /.row -->
         </div><!-- /.container -->
     </header><!-- /header -->
-
     <!-- Testes-->
     <section id="section_comparar" class="flat-row flat-iconbox bg-theme">
         <div id="service-form" class="container">
