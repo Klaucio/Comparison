@@ -7,8 +7,10 @@
 <head>
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Financial Occult</title>
+    <title>Comparação de Preços</title>
 
     <meta name="author" content="themsflat.com">
 
@@ -129,7 +131,10 @@
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <canvas id="densityChart" width="600" height="300"></canvas>
+                                    <canvas id="densityChart" width="600" height="300"
+                                            style="max-height: 500px !important; text-align: center!important; float: left!important; ">
+
+                                    </canvas>
                                 </div>
                             </div>
                         </div>

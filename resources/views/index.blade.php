@@ -9,9 +9,10 @@
 	<!-- Basic Page Needs -->
 	<meta charset="UTF-8">
 	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-	<title>Financial Occult</title>
+	<title>Comparação de Preços</title>
 
-	<meta name="author" content="themsflat.com">
+	<meta name="author" content="Claucio">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<!-- Boostrap style -->
 	<link rel="stylesheet" type="text/css" href="stylesheet/bootstrap.css">
@@ -359,7 +360,7 @@
 
                                                     <div class="content-post">
                                                         <h5 class="title-post">
-                                                            <a href="" title="">@{{bank.designacao}}</a>
+                                                            @{{bank.designacao}}
                                                         </h5>
                                                         <div class="entry-post">
 
@@ -374,14 +375,14 @@
                                 </div>
                         </div><!-- /.row -->
 						<div class="row">
-							<div class="col-md-10">
+							<div class="col-md-10 col-sm-8">
 								<div for="results" class="row">
 									<span >@{{ checkedBanks}}</span>
 									{{--<p id="results">--}}
 									{{--<span>Checked names: {{ checkedNames }}</span>--}}
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-md-2 col-sm-4">
 								<button class="btn btn-success"> Seguir >> </button>
 								{{--<button v-on:click="greet">Greet</button>--}}
 							</div>

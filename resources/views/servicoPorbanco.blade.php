@@ -7,8 +7,10 @@
 <head>
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Financial Occult</title>
+    <title>Comparação de Preços</title>
 
     <meta name="author" content="themsflat.com">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -146,9 +148,9 @@
                                             {{--</div>--}}
                                             </div>
                                         @empty
-                                        <div>
-                                            Não existem servicos associados
-                                        </div>
+                                            {{--<div>--}}
+                                                {{--Não existem servicos associados--}}
+                                            {{--</div>--}}
                                         @endforelse
                                     @endforeach
                                 </div>
