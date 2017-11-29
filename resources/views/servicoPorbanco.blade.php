@@ -159,11 +159,11 @@
                         <bancovue :banks='{{json_encode($banks_array,true) }}'> </bancovue>
                         <div class="row" style="padding-top: 7px!important;">
                             <div class="col-md-10">
-                                <div for="results" class="row">
-                                    <span >@{{ checked_services}}</span>
+                                {{--<div for="results" class="row">--}}
+                                    {{--<span >@{{ checked_services}}</span>--}}
                                     {{--<p id="results">--}}
                                     {{--<span>Checked names: {{ checkedNames }}</span>--}}
-                                </div>
+                                {{--</div>--}}
                             </div>
                             <div class="col-md-2">
                                 {{--<a type="submit" href="resultado" class="btn btn-success"> Seguir >> </a>--}}

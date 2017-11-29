@@ -376,11 +376,11 @@
                         </div><!-- /.row -->
 						<div class="row">
 							<div class="col-md-10 col-sm-8">
-								<div for="results" class="row">
-									<span >@{{ checkedBanks}}</span>
+								{{--<div for="results" class="row">--}}
+									{{--<span >@{{ checkedBanks}}</span>--}}
 									{{--<p id="results">--}}
 									{{--<span>Checked names: {{ checkedNames }}</span>--}}
-								</div>
+								{{--</div>--}}
 							</div>
 							<div class="col-md-2 col-sm-4">
 								<button class="btn btn-success"> Seguir >> </button>

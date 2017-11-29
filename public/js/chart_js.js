@@ -7,8 +7,16 @@ var lista_servicos_nomes=new Array() ;
 var selected_banks=[];
 var all_datasets_list=[];
 var count_services=0;
-var colors=['rgba(255, 206, 86, 1)',
-            'rgba(255, 206, 86, 1)','rgba(54, 162, 235, 1)'];
+var colors=['rgb(209, 0, 93)','rgb(255, 181, 72)','rgb(13, 72, 179)',
+            'rgb(13, 72, 179)','rgb(161, 0, 86)','rgb(103, 160, 16)'
+            ];
+// [{"cor":'rgb(209, 0, 93)'},
+//     {"cor":'rgb(255, 181, 72)'},
+//     {"cor":'rgb(13, 72, 179)'},
+//     {"cor":'rgb(13, 72, 179)'},
+//     {"cor":'rgb(161, 0, 86)'},
+//     {"cor":'rgb(103, 160, 16)'},
+// ];
 
 window.onload = function(){
 
@@ -69,11 +77,12 @@ function fillDataSetslist() {
 
 function createChart() {
     Chart.defaults.global.defaultFontSize = 14;
-    var randomNumber = Math.floor(Math.random()*colors.length);
+    var randomNumber;
     var datasets=[];
 
     for (var index in all_datasets_list){
         console.log();
+        randomNumber= Math.floor(Math.random()*colors.length);
         var data={
             label: all_datasets_list[index].label,
             data: all_datasets_list[index].data,
@@ -89,8 +98,12 @@ function createChart() {
          labels: lista_servicos_nomes,
          datasets: datasets
      };
-
+s
      var chartOptions = {
+
+         tooltips: {
+             enabled:true,
+         },
          scales: {
              xAxes: [{
                  barPercentage: 1,
@@ -100,25 +113,27 @@ function createChart() {
                  id: "y-axis-gravity"
              }]
          },
-         animation: {
-             onComplete: function () {
-                 var chartInstance = this.chart;
-                 var ctx = chartInstance.ctx;
-                 console.log(chartInstance);
-                 var height = chartInstance.controller.boxes[0].bottom;
-                 ctx.textAlign = "center";
-                 Chart.helpers.each(this.data.datasets.forEach(function (dataset, i) {
-                     var meta = chartInstance.controller.getDatasetMeta(i);
-                     Chart.helpers.each(meta.data.forEach(function (bar, index) {
-                         ctx.fillText(dataset.label, bar._model.x, height - ((height - bar._model.y) / 2));
-                     }),this)
-                 }),this);
-             }
-         },
+         // animation: {
+         //     onComplete: function () {
+         //         var chartInstance = this.chart;
+         //         var ctx = chartInstance.ctx;
+         //         console.log(chartInstance);
+         //         var height = chartInstance.controller.boxes[0].bottom;
+         //         ctx.textAlign = "center";
+         //         Chart.helpers.each(this.data.datasets.forEach(function (dataset, i) {
+         //             var meta = chartInstance.controller.getDatasetMeta(i);
+         //             Chart.helpers.each(meta.data.forEach(function (bar, index) {
+         //                 ctx.fillText(dataset.label, bar._model.x, height - ((height - bar._model.y) / 2));
+         //             }),this)
+         //         }),this);
+         //     }
+         // },
         //  responsive: true,
         // // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
         //  maintainAspectRatio: false,
      };
+
+
 
      var barChart = new Chart(densityCanvas, {
          type: 'bar',
@@ -164,9 +179,6 @@ function setthisShit() {
         borderWidth: 0,
         yAxisID: "y-axis-gravity"
     };
-
-
-
 
     for (var j in lista_servicos){
         // console.log(selected_banks[index].abreviatura+" prenchendo servicos "+data_for_datasets.label);
