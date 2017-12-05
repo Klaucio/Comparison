@@ -28,10 +28,20 @@ class HomeFrontController extends Controller
 
     public function index()
     {
+        return view('index');
+
+    }
+    public function bancos()
+    {
+        return view('banco_bs');
+
+    }
+
+    public function servicos()
+    {
         //
-        $bancos=Banco::paginate(10);
-        $servicos=Banco::paginate(10);
-        return view('index')->with(['bancos'=>$bancos,'servicos'=>$servicos]);
+        $servicos=Servico::paginate(10);
+        return view('servico_sb');
 
     }
 
@@ -45,8 +55,7 @@ class HomeFrontController extends Controller
         $dados=json_decode($dados,true);
         $banks_array = array_map(function($value) { return (int)$value; },$dados['bancos']);
         $bancos=Banco::with(['servicos','canals'])->findOrFail($banks_array);
-//        print_r(json_encode($bancos, true));
-        return view('servicoPorbanco')->with(['bancos'=>$bancos,
+        return view('servicoPorBanco')->with(['bancos'=>$bancos,
             'banks_array'=>$banks_array]);
 
     }
@@ -54,25 +63,14 @@ class HomeFrontController extends Controller
     {
         $dados=$request->input('data');//json em forma de string
         $dados=json_decode($dados,true);//json em forma de array
-
         $this->bancos=$dados['bancos'];
         $service_array = array_map(function($value) { return (int)$value; },$dados['servicos']);
-
-//        $results=DB::select("select * from servicos as s JOIN banco_canal_servicos as bcs
-//                             on s.id=bcs.servico_id JOIN bancos as b on b.id=bcs.banco_id
-//                            ")->whereIn('bcs.banco_id',$this->bancos);
         $results=Servico::with(['bancos','canals'])
                 ->whereHas('bancos', function ($query){
                     $query->whereIn('banco_canal_servicos.banco_id',$this->bancos);
                 })
                 ->findOrFail($service_array);
-
-
-//        return json_encode($results);
-//        dd($results);
-
-//        print_r($servicos);
-        return view('resultado')->with(['servicos'=>$results,'lista_bancos'=>$this->bancos]);
+        return view('resultado_bs')->with(['servicos'=>$results,'lista_bancos'=>$this->bancos]);
 
     }
 
@@ -81,6 +79,33 @@ class HomeFrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //fluxo sb
+    public function bindBanksByService(Request $request)
+    {
+        $dados=$request->input('data');
+        $dados=json_decode($dados,true);
+        $services_array = array_map(function($value) { return (int)$value; },$dados['servicos']);
+        $selected_services=Servico::with(['bancos','canals'])->findOrFail($services_array);
+        return view('bancoPorServico')->with(['selected_services'=>$selected_services,
+            'services_array'=>$services_array]);
+
+    }
+    public function bindServiceBankResults(Request $request)
+    {
+        $dados=$request->input('data');//json em forma de string
+        $dados=json_decode($dados,true);//json em forma de array
+        $this->bancos=$dados['bancos'];
+        $service_array = array_map(function($value) { return (int)$value; },$dados['servicos']);
+        $results=Servico::with(['bancos','canals'])
+            ->whereHas('bancos', function ($query){
+                $query->whereIn('banco_canal_servicos.banco_id',$this->bancos);
+            })
+            ->findOrFail($service_array);
+        return view('resultado_sb')->with(['servicos'=>$results,'lista_bancos'=>$this->bancos]);
+
+    }
+
+
     public function create()
     {
         //

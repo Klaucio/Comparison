@@ -15,9 +15,10 @@ class CreateBancosTable extends Migration
     {
         Schema::create('bancos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('designacao')->unique();
+            $table->string('nome')->unique();
             $table->string('abreviatura')->unique();
             $table->string('logo')->nullable();
+            $table->string('color')->nullable();
             $table->timestamps();
         });
     }

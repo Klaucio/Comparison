@@ -20,8 +20,8 @@ Route::prefix('api')->group(function() {
         return response()->json($banks);
     });
     Route::get('/serviceData', function () {
-        $servicos=\App\Models\Admin\Banco::all();
-        return json_encode($servicos->toArray());
+        $servicos=\App\Models\Admin\Servico::all();
+        return json_encode($servicos);
     });
     Route::get('/canalData', function () {
         $canais=\App\Models\Admin\Canal::all();
@@ -46,14 +46,37 @@ Route::prefix('api')->group(function() {
 /*------------------------------------------------------
  *              Routes for Views                        *
  * -----------------------------------------------------*/
+
+/*=============Fluxo: Banco->Servicos->Resultados====================*/
 Route::get('/teste', function () {
     return view('index_organising');
 });
+Route::get('get-location-from-ip',function(){
+    $ip= \Request::ip();
+    $data = \Location::get($ip);
+    dd($data);
+});
 Route::get('/', 'HomeFrontController@index');
+
+Route::get('/bancos',['as'=> 'servicos',
+    'uses' => 'HomeFrontController@bancos']);
+
 Route::get('/services',['as'=> 'servicos',
     'uses' => 'HomeFrontController@bindServicesByBank']);
+
 Route::get('/bindResults',['as'=> 'servicos',
     'uses' => 'HomeFrontController@bindBankServiceResults']);
+/*==========Fim===Fluxo: Banco->Servicos->Resultados====================*/
+/*=============Fluxo: Servico->Banco->Resultados========================*/
+//lista todos os servicos
+Route::get('/servicos',['as'=> 'servicos',
+    'uses' => 'HomeFrontController@servicos']);
+
+Route::get('/banks',['as'=> 'bancos',
+    'uses' => 'HomeFrontController@bindBanksByService']);
+Route::get('/getResults',['as'=> 'servicos',
+    'uses' => 'HomeFrontController@bindServiceBankResults']);
+
 /*-------------------------------------------------------
  *              Routes for All about Admin              *
  * -----------------------------------------------------*/

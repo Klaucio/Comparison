@@ -8,7 +8,6 @@
 <script type="text/javascript" src="javascript/switcher.js"></script>
 <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
 <script type="text/javascript" src="javascript/main.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
 
 
 <!-- Revolution Slider -->
@@ -26,3 +25,4 @@
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>

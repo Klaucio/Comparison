@@ -8,13 +8,11 @@
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title> Tá Quanto?  @yield('title')</title>
-
-    <meta name="author" content="themsflat.com">
+    <title> @yield('title')</title>
+    <meta name="author" content="Claucio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <!-- Boostrap style -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css.map">
     <link rel="stylesheet" type="text/css" href="stylesheet/bootstrap.css">
 
     <!-- REVOLUTION LAYERS STYLES -->
@@ -43,4 +41,7 @@
 
 </head>
 <body>
-@yield('get_box_layout')
+@yield('body')
+@include('layouts.partials.close_footer'){{--fechamento das tags body e html--}}
+
+

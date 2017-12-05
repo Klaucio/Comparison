@@ -35,11 +35,11 @@ new Vue({
 
     },
     mounted(){
-      axios.get('/api/bankData').then(response =>{
-          this.banks=response.data;
+        axios.get('/api/bankData').then(response =>{
+            this.banks=response.data;
 
-          this.set('banks',response.data);
-      });
+            this.set('banks',response.data);
+        });
     }
 });
 

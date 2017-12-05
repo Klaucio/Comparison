@@ -5,6 +5,7 @@ data_for_datasets.data_precos = [];
 var lista_servicos=new Array() ;
 var lista_servicos_nomes=new Array() ;
 var selected_banks=[];
+var selected_canals=[];
 var all_datasets_list=[];
 var count_services=0;
 var colors=['rgb(209, 0, 93)','rgb(255, 181, 72)','rgb(13, 72, 179)',
@@ -24,7 +25,8 @@ window.onload = function(){
     pushBarLabelList();
     fillDataSetslist();
     createChart();
-    console.log(all_datasets_list);
+    console.log(selected_canals);
+    console.log(selected_banks);
 
 };
 function pushLabelsToArray() {
@@ -41,6 +43,7 @@ function pushBarLabelList(){
                 // console.log(bank_data[index].id + ' with ' + bank_data[index].bancos[i].abreviatura);
                 if(selected_banks.indexOf(bank_data[index].bancos[i])<0){
                     selected_banks.push(bank_data[index].bancos[i])
+                    selected_canals.push(bank_data[index].canals[i])
                 }
             }
         }
@@ -53,25 +56,24 @@ function fillDataSetslist() {
     for (var index in selected_banks) {
         //Quando Inicia a atribuição, aqui atribui-se a primeira label(barra)
         if (!data_for_datasets.label) {
-            data_for_datasets.label = selected_banks[index].abreviatura;
-            data_for_datasets.canal=selected_banks[index].pivot.canal_id;
+            data_for_datasets.label = selected_banks[index].abreviatura+" || Através de: "+selected_canals[index].nome;
+            // data_for_datasets.canal=selected_banks[index].pivot.canal_id;
         } else {
             //Atribuição das restantes labels
-            data_for_datasets.label = selected_banks[index].abreviatura;
+            data_for_datasets.label = selected_banks[index].abreviatura+" || Através de: "+selected_canals[index].nome;
         }
 
         var data_precos=[];
         for(var servico in lista_servicos){
             if (selected_banks[index].pivot.servico_id==lista_servicos[servico].id)
+
                 data_precos.push(selected_banks[index].pivot.preco);
             else{
-               data_precos.push(null);
+               data_precos.push(0);
             }
         }
         all_datasets_list.push({"label":data_for_datasets.label,"data":data_precos});
     }
-
-
 
 }
 
@@ -98,7 +100,7 @@ function createChart() {
          labels: lista_servicos_nomes,
          datasets: datasets
      };
-s
+
      var chartOptions = {
 
          tooltips: {
@@ -165,81 +167,7 @@ function setthisShit() {
         yAxisID: "y-axis-gravity"
     };
 
-    var gravityData = {
-        label: 'BCI',
-        data: [42, 89, 98, 37, 23, 90],
-        backgroundColor: 'rgba(255, 206, 86, 1)',
-        borderWidth: 0,
-        yAxisID: "y-axis-gravity"
-    };
-    var data3 = {
-        label: 'Barclays',
-        data: [37, 69, 78, 57, 31, 80],
-        backgroundColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 0,
-        yAxisID: "y-axis-gravity"
-    };
-
-    for (var j in lista_servicos){
-        // console.log(selected_banks[index].abreviatura+" prenchendo servicos "+data_for_datasets.label);
-        if (lista_servicos[count_services] == (bank_data[j].nome)) {
-            // console.log(lista_servicos[count_services]+" =aceite= "+bank_data[j].nome);
-            for (var k in bank_data[count_services].bancos) {
-
-                if (lista_servicos[count_services] == bank_data[j].nome
-                    && data_for_datasets.label == bank_data[count_services].bancos[k].abreviatura
-                    && data_for_datasets.canal == bank_data[count_services].canals[k].id) {
-                    // console.log(j+" Satisfaz "+data_for_datasets.label+"=="+k);
-                    data_for_datasets.data_precos.push(bank_data[count_services].bancos[k].pivot.preco)
-                    // console.log(j+" vindas with length"+bank_data[count_services].bancos.length+" " +k);
-                    // console.log("pushing "+ data_for_datasets.label);
-
-                }else {
-                    // console.log(j+" Os Zeros entao k "+index+"=="+k);
-                    // console.log(j+" vindas length"+bank_data[count_services].bancos.length+"===" +k);
-                    // console.log("pushing "+ data_for_datasets.label);
-                }
-                // console.log(lista_servicos[count_services]);
-
-            }
-            // console.log(selected_banks[index].abreviatura+" prenchendo servicos "+data_for_datasets.label);
-            // console.log(j+" Aceitavel E o que devia ser");
-
-        }else {
-            // console.log(selected_banks[index].abreviatura+" prenchendo servicos "+data_for_datasets.label);
-
-            data_for_datasets.data_precos.push(0);
-            // console.log(index+"====="+data_for_datasets.label
-            //     +" =Naao"+count_services+" aceite= "+bank_data[j].nome);
-
-        }
-        // if(count_services>=j){
-        //     console.log(j+"sou J Incrementando ++ "+count_services);
-        //     count_services++;
-        //
-        //     // count_services_control++;
-        //     all_datasets_list.push(data_for_datasets);
-        // }else{
-        //     console.log("Devia manter ++ "+count_services);
-        // }
-        // console.log(count_services+" controlador "+index);
-
-    }
-    all_datasets_list.push(data_for_datasets);
-    count_services++;
-
 
 }
 
-// setTimeout(function() {
-//     addData(barChart, '# of Votes 2017', '#ff0000', [16, 14, 8]);
-// }, 3000);
-// function addData(chart, label, color, data) {
-//     chart.data.datasets.push({
-//         label: label,
-//         backgroundColor: color,
-//         data: data
-//     });
-//     chart.update();
-// }
 

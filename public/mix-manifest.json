@@ -1,6 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/resultados.js": "/js/resultados.js",
-    "/js/servicos.js": "/js/servicos.js"
+    "/js/sb_bancos.js": "/js/sb_bancos.js",
+    "/js/init_sb_servicos.js": "/js/init_sb_servicos.js",
+    "/js/init_bs_bancos.js": "/js/init_bs_bancos.js",
+    "/js/bs_servicos.js": "/js/bs_servicos.js",
+    "/js/bs_resultados.js": "/js/bs_resultados.js"
 }

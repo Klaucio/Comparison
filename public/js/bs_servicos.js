@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 41);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -41951,15 +41951,42 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 35 */
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(42);
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(30);
+
+window.Vue = __webpack_require__(28);
+
+Vue.component('servicos', __webpack_require__(43));
+
+new Vue({
+    el: '#service-form'
+});
+
+/***/ }),
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(29)
 /* script */
-var __vue_script__ = __webpack_require__(36)
+var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(37)
+var __vue_template__ = __webpack_require__(45)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -41973,9 +42000,9 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Example.vue"
+Component.options.__file = "resources/assets/js/components/bs_servicos.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] bs_servicos.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -41984,9 +42011,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8e68c106", Component.options)
+    hotAPI.createRecord("data-v-5f4db675", Component.options)
   } else {
-    hotAPI.reload("data-v-8e68c106", Component.options)
+    hotAPI.reload("data-v-5f4db675", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -41997,7 +42024,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 36 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42018,44 +42045,268 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['banks', 'services'],
+    data: function data() {
+        return {
+            checked_services: [],
+            checked_banks: [],
+            all_bank_services: [],
+            all_banks: []
+        };
+    },
+    methods: {
+        onSubmit: function onSubmit() {
+            window.location.href = '/bindResults?data=' + JSON.stringify({ servicos: this.checked_services, 'bancos': this.checked_banks });
+        },
+        init_services: function init_services() {
+            var unique_arr = [];
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = this.all_bank_services[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var banks = _step.value;
+                    var _iteratorNormalCompletion2 = true;
+                    var _didIteratorError2 = false;
+                    var _iteratorError2 = undefined;
+
+                    try {
+                        for (var _iterator2 = banks.servicos[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                            var service = _step2.value;
+
+                            if (unique_arr.indexOf(service.id) < 0) {
+                                this.all_banks.push({ "id": service.id, "nome": service.nome });
+                                unique_arr.push(service.id);
+                            }
+                        }
+                    } catch (err) {
+                        _didIteratorError2 = true;
+                        _iteratorError2 = err;
+                    } finally {
+                        try {
+                            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                                _iterator2.return();
+                            }
+                        } finally {
+                            if (_didIteratorError2) {
+                                throw _iteratorError2;
+                            }
+                        }
+                    }
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+        }
+    },
     mounted: function mounted() {
-        console.log('Component mounted.');
+        this.all_bank_services = JSON.parse(this.services);
+        this.checked_banks = JSON.parse(this.banks);
+        this.init_services();
     }
 });
 
 /***/ }),
-/* 37 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "form",
+    {
+      attrs: { method: "POST" },
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          _vm.onSubmit($event)
+        }
+      }
+    },
+    [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "container" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "div",
+                { staticClass: "searchable-container" },
+                _vm._l(_vm.all_banks, function(service) {
+                  return _c(
+                    "div",
+                    {
+                      staticClass:
+                        "servicos col-xs-5 col-sm-5 col-md-3 col-lg-3 "
+                    },
+                    [
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "btn btn-default info-block block-info clearfix",
+                          attrs: { for: service.id }
+                        },
+                        [
+                          _c("div", { staticClass: "bizcontent" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.checked_services,
+                                  expression: "checked_services"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                id: service.id,
+                                "data-toggle": "buttons"
+                              },
+                              domProps: {
+                                value: service.id,
+                                checked: Array.isArray(_vm.checked_services)
+                                  ? _vm._i(_vm.checked_services, service.id) >
+                                    -1
+                                  : _vm.checked_services
+                              },
+                              on: {
+                                __c: function($event) {
+                                  var $$a = _vm.checked_services,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = service.id,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        (_vm.checked_services = $$a.concat([
+                                          $$v
+                                        ]))
+                                    } else {
+                                      $$i > -1 &&
+                                        (_vm.checked_services = $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1)))
+                                    }
+                                  } else {
+                                    _vm.checked_services = $$c
+                                  }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass: "glyphicon glyphicon-ok glyphicon-lg"
+                            }),
+                            _vm._v(" "),
+                            _c("h5", { staticClass: "wordwrap" }, [
+                              _vm._v(_vm._s(service.nome))
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                })
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "row",
+              staticStyle: { "padding-top": "7px!important" }
+            },
+            [
+              _c("div", { staticClass: "col-md-10" }, [
+                _c("div", { staticClass: "row", attrs: { for: "results" } }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.checked_services) +
+                      "\n                    "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ]
+          )
+        ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-          _c("div", { staticClass: "panel panel-default" }, [
-            _c("div", { staticClass: "panel-heading" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-body" }, [
-              _vm._v(
-                "\n                    I'm an example component!\n                "
-              )
-            ])
-          ])
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("div", { staticClass: "col-sm-12 col-md-12 col-lg-12" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              type: "search",
+              id: "search",
+              placeholder: "Pesquise pelo Serviço.."
+            }
+          })
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2" }, [
+      _c("button", { staticClass: "btn btn-success" }, [_vm._v(" Seguir >> ")])
     ])
   }
 ]
@@ -42064,73 +42315,9 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-8e68c106", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-5f4db675", module.exports)
   }
 }
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(39);
-module.exports = __webpack_require__(40);
-
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-__webpack_require__(30);
-
-window.Vue = __webpack_require__(28);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', __webpack_require__(35));
-
-new Vue({
-    el: '#bank-form',
-
-    ready: function ready() {},
-    data: {
-        checkedBanks: [],
-        banks: []
-
-    },
-    methods: {
-        onSubmit: function onSubmit() {
-            window.location.href = '/services?data=' + JSON.stringify({ bancos: this.checkedBanks });
-        }
-    },
-    mounted: function mounted() {
-        var _this = this;
-
-        axios.get('/api/bankData').then(function (response) {
-            _this.banks = response.data;
-
-            _this.set('banks', response.data);
-        });
-    }
-});
-
-//create method global
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
