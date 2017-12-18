@@ -36,6 +36,7 @@
     <link href="icon/apple-touch-icon-48-precomposed.png" rel="apple-touch-icon-precomposed">
     <link href="icon/apple-touch-icon-32-precomposed.png" rel="apple-touch-icon-precomposed">
     <link href="icon/favicon.png" rel="shortcut icon">
+    @yield('local_css')
 
 
 

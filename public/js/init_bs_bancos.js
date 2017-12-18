@@ -41951,124 +41951,9 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(29)
-/* script */
-var __vue_script__ = __webpack_require__(36)
-/* template */
-var __vue_template__ = __webpack_require__(37)
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Example.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8e68c106", Component.options)
-  } else {
-    hotAPI.reload("data-v-8e68c106", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 36 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-          _c("div", { staticClass: "panel panel-default" }, [
-            _c("div", { staticClass: "panel-heading" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-body" }, [
-              _vm._v(
-                "\n                    I'm an example component!\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-8e68c106", module.exports)
-  }
-}
-
-/***/ }),
+/* 35 */,
+/* 36 */,
+/* 37 */,
 /* 38 */,
 /* 39 */,
 /* 40 */,
@@ -42114,34 +41999,353 @@ window.Vue = __webpack_require__(28);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(35));
+Vue.component('banco-component', __webpack_require__(58));
 
 new Vue({
-    el: '#bank-form',
-
-    ready: function ready() {},
-    data: {
-        checkedBanks: [],
-        banks: []
-
-    },
-    methods: {
-        onSubmit: function onSubmit() {
-            window.location.href = '/services?data=' + JSON.stringify({ bancos: this.checkedBanks });
-        }
-    },
-    mounted: function mounted() {
-        var _this = this;
-
-        axios.get('/api/bankData').then(function (response) {
-            _this.banks = response.data;
-
-            _this.set('banks', response.data);
-        });
-    }
+  el: '#bank-form'
 });
 
 //create method global
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(29)
+/* script */
+var __vue_script__ = __webpack_require__(59)
+/* template */
+var __vue_template__ = __webpack_require__(60)
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/init_bs_bancos.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] init_bs_bancos.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3f6e2874", Component.options)
+  } else {
+    hotAPI.reload("data-v-3f6e2874", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    //        ready:function () {
+    //        },
+    data: function data() {
+        return {
+            checkedBanks: [],
+            banks: null,
+            max: 3,
+            loading: false,
+            error: null
+        };
+    },
+    created: function created() {
+        this.fetchData();
+    },
+
+    methods: {
+        onSubmit: function onSubmit() {
+            window.location.href = '/services?data=' + JSON.stringify({ bancos: this.checkedBanks });
+        },
+        fetchData: function fetchData() {
+            var _this = this;
+
+            this.error = this.banks = null;
+            this.loading = true;
+            // replace `getPost` with your data fetching util / API wrapper
+            axios.get('/api/bankData').then(function (response) {
+                _this.banks = response.data;
+                _this.loading = false;
+            }).catch(function (error) {
+                _this.error = error.response.data.status;
+            });
+        }
+    },
+    mounted: function mounted() {
+        //            this.fetchData();
+    }
+});
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      attrs: { method: "POST" },
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          _vm.onSubmit($event)
+        }
+      }
+    },
+    [
+      _c("input", {
+        attrs: { type: "hidden", name: "_token", value: "csrf_token()" }
+      }),
+      _vm._v(" "),
+      _vm.loading
+        ? _c("div", { staticClass: "loading" }, [_vm._m(0)])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.error
+        ? _c("div", { staticClass: "error" }, [
+            _vm._v("\n        " + _vm._s(_vm.error) + "\n    ")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      this.banks
+        ? _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "searchable-container" },
+              _vm._l(_vm.banks, function(bank) {
+                return _c(
+                  "div",
+                  { staticClass: "items col-xs-5 col-sm-5 col-lg-3 col-md-2" },
+                  [
+                    _c(
+                      "article",
+                      {
+                        staticClass:
+                          "post style2 clearfix info-block block-info "
+                      },
+                      [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "btn btn-default  featured-post img-card",
+                            attrs: { for: bank.id }
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "bizcontent post-image" },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.checkedBanks,
+                                      expression: "checkedBanks"
+                                    }
+                                  ],
+                                  attrs: {
+                                    type: "checkbox",
+                                    id: bank.id,
+                                    onclick: "handleClick(this);",
+                                    autocomplete: "off"
+                                  },
+                                  domProps: {
+                                    value: bank.id,
+                                    checked: Array.isArray(_vm.checkedBanks)
+                                      ? _vm._i(_vm.checkedBanks, bank.id) > -1
+                                      : _vm.checkedBanks
+                                  },
+                                  on: {
+                                    __c: function($event) {
+                                      var $$a = _vm.checkedBanks,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = bank.id,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            (_vm.checkedBanks = $$a.concat([
+                                              $$v
+                                            ]))
+                                        } else {
+                                          $$i > -1 &&
+                                            (_vm.checkedBanks = $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1)))
+                                        }
+                                      } else {
+                                        _vm.checkedBanks = $$c
+                                      }
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "post-image",
+                                  attrs: {
+                                    src: "storage/logos/" + bank.logo,
+                                    width: "175",
+                                    height: "175",
+                                    title: "",
+                                    alt: ""
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("ul", { staticClass: "post-date" }, [
+                              _c("li", { staticClass: "day" }, [
+                                _vm._v(_vm._s(bank.abreviatura))
+                              ])
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "content-post" }, [
+                          _c("h5", { staticClass: "title-post" }, [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(bank.designacao) +
+                                "\n                        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "entry-post" })
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              })
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-10 col-sm-8" }, [
+          _c("div", { staticClass: "row", attrs: { for: "results" } }, [
+            _c("span", [_vm._v(_vm._s(_vm.checkedBanks))])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "preloader" }, [
+      _c("div", { staticClass: "clear-loading loading-effect-2" }, [_c("span")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 col-sm-4" }, [
+      _c("button", { staticClass: "btn btn-success" }, [_vm._v(" Seguir >> ")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-3f6e2874", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

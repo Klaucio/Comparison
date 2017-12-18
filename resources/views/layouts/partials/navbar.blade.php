@@ -1,9 +1,10 @@
 <!-- Preloader -->
-<div class="preloader">
-    <div class="clear-loading loading-effect-2">
-        <span></span>
-    </div>
-</div>
+{{--<div class="preloader">--}}
+    {{--<div class="clear-loading loading-effect-2">--}}
+        {{--<span></span>--}}
+    {{--</div>--}}
+{{--</div>--}}
+
 {{--<div class="top">--}}
 {{--<div class="container">--}}
 {{--<div class="row">--}}
@@ -60,7 +61,7 @@
                         <nav id="mainnav" class="mainnav">
                             <ul class="menu">
                                 <li>
-                                    <a href="/" title="">Home  <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <a href="/" title="">Página inicial <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 </li>
                                 <li>
                                     <a href="/bancos" title="">Bancos  <i class="fa fa-angle-down" aria-hidden="true"></i></a>

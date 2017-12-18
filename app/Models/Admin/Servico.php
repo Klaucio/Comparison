@@ -98,4 +98,7 @@ class Servico extends Model
         return $this->belongsToMany(Canal::class,'banco_canal_servicos')
             ->withPivot('banco_id', 'preco');
     }
+    public function categorias()    {
+        return $this->belongsTo(Categoria::class,'categoria_id');
+    }
 }

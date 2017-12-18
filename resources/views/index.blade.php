@@ -14,7 +14,7 @@
 				<li data-index="rs-3049" data-transition="slideremovedown" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"    data-rotate="0"  data-saveperformance="off"  data-title="Ken Burns" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 
 					<!-- MAIN IMAGE -->
-					<img src="images/slides/slide1.png"  alt=""  data-bgposition="center center" data-kenburns="off" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+					<img src="images/slides/cartao.jpg"  alt=""  data-bgposition="center center" data-kenburns="off" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 					<!-- LAYERS -->
 
 					<!-- LAYER NR. 12 -->
@@ -40,7 +40,8 @@
 						 data-paddingbottom="[0,0,0,0"
 						 data-paddingleft="[0,0,0,0]"
 
-						 style="z-index: 16; white-space: nowrap;text-transform:left;">We help businesses<br>innovate and grow
+						 style="z-index: 16; white-space: nowrap;text-transform:left;">Quer saber a diferença de preços ?<br>
+						Faça já a comparação de preços<br>
 					</div>
 
 					<!-- LAYER NR. 13 -->
@@ -65,10 +66,11 @@
 						 data-paddingbottom="[0,0,0,0]"
 						 data-paddingleft="[0,0,0,0]"
 
-						 style="z-index: 17; white-space: nowrap;text-transform:left;">With over 10 years of experience helping businesses to find<br>comprehensive solutions
+						 style="z-index: 17; white-space: nowrap;text-transform:left;">Sabia que cada serviço bancário tem um custo?<br>
+									Não? Saiba agora qual o custo em cada banco :)
 					</div>
 
-					<a href="#" target="_self" class="tp-caption flat-button-slider bg-blue"
+					<a href="/bancos" target="_self" class="tp-caption flat-button-slider bg-blue"
 
 					   data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
 
@@ -76,10 +78,10 @@
 					   data-y="['middle','middle','middle','middle']" data-voffset="['140','140','140','80']"
 					   data-fontsize="['14','14','14','14']"
 					   data-width="['auto']"
-					   data-height="['auto']">Our Company
+					   data-height="['auto']" >Qual Banco?
 					</a><!-- END LAYER LINK -->
 
-					<a href="#" target="_self" class="tp-caption flat-button-slider bg-transparent"
+					<a href="/servicos" target="_self" class="tp-caption flat-button-slider bg-transparent"
 
 					   data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
 
@@ -87,14 +89,14 @@
 					   data-y="['middle','middle','middle','middle']" data-voffset="['140','140','140','80']"
 					   data-fontsize="['14',14','14','14']"
 					   data-width="['auto']"
-					   data-height="['auto']">Get in Touch
+					   data-height="['auto']">Qual serviço?
 					</a><!-- END LAYER LINK -->
 				</li>
 
 				<!-- SLIDE 2 -->
 				<li data-index="rs-3048" data-transition="random-static" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"    data-rotate="0"  data-saveperformance="off"  data-title="HTML5 Video" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 					<!-- MAIN IMAGE -->
-					<img src="images/slides/slide1.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+					<img src="images/slides/waw.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 
 					<!-- BACKGROUND VIDEO LAYER -->
 					<div class="rs-background-video-layer"
@@ -137,7 +139,7 @@
 			 data-paddingbottom="[0,0,0,0"
 			 data-paddingleft="[0,0,0,0]"
 
-			 style="z-index: 16; white-space: nowrap;text-transform:left;">FINANCE WORDPRESS THEME
+			 style="z-index: 16; white-space: nowrap;text-transform:left;">Comparação de preços!!
 		</div>
 
 		<!-- LAYER NR. 13 -->
@@ -162,7 +164,8 @@
 			 data-paddingbottom="[0,0,0,0]"
 			 data-paddingleft="[0,0,0,0]"
 
-			 style="z-index: 17; white-space: nowrap;text-transform:left;">Comece Já A Fazer A Comparação De Preços<br> Para iniciar seleccione os bancos, depois os serviços!
+			 style="z-index: 17; white-space: nowrap;text-transform:left;">Comece Já A Fazer A Comparação De Preços<br>
+			Para iniciar selecione os bancos, depois os serviços ou vice-versa!
 		</div>
 
 		<a href="#section_comparar" target="_self" class="tp-caption flat-button-slider bg-transparent"
@@ -373,151 +376,6 @@
 			</div><!-- /.row -->
 		</div><!-- /.container -->
 	</section><!-- /.flat-callback -->
-
-	<section class="flat-row bg-theme">
-		<div class="container">
-
-			<div class="row">
-				<div class="col-md-12">
-					<div class="title-section left">
-						<h2>
-							Latest news
-						</h2>
-					</div><!-- /.title-section -->
-				</div>
-			</div><!-- /.row -->
-
-			<div class="row">
-
-				<div class="col-md-4">
-					<article class="post style2">
-						<div class="featured-post">
-							<a href="blog.html" title="" class="post-image">
-								<img src="images/news/large-01.jpg" alt="">
-							</a>
-							<ul class="post-date">
-								<li class="day">11</li>
-								<li class="month">JAN</li>
-							</ul>
-						</div><!-- /.featured-post -->
-						<div class="content-post">
-							<h4 class="title-post">
-								<a href="blog.html" title="">Why Do I Need To Use Financial ?</a>
-							</h4>
-							<div class="entry-post">
-								<p>Sed facilisis lorem in orci bibendum
-									ullamcorper. Mauris vitae augue
-									elementum, ...</p>
-							</div>
-						</div><!-- /.content-post -->
-					</article><!-- /.post -->
-				</div><!-- /.col-md-4 -->
-
-				<div class="col-md-4">
-					<article class="post style2">
-						<div class="featured-post">
-							<a href="blog.html" title="" class="post-image">
-								<img src="images/news/large-02.jpg" alt="">
-							</a>
-							<ul class="post-date">
-								<li class="day">11</li>
-								<li class="month">JAN</li>
-							</ul>
-						</div><!-- /.featured-post -->
-						<div class="content-post">
-							<h4 class="title-post">
-								<a href="blog.html" title="">Why your sales forecast is off</a>
-							</h4>
-							<div class="entry-post">
-								<p>Sed facilisis lorem in orci bibendum
-									ullamcorper. Mauris vitae augue
-									elementum, ...
-								</p>
-							</div>
-						</div><!-- /.content-post -->
-					</article><!-- /.post -->
-				</div><!-- /.col-md-4 -->
-
-				<div class="col-md-4">
-					<div class="slidebar-news">
-						<aside class="widget widget-recent-news">
-							<ul class="recent-news">
-								<li>
-									<div class="thumb">
-										<span class="overlay-pop"></span>
-										<a href="blog.html">
-											<img src="images/news/image-small-01.png" alt="">
-										</a><!-- /.thumb -->
-									</div><!-- /.row -->
-									<div class="text">
-										<h4>
-											<a href="blog.html" title="">Why Do I Need To Use Financial ?</a>
-										</h4>
-										<div class="entry-post">
-											<p>January 11, 2017</p>
-										</div>
-									</div><!-- /.content-post -->
-								</li>
-
-								<li>
-									<div class="thumb">
-										<span class="overlay-pop"></span>
-										<a href="blog.html">
-											<img src="images/news/image-small-02.png" alt="">
-										</a><!-- /.thumb -->
-									</div><!-- /.row -->
-									<div class="text">
-										<h4>
-											<a href="blog.html" title="">Why your sales forecast is off</a>
-										</h4>
-										<div class="entry-post">
-											<p>January 11, 2017</p>
-										</div>
-									</div><!-- /.content-post -->
-								</li>
-
-								<li>
-									<div class="thumb">
-										<span class="overlay-pop"></span>
-										<a href="blog.html">
-											<img src="images/news/image-small-03.png" alt="">
-										</a><!-- /.thumb -->
-									</div><!-- /.row -->
-									<div class="text">
-										<h4>
-											<a href="blog.html" title="">6 tips to retain your top sales talent</a>
-										</h4>
-										<div class="entry-post">
-											<p>January 11, 2017</p>
-										</div>
-									</div><!-- /.content-post -->
-								</li>
-
-								<li>
-									<div class="thumb">
-										<span class="overlay-pop"></span>
-										<a href="blog.html">
-											<img src="images/news/image-small-04.png" alt="">
-										</a><!-- /.thumb -->
-									</div><!-- /.row -->
-									<div class="text">
-										<h4>
-											<a href="blog.html" title="">What the martian can teach sales</a>
-										</h4>
-										<div class="entry-post">
-											<p>January 11, 2017</p>
-										</div>
-									</div><!-- /.content-post -->
-								</li>
-							</ul>
-						</aside><!-- /.widget-recent-news -->
-					</div><!-- /.slidebar-news -->
-				</div><!-- /.col-md-4 -->
-
-			</div><!-- /.row -->
-
-		</div><!-- /.container -->
-	</section><!-- /.flat-news -->
 
 	<!-- Carousel -->
 	<section class="flat-row flat-client">

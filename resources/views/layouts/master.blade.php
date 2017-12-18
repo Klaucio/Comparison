@@ -2,6 +2,9 @@
 @section('title')
     @yield('title') {{--Para atribuição do título correspondente a cada Tela--}}
 @endsection
+@section('local_css'){{--Section for local css--}}
+    @yield('local_css')
+@endsection
 @section('body')
     @include('layouts.partials.navbar')
     {{--<div class="boxed">--}}

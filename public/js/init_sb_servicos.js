@@ -42081,26 +42081,104 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     data: function data() {
         return {
             services: [],
-            checked_services: []
+            checked_services: [],
+            categories: [],
+            max: 3,
+            loading: false,
+            error: null
         };
     },
+    created: function created() {
+        this.fetchData();
+    },
+
     methods: {
         onSubmit: function onSubmit() {
             window.location.href = '/banks?data=' + JSON.stringify({ servicos: this.checked_services });
+        },
+        fetchData: function fetchData() {
+            var _this = this;
+
+            this.error = this.banks = null;
+            this.loading = true;
+            // replace `getPost` with your data fetching util / API wrapper
+            axios.get('/api/serviceData').then(function (response) {
+                _this.services = response.data;
+                _this.fetchCategories();
+                _this.loading = false;
+            }).catch(function (error) {
+                _this.error = error.response.data.status;
+            });
+        },
+        fetchCategories: function fetchCategories() {
+            var indexes = [];
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = this.services[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var service = _step.value;
+
+                    if (indexes.indexOf(service.categorias.id) < 0) {
+                        this.categories.push(service.categorias);
+                        indexes.push(service.categorias.id);
+                    }
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
         }
     },
     mounted: function mounted() {
-        var _this = this;
 
-        axios.get('/api/serviceData').then(function (response) {
-            _this.services = response.data;
-        });
+        //            axios.get('/api/serviceData').then(response =>{
+        //                this.services=response.data;
+        //                this.fetchCategories();
+        //            });
+
+
     }
 });
 
@@ -42124,122 +42202,162 @@ var render = function() {
       }
     },
     [
+      _vm.loading
+        ? _c("div", { staticClass: "loading" }, [_vm._m(0)])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.error
+        ? _c("div", { staticClass: "error" }, [
+            _vm._v("\n        " + _vm._s(_vm.error) + "\n    ")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "container" }, [
-          _vm._m(0),
-          _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c(
-                "div",
-                { staticClass: "searchable-container" },
-                _vm._l(_vm.services, function(service) {
-                  return _c(
+            _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "sidebar left" }, [
+                _c("div", { staticClass: "panel panel-default" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "panel-body" }, [
+                    _c("aside", { staticClass: "widget widget_nav_menu" }, [
+                      _vm.categories
+                        ? _c(
+                            "div",
+                            { staticClass: "menu-services-container" },
+                            _vm._l(_vm.categories, function(categoria) {
+                              return _c("ul", { staticClass: "menu" }, [
+                                _c("li", [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _vm._v(_vm._s(categoria.designacao))
+                                  ])
+                                ])
+                              ])
+                            })
+                          )
+                        : _vm._e()
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.services
+              ? _c("div", { staticClass: "form-group col-md-9" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c(
                     "div",
-                    {
-                      staticClass:
-                        "servicos col-xs-5 col-sm-5 col-md-3 col-lg-3 "
-                    },
-                    [
-                      _c(
-                        "label",
+                    { staticClass: "searchable-container" },
+                    _vm._l(_vm.services, function(service) {
+                      return _c(
+                        "div",
                         {
                           staticClass:
-                            "btn btn-default info-block block-info clearfix",
-                          attrs: { for: service.id }
+                            "servicos col-xs-5 col-sm-5 col-md-4 col-lg-4 "
                         },
                         [
-                          _c("div", { staticClass: "bizcontent" }, [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.checked_services,
-                                  expression: "checked_services"
-                                }
-                              ],
-                              attrs: {
-                                type: "checkbox",
-                                id: service.id,
-                                "data-toggle": "buttons"
-                              },
-                              domProps: {
-                                value: service.id,
-                                checked: Array.isArray(_vm.checked_services)
-                                  ? _vm._i(_vm.checked_services, service.id) >
-                                    -1
-                                  : _vm.checked_services
-                              },
-                              on: {
-                                __c: function($event) {
-                                  var $$a = _vm.checked_services,
-                                    $$el = $event.target,
-                                    $$c = $$el.checked ? true : false
-                                  if (Array.isArray($$a)) {
-                                    var $$v = service.id,
-                                      $$i = _vm._i($$a, $$v)
-                                    if ($$el.checked) {
-                                      $$i < 0 &&
-                                        (_vm.checked_services = $$a.concat([
-                                          $$v
-                                        ]))
-                                    } else {
-                                      $$i > -1 &&
-                                        (_vm.checked_services = $$a
-                                          .slice(0, $$i)
-                                          .concat($$a.slice($$i + 1)))
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "btn btn-default info-block block-info clearfix",
+                              attrs: { for: service.id }
+                            },
+                            [
+                              _c("div", { staticClass: "bizcontent" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.checked_services,
+                                      expression: "checked_services"
                                     }
-                                  } else {
-                                    _vm.checked_services = $$c
+                                  ],
+                                  attrs: {
+                                    type: "checkbox",
+                                    id: service.id,
+                                    "data-toggle": "buttons"
+                                  },
+                                  domProps: {
+                                    value: service.id,
+                                    checked: Array.isArray(_vm.checked_services)
+                                      ? _vm._i(
+                                          _vm.checked_services,
+                                          service.id
+                                        ) > -1
+                                      : _vm.checked_services
+                                  },
+                                  on: {
+                                    __c: function($event) {
+                                      var $$a = _vm.checked_services,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = service.id,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            (_vm.checked_services = $$a.concat([
+                                              $$v
+                                            ]))
+                                        } else {
+                                          $$i > -1 &&
+                                            (_vm.checked_services = $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1)))
+                                        }
+                                      } else {
+                                        _vm.checked_services = $$c
+                                      }
+                                    }
                                   }
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("span", {
-                              staticClass: "glyphicon glyphicon-ok glyphicon-lg"
-                            }),
-                            _vm._v(" "),
-                            _c("h5", { staticClass: "wordwrap" }, [
-                              _vm._v(_vm._s(service.nome))
-                            ])
-                          ])
+                                }),
+                                _vm._v(" "),
+                                _c("span", {
+                                  staticClass:
+                                    "glyphicon glyphicon-ok glyphicon-lg"
+                                }),
+                                _vm._v(" "),
+                                _c("h5", { staticClass: "wordwrap" }, [
+                                  _vm._v(_vm._s(service.nome))
+                                ])
+                              ])
+                            ]
+                          )
                         ]
                       )
-                    ]
-                  )
-                })
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row",
-              staticStyle: { "padding-top": "7px!important" }
-            },
-            [
-              _c("div", { staticClass: "col-md-10" }, [
-                _c("div", { staticClass: "row", attrs: { for: "results" } }, [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(_vm.checked_services) +
-                      "\n                    "
+                    })
                   )
                 ])
-              ]),
-              _vm._v(" "),
-              _vm._m(1)
-            ]
-          )
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm._m(3)
         ])
       ])
     ]
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "preloader" }, [
+      _c("div", { staticClass: "clear-loading loading-effect-2" }, [_c("span")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel-heading" }, [
+      _c("strong", [_vm._v("Categorias")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -42263,9 +42381,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("button", { staticClass: "btn btn-success" }, [_vm._v(" Seguir >> ")])
-    ])
+    return _c(
+      "div",
+      { staticClass: "row", staticStyle: { "padding-top": "7px!important" } },
+      [
+        _c("div", { staticClass: "col-lg-10 col-md-10" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c("button", { staticClass: "btn btn-success" }, [
+            _vm._v(" Seguir >> ")
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true

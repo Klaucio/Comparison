@@ -20,7 +20,7 @@ Route::prefix('api')->group(function() {
         return response()->json($banks);
     });
     Route::get('/serviceData', function () {
-        $servicos=\App\Models\Admin\Servico::all();
+        $servicos=\App\Models\Admin\Servico::with('categorias')->get();
         return json_encode($servicos);
     });
     Route::get('/canalData', function () {
@@ -53,7 +53,7 @@ Route::get('/teste', function () {
 });
 Route::get('get-location-from-ip',function(){
     $ip= \Request::ip();
-    $data = \Location::get($ip);
+    $data = \Location::get('192.168.100.6');
     dd($data);
 });
 Route::get('/', 'HomeFrontController@index');

@@ -15,32 +15,10 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component',require('./components/Example.vue'));
+Vue.component('banco-component',require('./components/init_bs_bancos.vue'));
 
 new Vue({
-    el: '#bank-form',
-
-    ready:function () {
-    },
-    data: {
-        checkedBanks: [],
-        banks:[]
-
-    },
-    methods:{
-
-        onSubmit(){
-            window.location.href='/services?data='+JSON.stringify({bancos:this.checkedBanks});
-        }
-
-    },
-    mounted(){
-        axios.get('/api/bankData').then(response =>{
-            this.banks=response.data;
-
-            this.set('banks',response.data);
-        });
-    }
+    el: '#bank-form'
 });
 
 

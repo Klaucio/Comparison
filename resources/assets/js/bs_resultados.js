@@ -17,29 +17,10 @@ window.axios = require('axios');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component',require('./components/Example.vue'));
+Vue.component('result-component',require('./components/bs_result.vue'));
 
 new Vue({
     el: '#results',
-    props:['data'],
-    data: {
-        check_url:"",
-        testes:[
-            {name:'name'},{name:'teste2'}
-        ]
-
-    },
-    methods:{
-
-
-        onSubmit(){
-
-        }
-
-    },
-    mounted(){
-
-    }
 });
 
 

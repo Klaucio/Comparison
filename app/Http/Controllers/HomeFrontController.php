@@ -4,11 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin\Banco;
 use App\Models\Admin\Servico;
-use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\DB;
-use function MongoDB\BSON\toJSON;
 
 
 class HomeFrontController extends Controller
@@ -40,7 +36,7 @@ class HomeFrontController extends Controller
     public function servicos()
     {
         //
-        $servicos=Servico::paginate(10);
+//        $servicos=Servico::with('categorias')->get();
         return view('servico_sb');
 
     }
