@@ -24,7 +24,7 @@ new Vue({
     },
     data: {
         checkedBanks: [],
-        banks:[]
+        service_banks:[]
 
     },
     methods:{
@@ -36,9 +36,9 @@ new Vue({
     },
     mounted(){
       axios.get('/api/bankData').then(response =>{
-          this.banks=response.data;
+          this.service_banks=response.data;
 
-          this.set('banks',response.data);
+          this.set('service_banks',response.data);
       });
     }
 });

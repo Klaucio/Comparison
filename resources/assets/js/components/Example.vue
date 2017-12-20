@@ -12,7 +12,7 @@
         <div v-if="error" class="error">
             {{ error }}
         </div>
-        <div class="row" v-if="this.banks">
+        <div class="row" v-if="this.service_banks">
             <div class="searchable-container"><!--	A div a seguir percorre a lista de bancos para preencher os cards	-->
                 <div class="items col-xs-5 col-sm-5 col-lg-3 col-md-2" v-for="bank in banks">
                     <!--<label v-bind:for="bank.id">-->
@@ -63,7 +63,7 @@
         data(){
             return {
                 checkedBanks: [],
-                banks: null,
+                service_banks: null,
                 max: 3,
                 loading: false,
                 error: null
@@ -80,11 +80,11 @@
 
             },
             fetchData () {
-                this.error = this.banks = null;
+                this.error = this.service_banks = null;
                 this.loading = true;
                 // replace `getPost` with your data fetching util / API wrapper
                 axios.get('/api/bankData').then(response =>{
-                    this.banks=response.data;
+                    this.service_banks=response.data;
                     this.loading = false;
                 }).catch(error => {
                         this.error = error.response.data.status;

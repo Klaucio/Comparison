@@ -80,11 +80,11 @@
         },
         methods:{
             onSubmit(){
-                window.location.href='/banks?data='+JSON.stringify({servicos:this.checked_services});
+                window.location.href='/service_banks?data='+JSON.stringify({servicos:this.checked_services});
 
             },
             fetchData () {
-                this.error = this.banks = null;
+                this.error = this.service_banks = null;
                 this.loading = true;
                 // replace `getPost` with your data fetching util / API wrapper
                 axios.get('/api/serviceData').then(response =>{

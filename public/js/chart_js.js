@@ -25,8 +25,7 @@ window.onload = function(){
     pushBarLabelList();
     fillDataSetslist();
     createChart();
-    console.log(selected_canals);
-    console.log(selected_banks);
+
 
 };
 function pushLabelsToArray() {

@@ -72,7 +72,7 @@ Route::get('/bindResults',['as'=> 'servicos',
 Route::get('/servicos',['as'=> 'servicos',
     'uses' => 'HomeFrontController@servicos']);
 
-Route::get('/banks',['as'=> 'bancos',
+Route::get('/service_banks',['as'=> 'bancos',
     'uses' => 'HomeFrontController@bindBanksByService']);
 Route::get('/getResults',['as'=> 'servicos',
     'uses' => 'HomeFrontController@bindServiceBankResults']);

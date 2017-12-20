@@ -1,9 +1,10 @@
 {
+    "/js/sb_resultados.js": "/js/sb_resultados.js",
+    "/js/bs_resultados.js": "/js/bs_resultados.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/sb_bancos.js": "/js/sb_bancos.js",
     "/js/init_sb_servicos.js": "/js/init_sb_servicos.js",
     "/js/init_bs_bancos.js": "/js/init_bs_bancos.js",
-    "/js/bs_servicos.js": "/js/bs_servicos.js",
-    "/js/bs_resultados.js": "/js/bs_resultados.js"
+    "/js/bs_servicos.js": "/js/bs_servicos.js"
 }

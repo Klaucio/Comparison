@@ -56,7 +56,6 @@
             onSubmit(){
                 window.location.href='/bindResults?data='+JSON.stringify(
                     {servicos:this.checked_services, 'bancos':this.checked_banks});
-
             },
             init_services() {
                 let unique_arr = [];

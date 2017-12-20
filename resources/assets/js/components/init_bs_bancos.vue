@@ -57,7 +57,6 @@
 
 <script>
     export default {
-
 //        ready:function () {
 //        },
         data(){
@@ -68,16 +67,13 @@
                 loading: false,
                 error: null
             }
-
         },
         created(){
             this.fetchData();
         },
         methods:{
-
             onSubmit(){
                 window.location.href='/services?data='+JSON.stringify({bancos:this.checkedBanks});
-
             },
             fetchData () {
                 this.error = this.banks = null;
@@ -91,7 +87,6 @@
                     }
                 );
             }
-
         },
         mounted(){
 //            this.fetchData();

@@ -1,49 +1,9 @@
-<template >
-    <div id="vue-instance">
-        <div v-if="isLoggedIn">
-            <button @click="login" type="submit">Gráfico</button>
-            <div class="form-group">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    {{barChart.update()}}
-                    <canvas class="densityChart" width="600" height="300"
-                            style="max-height: 500px !important; text-align: center!important; float: left!important; ">
-                    </canvas>
-                </div>
-            </div>
-        </div>
-        <div v-else>
-            <button @click="login" type="submit">Tabela</button>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th><b>Firstname</b></th>
-                    <th>Lastname</th>
-                    <th>Email</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+<template>
+    <chartjs-bar :labels="lista_servicos_nomes" :datasets="mydatasets"></chartjs-bar>
 </template>
 <script>
-    var densityCanvas = document.getElementsByClassName("densityChart");
+    import { Bar } from 'vue-chartjs';
+        var densityCanvas = document.getElementById("densityChart");
 
     export default {
         extends: VueChartJs.Bar,
@@ -53,7 +13,7 @@
         ],
         data(){
             return{
-                isLoggedIn: false,
+
                 service_banks:[],
                 choosen_banks_ids:[],
                 lista_servicos:[] ,
@@ -63,10 +23,10 @@
                 all_datasets_list:[],
                 count_services:0,
                 global_datasets:[],
-                colors:[],
+                colors:['rgb(209, 0, 93)','rgb(255, 181, 72)','rgb(13, 72, 179)',
+                    'rgb(13, 72, 179)','rgb(161, 0, 86)','rgb(103, 160, 16)'
+                ],
                 data_for_datasets:new Object(),
-                barChart:any,
-                chartObject:'',
 //                data_for_datasets.data_precos: [],
                 mylabels: ["January", "February", "March", "April", "May", "June", "July"],
                 mydatasets:[{
@@ -123,20 +83,9 @@
             this.createChart();
         },
         mounted () {
-            this.colors=['rgb(209, 0, 93)','rgb(255, 181, 72)','rgb(13, 72, 179)',
-                'rgb(13, 72, 179)','rgb(161, 0, 86)','rgb(103, 160, 16)'
-            ];
-            console.log(this.colors);
-            this.barChart = new Chart(densityCanvas, this.chartObject);
 
         },
         methods:{
-            login: function() {
-                // 'this' refers to the vm instance
-                this.isLoggedIn = !this.isLoggedIn;
-
-
-            },
             initVariables(){
                 this.service_banks = JSON.parse(this.bank_data);
                 this.choosen_banks_ids = JSON.parse(this.lista_bancos_ids);
@@ -180,12 +129,10 @@
                     //Quando Inicia a atribuição, aqui atribui-se a primeira label(barra)
                     if (!this.data_for_datasets.label) {
                         this.data_for_datasets.label = this.selected_banks[index].abreviatura+" || Através de: "+this.selected_canals[index].nome;
-                        this.data_for_datasets.cor = this.selected_banks[index].cor;
                         // data_for_datasets.canal=selected_banks[index].pivot.canal_id;
                     } else {
                         //Atribuição das restantes labels
                         this.data_for_datasets.label = this.selected_banks[index].abreviatura+" || Através de: "+this.selected_canals[index].nome;
-                        this.data_for_datasets.cor = this.selected_banks[index].cor;
                     }
 
                     var data_precos=[];
@@ -197,7 +144,7 @@
                             data_precos.push(0);
                         }
                     }
-                    this.all_datasets_list.push({"label":this.data_for_datasets.label,"cor":this.data_for_datasets.cor,"data":data_precos});
+                    this.all_datasets_list.push({"label":this.data_for_datasets.label,"data":data_precos});
                 }
 
             },
@@ -207,19 +154,19 @@
 
 
                 for (var index in this.all_datasets_list){
-                    console.log(this.colors.length);
-                    randomNumber= Math.floor(Math.random()*this.colors.length);
+                    console.log();
+                    randomNumber= Math.floor(Math.random()*colors.length);
                     var data={
                         label: this.all_datasets_list[index].label,
-                        backgroundColor: this.all_datasets_list[index].cor,
+                        backgroundColor: this.colors[randomNumber],
                         borderWidth: 1,
                         data: this.all_datasets_list[index].data,
 //                        yAxisID: "y-axis-gravity"
                     };
                     // console.log(all_datasets_list[index].data_precos);
                     this.global_datasets.push(data);
+                    console.log(this.global_datasets);
                 }
-//                console.lo
 
                 var planetData = {
                     labels: this.lista_servicos_nomes,
@@ -241,13 +188,12 @@
                         }]
                     }
                 };
-                this.chartObject={
+
+                var barChart = new Chart(densityCanvas, {
                     type: 'bar',
                     data: planetData,
                     options: chartOptions
-                };
-
-
+                });
 
 
             }

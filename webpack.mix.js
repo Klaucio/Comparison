@@ -17,4 +17,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/init_sb_servicos.js', 'public/js')
     .js('resources/assets/js/init_bs_bancos.js', 'public/js')
     .js('resources/assets/js/bs_resultados.js', 'public/js')
+    .js('resources/assets/js/sb_resultados.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
