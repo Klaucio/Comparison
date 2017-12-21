@@ -99,21 +99,7 @@
 					<img src="images/slides/waw.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 
 					<!-- BACKGROUND VIDEO LAYER -->
-					<div class="rs-background-video-layer"
-						 data-forcerewind="on"
-						 data-volume="mute"
-						 data-vimeoid="183002944"
-						 data-videoattributes="background=1%26title%3d0%26byline%3d0%26portrait%3d0%26api%3d1_.html
-                                data-videowidth="100%"
-					data-videoheight="100%"
-					data-videocontrols="none"
-					data-videostartat="00:00"
-					data-videoendat="00:48"
-					data-videoloop="loop"
-					data-forceCover="1"
-					data-aspectratio="4:3"
-					data-autoplay="true"
-					data-autoplayonlyfirsttime="false" ></div>
+					</div>
 
 
 		<!-- LAYER NR. 12 -->

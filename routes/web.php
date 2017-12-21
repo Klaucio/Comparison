@@ -15,6 +15,14 @@
  * --------------------------------------*/
 
 Route::prefix('api')->group(function() {
+    Route::get('/adminData', function () {
+        $banks=\App\Models\Admin\Banco::with(['servicos','canals'])->get();
+        $servicos=\App\Models\Admin\Servico::with(['bancos','canals'])->get();
+        $canais=\App\Models\Admin\Canal::with(['bancos','servicos'])->get();
+//        dd($banks);
+
+        return response()->json(['banks'=>$banks,'servicos'=>$servicos,'canais'=>$canais]);
+    });
     Route::get('/bankData', function () {
         $banks=\App\Models\Admin\Banco::all();
         return response()->json($banks);
