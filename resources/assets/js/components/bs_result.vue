@@ -4,9 +4,6 @@
             <button @click="toggleMode" type="submit">Gráfico</button>
             <div class="form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <!--<canvas class="densityChart" width="600" height="300"-->
-                            <!--style="max-height: 500px !important; text-align: center!important; float: left!important; ">-->
-                    <!--</canvas>-->
                     <chart :options="bar" auto-resize></chart>
                 </div>
             </div>
@@ -220,6 +217,10 @@
                         type: 'category',
                         axisLabel: {
 //                            inside: true
+                            rotate: 10,
+                            align: 'right',
+                            fontSize: 10,
+                            width: '100%'
                         },
                         data: this.lista_servicos.map((element) => element.nome)
                     },
@@ -233,7 +234,13 @@
                         return {
                             name: element.label_canal,
                             type: 'bar',
-                            data: element.data.map((el) => el)
+                            data: element.data.map((el) => el),
+                            markPoint : {
+                                data : [
+                                    {type : 'max'},
+                                    {type : 'min'}
+                                ]
+                            }
                         }
                     })
                 }

@@ -1314,9 +1314,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 var densityCanvas = document.getElementsByClassName("densityChart");
 
@@ -1498,6 +1495,10 @@ var densityCanvas = document.getElementsByClassName("densityChart");
                     type: 'category',
                     axisLabel: {
                         //                            inside: true
+                        rotate: 10,
+                        align: 'right',
+                        fontSize: 10,
+                        width: '100%'
                     },
                     data: this.lista_servicos.map(function (element) {
                         return element.nome;
@@ -1515,7 +1516,10 @@ var densityCanvas = document.getElementsByClassName("densityChart");
                         type: 'bar',
                         data: element.data.map(function (el) {
                             return el;
-                        })
+                        }),
+                        markPoint: {
+                            data: [{ type: 'max' }, { type: 'min' }]
+                        }
                     };
                 })
             };
