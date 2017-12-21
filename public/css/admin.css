@@ -37,3 +37,24 @@
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
     background-color:#6ba885
 }
+.btn-primary,.btn-primary:hover, .btn-primary:active, .btn-primary.hover{
+    background-color: rgb(0, 195, 115)!important;
+}
+.login-page, .register-page{
+    background: #d7eade !important;
+}
+.content-wrapper, .right-side{
+    background: #d7eade !important;
+}
+.box.box-primary{
+    border-top-color: #3f9364 !important;
+}
+.pagination > .active > a, .pagination > .active > a:focus,
+.pagination > .active > a:hover, .pagination > .active > span,
+.pagination > .active > span:focus, .pagination > .active > span:hover {
+    background-color: #00c373!important;
+    border-color: #00c373!important;
+}
+.skin-blue .sidebar-menu > li:hover > a, .skin-blue .sidebar-menu > li.active > a{
+    border-left-color: #3f9364 !important;
+}

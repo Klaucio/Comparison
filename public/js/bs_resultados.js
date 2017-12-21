@@ -42438,7 +42438,16 @@ Vue.use(VueCharts);
 Vue.component('result-component', __webpack_require__(238));
 
 new Vue({
-  el: '#results'
+    el: '#results',
+    data: {
+        isLoggedIn: false
+    },
+    methods: {
+        login: function login() {
+            // 'this' refers to the vm instance
+            this.isLoggedIn = !this.isLoggedIn;
+        }
+    }
 });
 
 //create method global
@@ -42527,17 +42536,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var densityCanvas = document.getElementsByClassName("densityChart");
 
@@ -42556,8 +42554,11 @@ var densityCanvas = document.getElementsByClassName("densityChart");
             all_datasets_list: [],
             count_services: 0,
             global_datasets: [],
+            global_table_datasets: [],
             colors: [],
             data_for_datasets: new Object(),
+            barChart: '',
+            chartObject: '',
             //                data_for_datasets.data_precos: [],
             mylabels: ["January", "February", "March", "April", "May", "June", "July"],
             mydatasets: [{
@@ -42588,6 +42589,7 @@ var densityCanvas = document.getElementsByClassName("densityChart");
     mounted: function mounted() {
         this.colors = ['rgb(209, 0, 93)', 'rgb(255, 181, 72)', 'rgb(13, 72, 179)', 'rgb(13, 72, 179)', 'rgb(161, 0, 86)', 'rgb(103, 160, 16)'];
         console.log(this.colors);
+        this.barChart = new Chart(densityCanvas, this.chartObject);
     },
 
     methods: {
@@ -42634,12 +42636,14 @@ var densityCanvas = document.getElementsByClassName("densityChart");
             for (var index in this.selected_banks) {
                 //Quando Inicia a atribuição, aqui atribui-se a primeira label(barra)
                 if (!this.data_for_datasets.label) {
-                    this.data_for_datasets.label = this.selected_banks[index].abreviatura + " || Através de: " + this.selected_canals[index].nome;
+                    this.data_for_datasets.label_canal = this.selected_banks[index].abreviatura + " || Através de: " + this.selected_canals[index].nome;
+                    this.data_for_datasets.label = this.selected_banks[index].abreviatura;
                     this.data_for_datasets.cor = this.selected_banks[index].cor;
                     // data_for_datasets.canal=selected_banks[index].pivot.canal_id;
                 } else {
                     //Atribuição das restantes labels
-                    this.data_for_datasets.label = this.selected_banks[index].abreviatura + " || Através de: " + this.selected_canals[index].nome;
+                    this.data_for_datasets.label_canal = this.selected_banks[index].abreviatura + " || Através de: " + this.selected_canals[index].nome;
+                    this.data_for_datasets.label = this.selected_banks[index].abreviatura;
                     this.data_for_datasets.cor = this.selected_banks[index].cor;
                 }
 
@@ -42649,7 +42653,8 @@ var densityCanvas = document.getElementsByClassName("densityChart");
                         data_precos.push(0);
                     }
                 }
-                this.all_datasets_list.push({ "label": this.data_for_datasets.label, "cor": this.data_for_datasets.cor, "data": data_precos });
+                this.all_datasets_list.push({ "label": this.data_for_datasets.label,
+                    "label_canal": this.data_for_datasets.label_canal, "cor": this.data_for_datasets.cor, "data": data_precos });
             }
         },
         createChart: function createChart() {
@@ -42660,12 +42665,21 @@ var densityCanvas = document.getElementsByClassName("densityChart");
                 console.log(this.colors.length);
                 randomNumber = Math.floor(Math.random() * this.colors.length);
                 var data = {
-                    label: this.all_datasets_list[index].label,
+                    label: this.all_datasets_list[index].label_canal,
                     backgroundColor: this.all_datasets_list[index].cor,
                     borderWidth: 1,
                     data: this.all_datasets_list[index].data
                     //                        yAxisID: "y-axis-gravity"
                 };
+                var row = {
+                    label: this.all_datasets_list[index].label,
+                    backgroundColor: this.all_datasets_list[index].cor,
+                    borderWidth: 1,
+                    data: this.all_datasets_list[index].data,
+                    canal: this.selected_canals[index].nome
+                    //                        yAxisID: "y-axis-gravity"
+                };
+                this.global_table_datasets.push(row);
                 // console.log(all_datasets_list[index].data_precos);
                 this.global_datasets.push(data);
             }
@@ -42691,12 +42705,11 @@ var densityCanvas = document.getElementsByClassName("densityChart");
                     }]
                 }
             };
-
-            var barChart = new Chart(densityCanvas, {
+            this.chartObject = {
                 type: 'bar',
                 data: planetData,
                 options: chartOptions
-            });
+            };
         }
     }
 });
@@ -42727,7 +42740,41 @@ var render = function() {
             [_vm._v("Tabela")]
           ),
           _vm._v(" "),
-          _vm._m(1)
+          _c("table", { staticClass: "table table-striped" }, [
+            _c("thead", [
+              _c(
+                "tr",
+                [
+                  _c("th"),
+                  _c("th"),
+                  _vm._v(" "),
+                  _vm._l(_vm.lista_servicos_nomes, function(servico) {
+                    return _c("th", [_c("b", [_vm._v(_vm._s(servico))])])
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.global_table_datasets, function(data) {
+                return _c(
+                  "tr",
+                  [
+                    _c("td", [_vm._v(_vm._s(data.label) + " ")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(" " + _vm._s(data.canal))]),
+                    _vm._v(" "),
+                    _vm._l(data.data, function(preco) {
+                      return _c("td", [_vm._v(_vm._s(preco))])
+                    })
+                  ],
+                  2
+                )
+              })
+            )
+          ])
         ])
   ])
 }
@@ -42747,48 +42794,6 @@ var staticRenderFns = [
           },
           attrs: { width: "600", height: "300" }
         })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("table", { staticClass: "table table-striped" }, [
-      _c("thead", [
-        _c("tr", [
-          _c("th", [_c("b", [_vm._v("Firstname")])]),
-          _vm._v(" "),
-          _c("th", [_vm._v("Lastname")]),
-          _vm._v(" "),
-          _c("th", [_vm._v("Email")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("tbody", [
-        _c("tr", [
-          _c("td", [_vm._v("John")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Doe")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("john@example.com")])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Mary")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Moe")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("mary@example.com")])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("July")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Dooley")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("july@example.com")])
-        ])
       ])
     ])
   }

@@ -1191,10 +1191,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    //        ready:function () {
-    //        },
     data: function data() {
         return {
             checkedBanks: [],
@@ -1203,6 +1202,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             loading: false,
             error: null
         };
+    },
+
+    computed: {
+        limit_reached: function limit_reached() {
+            if (this.checkedBanks.length >= 3) {
+                return true;
+            }
+            return false;
+        }
     },
     created: function created() {
         this.fetchData();
@@ -1307,6 +1315,7 @@ var render = function() {
                                   attrs: {
                                     type: "checkbox",
                                     id: bank.id,
+                                    disabled: _vm.limit_reached,
                                     onclick: "handleClick(this);",
                                     autocomplete: "off"
                                   },

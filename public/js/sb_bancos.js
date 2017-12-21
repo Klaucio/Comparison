@@ -1114,6 +1114,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['selected_services', //used to extract selected banks from selected services
@@ -1125,6 +1126,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             all_sb_services: [], //all services with banks
             all_banks: []
         };
+    },
+    computed: {
+        limit_reached: function limit_reached() {
+            if (this.checked_banks.length >= 3) {
+                return true;
+            }
+            return false;
+        }
     },
     methods: {
         onSubmit: function onSubmit() {

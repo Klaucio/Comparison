@@ -1,8 +1,19 @@
 @extends('layouts.master')
 @section('title', 'Comparação de preços')
+@section('local_css')
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111489843-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-111489843-1');
+    </script>
+@endsection
 @section('content')
     <!-- Testes-->
-    <section id="section_comparar" class="flat-row flat-iconbox bg-theme">
+    <section id="section_comparar" class="flat-row flat-iconbox bg-theme" xmlns:v-on="http://www.w3.org/1999/xhtml">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -32,7 +43,9 @@
 
                 </div>
             </div>
+
         </div>
+
     </section><!-- /.flat-row-iconbox -->
     <!-- Fim dos testes -->
 @endsection

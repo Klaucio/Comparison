@@ -19,7 +19,8 @@
                     <article class="post style2 clearfix info-block block-info ">
                         <label v-bind:for="bank.id"  class="btn btn-default  featured-post img-card" >
                             <div class="bizcontent post-image">
-                                <input type="checkbox" v-bind:id="bank.id" v-bind:value="bank.id" v-model="checkedBanks"  onclick="handleClick(this);" autocomplete="off">
+                                <input type="checkbox" v-bind:id="bank.id" v-bind:value="bank.id" :disabled="limit_reached"
+                                       v-model="checkedBanks"  onclick="handleClick(this);" autocomplete="off">
                                 <img :src="'storage/logos/' + bank.logo" width="175" height="175" title="" class="post-image" alt=""> <!--.bank.logo-->
                                 <!--<span class="glyphicon glyphicon-check glyphicon-lg"></span>-->
                             </div>
@@ -57,8 +58,7 @@
 
 <script>
     export default {
-//        ready:function () {
-//        },
+
         data(){
             return {
                 checkedBanks: [],
@@ -66,6 +66,14 @@
                 max: 3,
                 loading: false,
                 error: null
+            }
+        },
+        computed:{
+            limit_reached: function(){
+                if(this.checkedBanks.length >=3){
+                    return true;
+                }
+                return false;
             }
         },
         created(){

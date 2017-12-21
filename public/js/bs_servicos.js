@@ -1040,6 +1040,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['banks', 'services'],
@@ -1050,6 +1051,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             all_bank_services: [],
             all_banks: []
         };
+    },
+    computed: {
+        limit_reached: function limit_reached() {
+            if (this.checked_services.length >= 3) {
+                return true;
+            }
+            return false;
+        }
     },
     methods: {
         onSubmit: function onSubmit() {
@@ -1250,6 +1259,7 @@ var render = function() {
                               attrs: {
                                 type: "checkbox",
                                 id: service.id,
+                                disabled: _vm.limit_reached,
                                 "data-toggle": "buttons"
                               },
                               domProps: {

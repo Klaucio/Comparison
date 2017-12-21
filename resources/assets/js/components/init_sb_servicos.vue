@@ -44,7 +44,8 @@
                             <div class="servicos col-xs-5 col-sm-5 col-md-4 col-lg-4 " v-for="service in services">
                                 <label v-bind:for="service.id" class="btn btn-default info-block block-info clearfix">
                                     <div  class="bizcontent">
-                                        <input type="checkbox" v-bind:id="service.id" v-bind:value="service.id" data-toggle="buttons" v-model="checked_services">
+                                        <input type="checkbox" v-bind:id="service.id" v-bind:value="service.id"
+                                               :disabled="limit_reached" data-toggle="buttons" v-model="checked_services">
                                         <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
                                         <h5 class="wordwrap">{{service.nome}}</h5>
                                     </div>
@@ -75,6 +76,14 @@
             loading: false,
             error: null
         }),
+        computed:{
+            limit_reached: function(){
+                if(this.checked_services.length >=3){
+                    return true;
+                }
+                return false;
+            }
+        },
         created(){
             this.fetchData();
         },

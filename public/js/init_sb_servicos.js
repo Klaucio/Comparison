@@ -1140,6 +1140,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -1152,6 +1153,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             loading: false,
             error: null
         };
+    },
+    computed: {
+        limit_reached: function limit_reached() {
+            if (this.checked_services.length >= 3) {
+                return true;
+            }
+            return false;
+        }
     },
     created: function created() {
         this.fetchData();
@@ -1360,6 +1369,7 @@ var render = function() {
                                   attrs: {
                                     type: "checkbox",
                                     id: service.id,
+                                    disabled: _vm.limit_reached,
                                     "data-toggle": "buttons"
                                   },
                                   domProps: {

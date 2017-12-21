@@ -8,7 +8,8 @@
                         <article class="post style2 clearfix info-block block-info ">
                             <label v-bind:for="bank.id" class="btn btn-default  featured-post img-card" >
                                 <div class="bizcontent post-image">
-                                    <input type="checkbox" v-bind:id="bank.id" v-bind:value="bank.id" v-model="checked_banks" v-on:onclick="handleClick(this);" autocomplete="off">
+                                    <input type="checkbox" v-bind:id="bank.id" v-bind:value="bank.id"
+                                           v-model="checked_banks" v-on:onclick="handleClick(this);" autocomplete="off">
                                     <img :src="'storage/logos/' + bank.logo" width="175" height="175" title="" class="post-image" alt=""> <!--.bank.logo-->
                                 </div>
                                 <ul class="post-date">
@@ -50,6 +51,14 @@
             all_sb_services:[],//all services with banks
             all_banks:[],
         }),
+        computed:{
+            limit_reached: function(){
+                if(this.checked_banks.length >=3){
+                    return true;
+                }
+                return false;
+            }
+        },
         methods:{
             onSubmit(){
                 window.location.href='/bindResults?data='+JSON.stringify(

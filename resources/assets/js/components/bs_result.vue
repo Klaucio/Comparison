@@ -4,7 +4,6 @@
             <button @click="login" type="submit">Gráfico</button>
             <div class="form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    {{barChart.update()}}
                     <canvas class="densityChart" width="600" height="300"
                             style="max-height: 500px !important; text-align: center!important; float: left!important; ">
                     </canvas>
@@ -16,26 +15,15 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th><b>Firstname</b></th>
-                    <th>Lastname</th>
-                    <th>Email</th>
+                    <th></th><th></th>
+                    <th v-for="servico in lista_servicos_nomes"><b>{{servico}}</b></th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
+                <tr v-for="data in global_table_datasets">
+                    <td>{{data.label}} </td>
+                    <td> {{data.canal}}</td>
+                    <td v-for="preco in data.data">{{preco}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -63,9 +51,10 @@
                 all_datasets_list:[],
                 count_services:0,
                 global_datasets:[],
+                global_table_datasets:[],
                 colors:[],
                 data_for_datasets:new Object(),
-                barChart:any,
+                barChart:'',
                 chartObject:'',
 //                data_for_datasets.data_precos: [],
                 mylabels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -179,12 +168,14 @@
                 for (var index in this.selected_banks) {
                     //Quando Inicia a atribuição, aqui atribui-se a primeira label(barra)
                     if (!this.data_for_datasets.label) {
-                        this.data_for_datasets.label = this.selected_banks[index].abreviatura+" || Através de: "+this.selected_canals[index].nome;
+                        this.data_for_datasets.label_canal = this.selected_banks[index].abreviatura+" || Através de: "+this.selected_canals[index].nome;
+                        this.data_for_datasets.label = this.selected_banks[index].abreviatura;
                         this.data_for_datasets.cor = this.selected_banks[index].cor;
                         // data_for_datasets.canal=selected_banks[index].pivot.canal_id;
                     } else {
                         //Atribuição das restantes labels
-                        this.data_for_datasets.label = this.selected_banks[index].abreviatura+" || Através de: "+this.selected_canals[index].nome;
+                        this.data_for_datasets.label_canal = this.selected_banks[index].abreviatura+" || Através de: "+this.selected_canals[index].nome;
+                        this.data_for_datasets.label = this.selected_banks[index].abreviatura;
                         this.data_for_datasets.cor = this.selected_banks[index].cor;
                     }
 
@@ -197,7 +188,8 @@
                             data_precos.push(0);
                         }
                     }
-                    this.all_datasets_list.push({"label":this.data_for_datasets.label,"cor":this.data_for_datasets.cor,"data":data_precos});
+                    this.all_datasets_list.push({"label":this.data_for_datasets.label,
+                        "label_canal":this.data_for_datasets.label_canal,"cor":this.data_for_datasets.cor,"data":data_precos});
                 }
 
             },
@@ -210,12 +202,21 @@
                     console.log(this.colors.length);
                     randomNumber= Math.floor(Math.random()*this.colors.length);
                     var data={
-                        label: this.all_datasets_list[index].label,
+                        label: this.all_datasets_list[index].label_canal,
                         backgroundColor: this.all_datasets_list[index].cor,
                         borderWidth: 1,
                         data: this.all_datasets_list[index].data,
 //                        yAxisID: "y-axis-gravity"
                     };
+                    var row={
+                        label: this.all_datasets_list[index].label,
+                            backgroundColor: this.all_datasets_list[index].cor,
+                            borderWidth: 1,
+                            data: this.all_datasets_list[index].data,
+                            canal:this.selected_canals[index].nome
+//                        yAxisID: "y-axis-gravity"
+                    };
+                    this.global_table_datasets.push(row);
                     // console.log(all_datasets_list[index].data_precos);
                     this.global_datasets.push(data);
                 }
