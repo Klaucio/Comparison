@@ -20,7 +20,10 @@
                         <label v-bind:for="bank.id"  class="btn btn-default  featured-post img-card" >
                             <div class="bizcontent post-image">
                                 <input type="checkbox" v-bind:id="bank.id" v-bind:value="bank.id" :disabled="limit_reached"
-                                       v-model="checkedBanks"  onclick="handleClick(this);" autocomplete="off">
+                                       v-model="checkedBanks"
+                                       autocomplete="off">
+                                       <!-- onclick="handleClick(this);" -->
+
                                 <img :src="'storage/logos/' + bank.logo" width="175" height="175" title="" class="post-image" alt=""> <!--.bank.logo-->
                                 <!--<span class="glyphicon glyphicon-check glyphicon-lg"></span>-->
                             </div>
@@ -69,11 +72,8 @@
             }
         },
         computed:{
-            limit_reached: function(){
-                if(this.checkedBanks.length >=3){
-                    return true;
-                }
-                return false;
+            limit_reached(){
+                return (this.checkedBanks.length >= 5);
             }
         },
         created(){
@@ -87,8 +87,8 @@
                 this.error = this.banks = null;
                 this.loading = true;
                 // replace `getPost` with your data fetching util / API wrapper
-                axios.get('/api/bankData').then(response =>{
-                    this.banks=response.data;
+                axios.get('/api/bankData').then((response) => {
+                    this.banks = response.data;
                     this.loading = false;
                 }).catch(error => {
                         this.error = error.response.data.status;

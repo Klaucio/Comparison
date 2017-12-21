@@ -51,3 +51,9 @@ if (token) {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+window.Vue = require('vue');
+require('vue-resource');
+// ECharts
+window.VueECharts = require('vue-echarts');
+Vue.component('chart', VueECharts);

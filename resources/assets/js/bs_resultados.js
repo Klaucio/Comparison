@@ -5,14 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-// require('./bootstrap');
-
-window.Vue = require('vue');
-window.axios = require('axios');
-require('chart.js');
-// vue-charts package
-require('hchs-vue-charts');
-Vue.use(VueCharts);
+require('./bootstrap');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -26,6 +19,3 @@ new Vue({
     el: '#results',
 });
 
-
-
-//create method global

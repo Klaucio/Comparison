@@ -23,30 +23,30 @@ $(function() {
     });
 });
 
-function handleClick(cb) {
-    if(cb.checked==false){
-
-        var parent=document.getElementById('parentH5');
-        parent.removeChild(document.getElementById('results'))
-        console.log("Elimine me")
-        return;
-    }
-    display(cb.value);
-    Console.log("Passando");
-
-}
-function display(msg) {
-    var p = document.createElement('p');
-    p.innerHTML = msg;
-    document.body.appendChild(p);
-    var d = document.getElementById('results');
-    d.innerHTML = msg;
-    document.p.appendChild(d);
-
-    // var resulcard = document.createElement(document.getElementById('resultCard'));
-    // document.getElementById('resultName').innerHTML = msg;
-    // document.getElementById('allResuls').appendChild(resulcard);
-}
+// function handleClick(cb) {
+//     if(cb.checked==false){
+//
+//         var parent=document.getElementById('parentH5');
+//         parent.removeChild(document.getElementById('results'))
+//         console.log("Elimine me")
+//         return;
+//     }
+//     display(cb.value);
+//     Console.log("Passando");
+//
+// }
+// function display(msg) {
+//     var p = document.createElement('p');
+//     p.innerHTML = msg;
+//     document.body.appendChild(p);
+//     var d = document.getElementById('results');
+//     d.innerHTML = msg;
+//     document.p.appendChild(d);
+//
+//     // var resulcard = document.createElement(document.getElementById('resultCard'));
+//     // document.getElementById('resultName').innerHTML = msg;
+//     // document.getElementById('allResuls').appendChild(resulcard);
+// }
 
 function showIt() {
     for (var index in bank_data) {

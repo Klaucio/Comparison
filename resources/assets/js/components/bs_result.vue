@@ -1,17 +1,18 @@
 <template >
     <div id="vue-instance">
-        <div v-if="isLoggedIn">
-            <button @click="login" type="submit">Gráfico</button>
+        <div v-if="!isTable">
+            <button @click="toggleMode" type="submit">Gráfico</button>
             <div class="form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <canvas class="densityChart" width="600" height="300"
-                            style="max-height: 500px !important; text-align: center!important; float: left!important; ">
-                    </canvas>
+                    <!--<canvas class="densityChart" width="600" height="300"-->
+                            <!--style="max-height: 500px !important; text-align: center!important; float: left!important; ">-->
+                    <!--</canvas>-->
+                    <chart :options="bar" auto-resize></chart>
                 </div>
             </div>
         </div>
         <div v-else>
-            <button @click="login" type="submit">Tabela</button>
+            <button @click="toggleMode" type="submit">Tabela</button>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -41,7 +42,7 @@
         ],
         data(){
             return{
-                isLoggedIn: false,
+                isTable: true,
                 service_banks:[],
                 choosen_banks_ids:[],
                 lista_servicos:[] ,
@@ -56,50 +57,7 @@
                 data_for_datasets:new Object(),
                 barChart:'',
                 chartObject:'',
-//                data_for_datasets.data_precos: [],
-                mylabels: ["January", "February", "March", "April", "May", "June", "July"],
-                mydatasets:[{
-                    label: "My First dataset",
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1,
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                },
-                    {
-                        label: "My Second dataset",
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255,99,132,1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1,
-                        data: [20, 50, 20, 41, 26, 85, 20],
-                    }],
+                bar: null,
             }
         },
         created:function () {
@@ -110,6 +68,8 @@
             this.pushBarLabelList();
             this.fillDataSetslist();
             this.createChart();
+
+            this.renderBar(this.all_datasets_list);
         },
         mounted () {
             this.colors=['rgb(209, 0, 93)','rgb(255, 181, 72)','rgb(13, 72, 179)',
@@ -120,18 +80,15 @@
 
         },
         methods:{
-            login: function() {
+            toggleMode() {
                 // 'this' refers to the vm instance
-                this.isLoggedIn = !this.isLoggedIn;
-
-
+                this.isTable = !this.isTable;
             },
             initVariables(){
                 this.service_banks = JSON.parse(this.bank_data);
                 this.choosen_banks_ids = JSON.parse(this.lista_bancos_ids);
             },
             callRenderChart(){
-
                 this.renderChart({
                     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                     datasets: [
@@ -247,9 +204,36 @@
                     data: planetData,
                     options: chartOptions
                 };
+            },
+            renderBar(list) {
 
-
-
+                this.bar = {
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b}: {c}  Mt)"
+                    },
+                    legend: {
+                        data: list.map((element) => element.label_canal)
+                    },
+                    xAxis: {
+                        type: 'category',
+                        axisLabel: {show: false},
+                        data: this.lista_servicos.map((element) => element.nome)
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value} Mt'
+                        }
+                    },
+                    series: list.map((element) => {
+                        return {
+                            name: element.label_canal,
+                            type: 'bar',
+                            data: element.data.map((el) => el)
+                        }
+                    })
+                }
 
             }
         }
