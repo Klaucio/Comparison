@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 236);
+/******/ 	return __webpack_require__(__webpack_require__.s = 261);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -42403,14 +42403,39 @@ module.exports = function(Chart) {
 /* 233 */,
 /* 234 */,
 /* 235 */,
-/* 236 */
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(237);
+module.exports = __webpack_require__(262);
 
 
 /***/ }),
-/* 237 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -42435,24 +42460,24 @@ Vue.use(VueCharts);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('result-component', __webpack_require__(238));
+Vue.component('home-component', __webpack_require__(263));
 
 new Vue({
-  el: '#results'
+  el: '#admin'
 });
 
 //create method global
 
 /***/ }),
-/* 238 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(36)
 /* script */
-var __vue_script__ = __webpack_require__(239)
+var __vue_script__ = __webpack_require__(264)
 /* template */
-var __vue_template__ = __webpack_require__(240)
+var __vue_template__ = __webpack_require__(265)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -42466,9 +42491,9 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/bs_result.vue"
+Component.options.__file = "resources/assets/js/components/admin_home.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] bs_result.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] admin_home.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -42477,9 +42502,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5e927ebe", Component.options)
+    hotAPI.createRecord("data-v-1853146c", Component.options)
   } else {
-    hotAPI.reload("data-v-5e927ebe", Component.options)
+    hotAPI.reload("data-v-1853146c", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -42490,11 +42515,50 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 239 */
+/* 264 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _extends$props$data$p;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -42528,245 +42592,186 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-var densityCanvas = document.getElementsByClassName("densityChart");
+/* harmony default export */ __webpack_exports__["default"] = (_extends$props$data$p = {
 
-/* harmony default export */ __webpack_exports__["default"] = ({
-    extends: VueChartJs.Bar,
-    props: ['bank_data', 'lista_bancos_ids'],
+    extends: VueChartJs.Line,
+    props: ['chartData', 'options'],
     data: function data() {
         return {
             isLoggedIn: false,
-            service_banks: [],
-            choosen_banks_ids: [],
-            lista_servicos: [],
-            lista_servicos_nomes: [],
-            selected_banks: [],
-            selected_canals: [],
-            all_datasets_list: [],
-            count_services: 0,
-            global_datasets: [],
-            global_table_datasets: [],
-            colors: [],
-            data_for_datasets: new Object(),
-            barChart: '',
-            chartObject: '',
-            //                data_for_datasets.data_precos: [],
-            mylabels: ["January", "February", "March", "April", "May", "June", "July"],
-            mydatasets: [{
-                label: "My First dataset",
-                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
-                borderColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
-                borderWidth: 1,
-                data: [65, 59, 80, 81, 56, 55, 40]
-            }, {
-                label: "My Second dataset",
-                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
-                borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255,99,132,1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
-                borderWidth: 1,
-                data: [20, 50, 20, 41, 26, 85, 20]
-            }]
+            banks: null,
+            services: null,
+            canals: null,
+            max: 3,
+            loading: false,
+            error: null,
+            bs_labels: [],
+            bs_servicos: [],
+            bc_canals: []
         };
-    },
-
-    created: function created() {
-        this.initVariables();
-        //            this.callRenderChart();
-        // All about Charts
-        this.pushLabelsToArray();
-        this.pushBarLabelList();
-        this.fillDataSetslist();
-        this.createChart();
-    },
-    mounted: function mounted() {
-        this.colors = ['rgb(209, 0, 93)', 'rgb(255, 181, 72)', 'rgb(13, 72, 179)', 'rgb(13, 72, 179)', 'rgb(161, 0, 86)', 'rgb(103, 160, 16)'];
-        console.log(this.colors);
-        this.barChart = new Chart(densityCanvas, this.chartObject);
-    },
-
-    methods: {
-        login: function login() {
-            // 'this' refers to the vm instance
-            this.isLoggedIn = !this.isLoggedIn;
-        },
-        initVariables: function initVariables() {
-            this.service_banks = JSON.parse(this.bank_data);
-            this.choosen_banks_ids = JSON.parse(this.lista_bancos_ids);
-        },
-        callRenderChart: function callRenderChart() {
-
-            this.renderChart({
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [{
-                    label: 'Data One',
-                    backgroundColor: '#f87979',
-                    data: [40, 39, 10, 40, 39, 80, 40]
-                }]
-            }, { responsive: true, maintainAspectRatio: false });
-        },
-        pushLabelsToArray: function pushLabelsToArray() {
-            for (var index in bank_data) {
-                this.lista_servicos.push({ "id": bank_data[index].id, "nome": bank_data[index].nome });
-                this.lista_servicos_nomes.push(bank_data[index].nome);
-            }
-        },
-        pushBarLabelList: function pushBarLabelList() {
-            for (var index in bank_data) {
-                for (var i in bank_data[index].bancos) {
-                    if (lista_bancos_ids.indexOf(bank_data[index].bancos[i].pivot.banco_id) > -1) {
-                        // console.log(bank_data[index].id + ' with ' + bank_data[index].bancos[i].abreviatura);
-                        if (this.selected_banks.indexOf(bank_data[index].bancos[i]) < 0) {
-                            this.selected_banks.push(bank_data[index].bancos[i]);
-                            this.selected_canals.push(bank_data[index].canals[i]);
-                        }
-                    }
-                }
-            }
-        },
-        fillDataSetslist: function fillDataSetslist() {
-            //ciclo que define a label de cada Barra no grafico
-            for (var index in this.selected_banks) {
-                //Quando Inicia a atribuição, aqui atribui-se a primeira label(barra)
-                if (!this.data_for_datasets.label) {
-                    this.data_for_datasets.label_canal = this.selected_banks[index].abreviatura + " || Através de: " + this.selected_canals[index].nome;
-                    this.data_for_datasets.label = this.selected_banks[index].abreviatura;
-                    this.data_for_datasets.cor = this.selected_banks[index].cor;
-                    // data_for_datasets.canal=selected_banks[index].pivot.canal_id;
-                } else {
-                    //Atribuição das restantes labels
-                    this.data_for_datasets.label_canal = this.selected_banks[index].abreviatura + " || Através de: " + this.selected_canals[index].nome;
-                    this.data_for_datasets.label = this.selected_banks[index].abreviatura;
-                    this.data_for_datasets.cor = this.selected_banks[index].cor;
-                }
-
-                var data_precos = [];
-                for (var servico in this.lista_servicos) {
-                    if (this.selected_banks[index].pivot.servico_id == this.lista_servicos[servico].id) data_precos.push(this.selected_banks[index].pivot.preco);else {
-                        data_precos.push(0);
-                    }
-                }
-                this.all_datasets_list.push({ "label": this.data_for_datasets.label,
-                    "label_canal": this.data_for_datasets.label_canal, "cor": this.data_for_datasets.cor, "data": data_precos });
-            }
-        },
-        createChart: function createChart() {
-            Chart.defaults.global.defaultFontSize = 14;
-            var randomNumber;
-
-            for (var index in this.all_datasets_list) {
-                console.log(this.colors.length);
-                randomNumber = Math.floor(Math.random() * this.colors.length);
-                var data = {
-                    label: this.all_datasets_list[index].label_canal,
-                    backgroundColor: this.all_datasets_list[index].cor,
-                    borderWidth: 1,
-                    data: this.all_datasets_list[index].data
-                    //                        yAxisID: "y-axis-gravity"
-                };
-                var row = {
-                    label: this.all_datasets_list[index].label,
-                    backgroundColor: this.all_datasets_list[index].cor,
-                    borderWidth: 1,
-                    data: this.all_datasets_list[index].data,
-                    canal: this.selected_canals[index].nome
-                    //                        yAxisID: "y-axis-gravity"
-                };
-                this.global_table_datasets.push(row);
-                // console.log(all_datasets_list[index].data_precos);
-                this.global_datasets.push(data);
-            }
-            //                console.lo
-
-            var planetData = {
-                labels: this.lista_servicos_nomes,
-                datasets: this.global_datasets
-            };
-
-            var chartOptions = {
-
-                tooltips: {
-                    enabled: true
-                },
-                scales: {
-                    xAxes: [{
-                        barPercentage: 1,
-                        categoryPercentage: 0.6
-                    }],
-                    yAxes: [{
-                        id: "y-axis-gravity"
-                    }]
-                }
-            };
-            this.chartObject = {
-                type: 'bar',
-                data: planetData,
-                options: chartOptions
-            };
-        }
     }
-});
+}, _defineProperty(_extends$props$data$p, 'props', ['labels', 'values', 'type']), _defineProperty(_extends$props$data$p, 'mounted', function mounted() {
+    new Chart(this.$el, {
+        type: this.type,
+        data: {
+            labels: this.bs_labels,
+            datasets: [{
+                label: '# of Votes',
+                data: this.bs_servicos,
+                backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(75, 192, 192, 0.6)', 'rgba(153, 102, 255, 0.6)', 'rgba(255, 159, 64, 0.6)'],
+                borderColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+}), _defineProperty(_extends$props$data$p, 'created', function created() {
+    this.fetchData();
+    this.fillDataSets();
+}), _defineProperty(_extends$props$data$p, 'methods', {
+    login: function login() {
+        // 'this' refers to the vm instance
+        this.isLoggedIn = !this.isLoggedIn;
+    },
+    fetchData: function fetchData() {
+        var _this = this;
+
+        this.error = this.banks = null;
+        this.loading = true;
+        // replace `getPost` with your data fetching util / API wrapper
+        axios.get('/api/adminData').then(function (response) {
+            console.log(response);
+            _this.banks = response.data.banks;
+            _this.services = response.data.servicos;
+            _this.canals = response.data.canais;
+            _this.loading = false;
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = _this.banks[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var item = _step.value;
+
+                    _this.bs_labels.push(item.abreviatura);
+                    _this.bs_servicos.push(item.servicos.length);
+                    _this.bc_canals.push(item.canals.length);
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+
+            console.log(_this.bs_labels);
+        }).catch(function (error) {
+            console.log(error);
+            _this.error = error.status;
+        });
+    },
+    fillDataSets: function fillDataSets() {
+
+        //                for(var data in this.banks)
+        //                    console.log(data);
+    }
+}), _defineProperty(_extends$props$data$p, 'mounted', function mounted() {
+    this.renderChart(this.chartData, this.options);
+}), _extends$props$data$p);
 
 /***/ }),
-/* 240 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "vue-instance" } }, [
-    _vm.isLoggedIn
-      ? _c("div", [
-          _c(
-            "button",
-            { attrs: { type: "submit" }, on: { click: _vm.login } },
-            [_vm._v("Gráfico")]
-          ),
-          _vm._v(" "),
-          _vm._m(0)
-        ])
-      : _c("div", [
-          _c(
-            "button",
-            { attrs: { type: "submit" }, on: { click: _vm.login } },
-            [_vm._v("Tabela")]
-          ),
-          _vm._v(" "),
-          _c("table", { staticClass: "table table-striped" }, [
-            _c("thead", [
-              _c(
-                "tr",
-                [
-                  _c("th"),
-                  _c("th"),
-                  _vm._v(" "),
-                  _vm._l(_vm.lista_servicos_nomes, function(servico) {
-                    return _c("th", [_c("b", [_vm._v(_vm._s(servico))])])
-                  })
-                ],
-                2
-              )
+  return _c("div", { staticClass: "row content" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-12 col-xs-12" }, [
+      _vm.banks
+        ? _c("div", { staticClass: "info-box brown-bg" }, [
+            _c("i", { staticClass: "fa fa-university" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "count" }, [
+              _vm._v(_vm._s(_vm.banks.length))
             ]),
             _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.global_table_datasets, function(data) {
-                return _c(
-                  "tr",
-                  [
-                    _c("td", [_vm._v(_vm._s(data.label) + " ")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(" " + _vm._s(data.canal))]),
-                    _vm._v(" "),
-                    _vm._l(data.data, function(preco) {
-                      return _c("td", [_vm._v(_vm._s(preco))])
-                    })
-                  ],
-                  2
-                )
-              })
-            )
+            _c("div", { staticClass: "title" }, [_vm._v("Bancos Associados")])
+          ])
+        : _vm._e()
+    ]),
+    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-12 col-xs-12" }, [
+      _vm.canals
+        ? _c("div", { staticClass: "info-box green-bg" }, [
+            _c("i", { staticClass: "fa fa-university" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "count" }, [
+              _vm._v(_vm._s(_vm.canals.length))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "title" }, [_vm._v("Canais")])
+          ])
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-12 col-xs-12" }, [
+      _vm.services
+        ? _c("div", { staticClass: "info-box green-bg" }, [
+            _c("i", { staticClass: "fa fa-chain-broken" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "count" }, [
+              _vm._v(_vm._s(_vm.services.length))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "title" }, [_vm._v("Serviços")])
+          ])
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", [
+        _c("div", { staticClass: "clearfix" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "box box-primary" }, [
+          _c("div", { staticClass: "box-body" }, [
+            _vm.isLoggedIn
+              ? _c("div", [
+                  _c(
+                    "button",
+                    { attrs: { type: "submit" }, on: { click: _vm.login } },
+                    [_vm._v("Gráfico")]
+                  )
+                ])
+              : _c("div", [
+                  _c(
+                    "button",
+                    { attrs: { type: "submit" }, on: { click: _vm.login } },
+                    [_vm._v("Tabela")]
+                  )
+                ])
           ])
         ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -42774,17 +42779,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "col-sm-12 col-md-12 col-lg-12" }, [
-        _c("canvas", {
-          staticClass: "densityChart",
-          staticStyle: {
-            "max-height": "500px !important",
-            "text-align": "center!important",
-            float: "left!important"
-          },
-          attrs: { width: "600", height: "300" }
-        })
+    return _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-12 col-xs-12" }, [
+      _c("div", { staticClass: "info-box blue-bg" }, [
+        _c("i", { staticClass: "fa fa-bar-chart" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "count" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "title" }, [_vm._v("Estatísticas")])
       ])
     ])
   }
@@ -42794,7 +42795,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-5e927ebe", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-1853146c", module.exports)
   }
 }
 

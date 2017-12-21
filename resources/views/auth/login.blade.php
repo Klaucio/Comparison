@@ -37,7 +37,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>C </b>ompara?</a>
+        <a href="{{ url('/') }}"><b>C </b>ompara?</a>
     </div>
 
     <!-- /.login-logo -->

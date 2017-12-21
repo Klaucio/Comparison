@@ -5,52 +5,18 @@
     {{--<link rel="stylesheet" type="text/css" href="stylesheet/paper_dashboard.css">--}}
 @endsection
 @section('content')
-<div class="container">
-
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <div class="info-box blue-bg">
-                <i class="fa fa-bar-chart"></i>
-                <div class="count">6.674</div>
-                <div class="title">Estatísticas</div>
-            </div>
-            <!--/.info-box-->
-        </div>
-        <!--/.col-->
-
-        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <div class="info-box brown-bg">
-                <i class="fa fa-university"></i>
-                <div class="count">7.538</div>
-                <div class="title">Bancos Associados</div>
-            </div>
-            <!--/.info-box-->
-        </div>
-        <!--/.col-->
-
-        {{--<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">--}}
-            {{--<div class="info-box dark-bg">--}}
-                {{--<i class="fa fa-thumbs-o-up"></i>--}}
-                {{--<div class="count">4.362</div>--}}
-                {{--<div class="title">Order</div>--}}
-            {{--</div>--}}
-            {{--<!--/.info-box-->--}}
-        {{--</div>--}}
-        <!--/.col-->
-
-        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <div class="info-box green-bg">
-                <i class="fa fa-chain-broken"></i>
-                <div class="count">1.426</div>
-                <div class="title">Canais Por Banco</div>
-            </div>
-            <!--/.info-box-->
-        </div>
-        <!--/.col-->
-
-    </div>
-    <!--/.row-->
-
-
+<div id="admin" class="container">
+    <home-component></home-component>
+    <section class="section">
+        <h1 class="title is-1">
+        </h1>
+        <graph-bar type="bar">
+        </graph-bar>
+    </section>
 </div>
+@endsection
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
+    <script type="text/javascript" src="js/admin_home.js"></script>
 @endsection

@@ -20,10 +20,10 @@ Vue.use(VueCharts);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('result-component',require('./components/bs_result.vue'));
+Vue.component('home-component',require('./components/admin_home.vue'));
 
 new Vue({
-    el: '#results',
+    el: '#admin',
 });
 
 

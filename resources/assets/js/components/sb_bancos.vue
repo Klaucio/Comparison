@@ -10,7 +10,7 @@
                                 <div class="bizcontent post-image">
                                     <input type="checkbox" v-bind:id="bank.id" v-bind:value="bank.id"
                                            v-model="checked_banks" v-on:onclick="handleClick(this);" autocomplete="off">
-                                    <img :src="'storage/logos/' + bank.logo" width="175" height="175" title="" class="post-image" alt=""> <!--.bank.logo-->
+                                    <img :src="'images/bancos/' + bank.logo" width="175" height="175" title="" class="post-image" alt=""> <!--.bank.logo-->
                                 </div>
                                 <ul class="post-date">
                                     <li class="day">{{ bank.abreviatura }}</li>
