@@ -1542,7 +1542,7 @@ var render = function() {
           _c(
             "button",
             { attrs: { type: "submit" }, on: { click: _vm.toggleMode } },
-            [_vm._v("Gráfico")]
+            [_vm._v("Tabela")]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
@@ -1558,7 +1558,7 @@ var render = function() {
           _c(
             "button",
             { attrs: { type: "submit" }, on: { click: _vm.toggleMode } },
-            [_vm._v("Tabela")]
+            [_vm._v("Gráfico")]
           ),
           _vm._v(" "),
           _c("table", { staticClass: "table table-striped" }, [

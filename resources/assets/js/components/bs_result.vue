@@ -1,7 +1,7 @@
 <template >
     <div id="vue-instance">
         <div v-if="!isTable">
-            <button @click="toggleMode" type="submit">Gráfico</button>
+            <button @click="toggleMode" type="submit">Tabela</button>
             <div class="form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <chart :options="bar" auto-resize></chart>
@@ -9,7 +9,7 @@
             </div>
         </div>
         <div v-else>
-            <button @click="toggleMode" type="submit">Tabela</button>
+            <button @click="toggleMode" type="submit">Gráfico</button>
             <table class="table table-striped">
                 <thead>
                 <tr>
