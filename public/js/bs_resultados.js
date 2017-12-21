@@ -1404,13 +1404,13 @@ var densityCanvas = document.getElementsByClassName("densityChart");
             for (var index in this.selected_banks) {
                 //Quando Inicia a atribuição, aqui atribui-se a primeira label(barra)
                 if (!this.data_for_datasets.label) {
-                    this.data_for_datasets.label_canal = this.selected_banks[index].abreviatura + " || Através de: " + this.selected_canals[index].nome;
+                    this.data_for_datasets.label_canal = this.selected_banks[index].abreviatura + ": " + this.selected_canals[index].nome;
                     this.data_for_datasets.label = this.selected_banks[index].abreviatura;
                     this.data_for_datasets.cor = this.selected_banks[index].cor;
                     // data_for_datasets.canal=selected_banks[index].pivot.canal_id;
                 } else {
                     //Atribuição das restantes labels
-                    this.data_for_datasets.label_canal = this.selected_banks[index].abreviatura + " || Através de: " + this.selected_canals[index].nome;
+                    this.data_for_datasets.label_canal = this.selected_banks[index].abreviatura + ": " + this.selected_canals[index].nome;
                     this.data_for_datasets.label = this.selected_banks[index].abreviatura;
                     this.data_for_datasets.cor = this.selected_banks[index].cor;
                 }
@@ -1482,9 +1482,12 @@ var densityCanvas = document.getElementsByClassName("densityChart");
         renderBar: function renderBar(list) {
 
             this.bar = {
+                color: list.map(function (element) {
+                    return element.cor;
+                }),
                 tooltip: {
                     trigger: 'item',
-                    formatter: "{a} <br/>{b}: {c}  Mt)"
+                    formatter: "{b} <br/>{a}: {c}  MZN"
                 },
                 legend: {
                     data: list.map(function (element) {
@@ -1493,7 +1496,9 @@ var densityCanvas = document.getElementsByClassName("densityChart");
                 },
                 xAxis: {
                     type: 'category',
-                    axisLabel: { show: false },
+                    axisLabel: {
+                        //                            inside: true
+                    },
                     data: this.lista_servicos.map(function (element) {
                         return element.nome;
                     })
@@ -1501,7 +1506,7 @@ var densityCanvas = document.getElementsByClassName("densityChart");
                 yAxis: {
                     type: 'value',
                     axisLabel: {
-                        formatter: '{value} Mt'
+                        formatter: '{value} MZN'
                     }
                 },
                 series: list.map(function (element) {

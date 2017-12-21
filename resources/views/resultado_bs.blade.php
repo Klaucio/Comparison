@@ -27,9 +27,9 @@
                     <div class="row">
                         <div class="form-group">
                             <div class="col-sm-12 col-md-12 col-lg-12" v-bind="false">
-                                <canvas class="densityChart" width="600" height="300"
-                                        style="max-height: 500px !important; text-align: center!important; float: left!important; ">
-                                </canvas>
+                                {{--<canvas class="densityChart" width="600" height="300"--}}
+                                        {{--style="max-height: 500px !important; text-align: center!important; float: left!important; ">--}}
+                                {{--</canvas>--}}
                             </div>
                         </div>
                     </div>
