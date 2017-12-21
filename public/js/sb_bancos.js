@@ -1233,7 +1233,7 @@ var render = function() {
                           _c("img", {
                             staticClass: "post-image",
                             attrs: {
-                              src: "storage/logos/" + bank.logo,
+                              src: "images/bancos/" + bank.logo,
                               width: "175",
                               height: "175",
                               title: "",
