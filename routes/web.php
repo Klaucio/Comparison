@@ -66,12 +66,14 @@ Route::get('get-location-from-ip',function(){
 });
 Route::get('/', 'HomeFrontController@index');
 
-Route::get('/bancos',['as'=> 'servicos',
+Route::get('/bancos',['as'=> 'bancos',
     'uses' => 'HomeFrontController@bancos']);
 
 Route::get('/services',['as'=> 'servicos',
     'uses' => 'HomeFrontController@bindServicesByBank']);
 
+Route::get('/canals',['as'=> 'canals',
+    'uses' => 'HomeFrontController@bindBankServiceCanals']);
 Route::get('/bindResults',['as'=> 'servicos',
     'uses' => 'HomeFrontController@bindBankServiceResults']);
 /*==========Fim===Fluxo: Banco->Servicos->Resultados====================*/

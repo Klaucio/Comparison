@@ -55,6 +55,20 @@ class HomeFrontController extends Controller
             'banks_array'=>$banks_array]);
 
     }
+    public function bindBankServiceCanals(Request $request)
+    {
+        $dados=$request->input('data');//json em forma de string
+        $dados=json_decode($dados,true);//json em forma de array
+        $this->bancos=$dados['bancos'];
+        $service_array = array_map(function($value) { return (int)$value; },$dados['servicos']);
+        $results=Servico::with(['bancos','canals'])
+                ->whereHas('bancos', function ($query){
+                    $query->whereIn('banco_canal_servicos.banco_id',$this->bancos);
+                })
+                ->findOrFail($service_array);
+        return view('resultado_bs')->with(['servicos'=>$results,'lista_bancos'=>$this->bancos]);
+
+    }
     public function bindBankServiceResults(Request $request)
     {
         $dados=$request->input('data');//json em forma de string

@@ -1052,6 +1052,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['selected_services', //used to extract selected banks from selected services
@@ -1230,16 +1232,9 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _c("img", {
-                            staticClass: "post-image",
-                            attrs: {
-                              src: "storage/logos/" + bank.logo,
-                              width: "175",
-                              height: "175",
-                              title: "",
-                              alt: ""
-                            }
-                          })
+                          _vm._v(
+                            '" height="175" title="" class="post-image" alt=""> '
+                          )
                         ]),
                         _vm._v(" "),
                         _c("ul", { staticClass: "post-date" }, [
