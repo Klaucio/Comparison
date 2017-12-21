@@ -42486,9 +42486,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5e927ebe", Component.options)
+    hotAPI.createRecord("data-v-827a121c", Component.options)
   } else {
-    hotAPI.reload("data-v-5e927ebe", Component.options)
+    hotAPI.reload("data-v-827a121c", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -42588,7 +42588,7 @@ var densityCanvas = document.getElementsByClassName("densityChart");
     },
     mounted: function mounted() {
         this.colors = ['rgb(209, 0, 93)', 'rgb(255, 181, 72)', 'rgb(13, 72, 179)', 'rgb(13, 72, 179)', 'rgb(161, 0, 86)', 'rgb(103, 160, 16)'];
-        console.log(this.colors);
+        // console.log(this.colors);
         this.barChart = new Chart(densityCanvas, this.chartObject);
     },
 
@@ -42749,7 +42749,9 @@ var render = function() {
                   _c("th"),
                   _vm._v(" "),
                   _vm._l(_vm.lista_servicos_nomes, function(servico) {
-                    return _c("th", [_c("b", [_vm._v(_vm._s(servico))])])
+                    return _c("th", { key: servico }, [
+                      _c("b", [_vm._v(_vm._s(servico))])
+                    ])
                   })
                 ],
                 2
@@ -42803,7 +42805,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-5e927ebe", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-827a121c", module.exports)
   }
 }
 
