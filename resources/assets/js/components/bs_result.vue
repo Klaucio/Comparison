@@ -19,9 +19,9 @@
                 </thead>
                 <tbody>
                 <tr v-for="data in global_table_datasets">
-                    <td>{{data.label}} </td>
+                    <td><b>{{data.label}}</b> </td>
                     <td> {{data.canal}}</td>
-                    <td v-for="preco in data.data">{{preco}}</td>
+                    <td v-for="preco in data.data">{{preco === 0 ? 'Grátis' : preco }}</td>
                 </tr>
                 </tbody>
             </table>

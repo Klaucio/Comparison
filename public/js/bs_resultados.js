@@ -1585,12 +1585,14 @@ var render = function() {
                 return _c(
                   "tr",
                   [
-                    _c("td", [_vm._v(_vm._s(data.label) + " ")]),
+                    _c("td", [_c("b", [_vm._v(_vm._s(data.label))])]),
                     _vm._v(" "),
                     _c("td", [_vm._v(" " + _vm._s(data.canal))]),
                     _vm._v(" "),
                     _vm._l(data.data, function(preco) {
-                      return _c("td", [_vm._v(_vm._s(preco))])
+                      return _c("td", [
+                        _vm._v(_vm._s(preco === 0 ? "Grátis" : preco))
+                      ])
                     })
                   ],
                   2
