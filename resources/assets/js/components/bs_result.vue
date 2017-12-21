@@ -16,7 +16,7 @@
                 <thead>
                 <tr>
                     <th></th><th></th>
-                    <th v-for="servico in lista_servicos_nomes"><b>{{servico}}</b></th>
+                    <th v-bind:key="servico" v-for="servico in lista_servicos_nomes"><b>{{servico}}</b></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -115,7 +115,7 @@
             this.colors=['rgb(209, 0, 93)','rgb(255, 181, 72)','rgb(13, 72, 179)',
                 'rgb(13, 72, 179)','rgb(161, 0, 86)','rgb(103, 160, 16)'
             ];
-            console.log(this.colors);
+            // console.log(this.colors);
             this.barChart = new Chart(densityCanvas, this.chartObject);
 
         },

@@ -1083,9 +1083,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3f6e2874", Component.options)
+    hotAPI.createRecord("data-v-c8f69e80", Component.options)
   } else {
-    hotAPI.reload("data-v-3f6e2874", Component.options)
+    hotAPI.reload("data-v-c8f69e80", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1395,7 +1395,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-3f6e2874", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-c8f69e80", module.exports)
   }
 }
 
