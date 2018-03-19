@@ -1,18 +1,15 @@
 <template >
     <div id="vue-instance">
         <div v-if="!isTable">
-            <button @click="toggleMode" type="submit">Gráfico</button>
+            <button @click="toggleMode" type="submit">Tabela</button>
             <div class="form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <!--<canvas class="densityChart" width="600" height="300"-->
-                            <!--style="max-height: 500px !important; text-align: center!important; float: left!important; ">-->
-                    <!--</canvas>-->
                     <chart :options="bar" auto-resize></chart>
                 </div>
             </div>
         </div>
         <div v-else>
-            <button @click="toggleMode" type="submit">Tabela</button>
+            <button @click="toggleMode" type="submit">Gráfico</button>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -22,9 +19,13 @@
                 </thead>
                 <tbody>
                 <tr v-for="data in global_table_datasets">
-                    <td>{{data.label}} </td>
+                    <td><b>{{data.label}}</b> </td>
                     <td> {{data.canal}}</td>
+<<<<<<< HEAD
                     <td v-for="preco in data.data">{{preco === 0 ? 'Gratis': preco }}</td>
+=======
+                    <td v-for="preco in data.data">{{preco === 0 ? 'Grátis' : preco }}</td>
+>>>>>>> 7bc3528869653955e48a7381156fd5032b657ec4
                 </tr>
                 </tbody>
             </table>
@@ -219,8 +220,16 @@
                     xAxis: {
                         type: 'category',
                         axisLabel: {
+<<<<<<< HEAD
 //                            inside: true,
                             rotate: 10
+=======
+//                            inside: true
+                            rotate: 10,
+                            align: 'right',
+                            fontSize: 10,
+                            width: '100%'
+>>>>>>> 7bc3528869653955e48a7381156fd5032b657ec4
                         },
                         data: this.lista_servicos.map((element) => element.nome)
                     },

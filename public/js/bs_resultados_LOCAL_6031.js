@@ -1221,6 +1221,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 var densityCanvas = document.getElementsByClassName("densityChart");
 
@@ -1401,16 +1404,8 @@ var densityCanvas = document.getElementsByClassName("densityChart");
                 xAxis: {
                     type: 'category',
                     axisLabel: {
-<<<<<<< HEAD
                         //                            inside: true,
                         rotate: 10
-=======
-                        //                            inside: true
-                        rotate: 10,
-                        align: 'right',
-                        fontSize: 10,
-                        width: '100%'
->>>>>>> 7bc3528869653955e48a7381156fd5032b657ec4
                     },
                     data: this.lista_servicos.map(function (element) {
                         return element.nome;
@@ -1454,7 +1449,7 @@ var render = function() {
           _c(
             "button",
             { attrs: { type: "submit" }, on: { click: _vm.toggleMode } },
-            [_vm._v("Tabela")]
+            [_vm._v("Gráfico")]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
@@ -1470,7 +1465,7 @@ var render = function() {
           _c(
             "button",
             { attrs: { type: "submit" }, on: { click: _vm.toggleMode } },
-            [_vm._v("Gráfico")]
+            [_vm._v("Tabela")]
           ),
           _vm._v(" "),
           _c("table", { staticClass: "table table-striped" }, [
@@ -1497,17 +1492,13 @@ var render = function() {
                 return _c(
                   "tr",
                   [
-                    _c("td", [_c("b", [_vm._v(_vm._s(data.label))])]),
+                    _c("td", [_vm._v(_vm._s(data.label) + " ")]),
                     _vm._v(" "),
                     _c("td", [_vm._v(" " + _vm._s(data.canal))]),
                     _vm._v(" "),
                     _vm._l(data.data, function(preco) {
                       return _c("td", [
-<<<<<<< HEAD
                         _vm._v(_vm._s(preco === 0 ? "Gratis" : preco))
-=======
-                        _vm._v(_vm._s(preco === 0 ? "Grátis" : preco))
->>>>>>> 7bc3528869653955e48a7381156fd5032b657ec4
                       ])
                     })
                   ],
