@@ -24,7 +24,7 @@
                 <tr v-for="data in global_table_datasets">
                     <td>{{data.label}} </td>
                     <td> {{data.canal}}</td>
-                    <td v-for="preco in data.data">{{preco}}</td>
+                    <td v-for="preco in data.data">{{preco === 0 ? 'Gratis': preco }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -219,7 +219,8 @@
                     xAxis: {
                         type: 'category',
                         axisLabel: {
-//                            inside: true
+//                            inside: true,
+                            rotate: 10
                         },
                         data: this.lista_servicos.map((element) => element.nome)
                     },
@@ -233,7 +234,13 @@
                         return {
                             name: element.label_canal,
                             type: 'bar',
-                            data: element.data.map((el) => el)
+                            data: element.data.map((el) => el),
+                            markPoint : {
+                                data : [
+                                    {type : 'max'},
+                                    {type : 'min'}
+                                ]
+                            }
                         }
                     })
                 }

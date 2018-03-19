@@ -1,6 +1,12 @@
 <template>
     <form method="POST" v-on:submit.prevent="onSubmit">
         <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2 col-sm-12">
+                <button class="btn btn-success" style="padding-right: 0px"> Seguir >> </button>
+            </div>
+        </div>
+        <div class="row">
             <div class="searchable-container">
                 	<!--A div a seguir percorre a lista de bancos para preencher os cards	-->
                 <div class="items col-xs-5 col-sm-5 col-lg-3 col-md-2" v-for="bank in this.all_banks">
@@ -10,34 +16,19 @@
                                 <div class="bizcontent post-image">
                                     <input type="checkbox" v-bind:id="bank.id" v-bind:value="bank.id"
                                            v-model="checked_banks" v-on:onclick="handleClick(this);" autocomplete="off">
-                                    <img :src="'images/bancos/' + bank.logo"
-                                         onerror="if (this.src != 'images/bancos/index.png') this.src = 'images/bancos/index.png'
-                                         width="175" height="175" title="" class="post-image" alt=""> <!--.bank.logo-->
+                                    <img :src="'images/bancos/' + bank.logo||'default.png'" alt="Image not found"
+                                         width="175" height="175" title="" class="post-image"> <!--.bank.logo-->
                                 </div>
                                 <ul class="post-date">
                                     <li class="day">{{ bank.abreviatura }}</li>
                                 </ul>
                             </label>
 
-                            <!--<div class="content-post">-->
-                                <!--<h5 class="title-post">-->
-                                    <!--{{bank.designacao}}-->
-                                <!--</h5>-->
-                                <!--<div class="entry-post">-->
-
-                                <!--</div>-->
-                            <!--</div>&lt;!&ndash; /.content-post &ndash;&gt;-->
                         </article><!-- /.post -->
                     <!--</label>-->
                 </div><!-- /.col-md-2 -->
             </div>
         </div><!-- /.row -->
-        <div class="row">
-            <div class="col-md-2 col-sm-4">
-                <button class="btn btn-success"> Seguir >> </button>
-            </div>
-
-        </div>
     </form>
 </template>
 

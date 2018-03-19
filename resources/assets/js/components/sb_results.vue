@@ -141,7 +141,7 @@
 
                             data_precos.push(this.selected_banks[index].pivot.preco);
                         else{
-                            data_precos.push(0);
+                            data_precos.push("Nulo");
                         }
                     }
                     this.all_datasets_list.push({"label":this.data_for_datasets.label,"data":data_precos});

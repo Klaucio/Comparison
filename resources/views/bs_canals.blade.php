@@ -1,0 +1,51 @@
+@extends('layouts.master')
+@section('title', 'Comparação de preços')
+@section('local_css')
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111489843-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-111489843-1');
+    </script>
+@endsection
+@section('content')
+    <!-- Testes-->
+    <section id="section_comparar" class="flat-row flat-iconbox bg-theme" xmlns:v-on="http://www.w3.org/1999/xhtml">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-section left">
+                        <h2>Escolha os Canais</h2>
+                    </div><!-- /.title-section -->
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div id="results" class="container">
+            <div class="flex-center position-ref full-height">
+                <div id="canais" class="content">
+                    <canal-component bank_data="{{json_encode($servicos)}}" lista_bancos_ids="{{json_encode($lista_bancos) }}"></canal-component>
+                </div>
+            </div>
+
+        </div>
+
+    </section><!-- /.flat-row-iconbox -->
+    <!-- Fim dos testes -->
+@endsection
+@section('insert_javascript')
+    {{--Incluir JS local--}}
+    <script type="text/javascript">
+        //pega os resultados e passa para uma variavel(array) javascript
+        var bank_data ={!! json_encode($servicos,JSON_OBJECT_AS_ARRAY) !!};
+        var lista_bancos_ids ={!! json_encode($lista_bancos,JSON_OBJECT_AS_ARRAY) !!};
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
+    <script type="text/javascript" src="js/bs_canals.js"></script>
+    {{--<script type="text/javascript" src="js/chart_js.js"></script>--o,l}}--}}
+
+
+@endsection

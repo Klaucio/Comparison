@@ -1,13 +1,13 @@
 <template>
     <div class="row content">
-        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <div class="info-box blue-bg">
-                <i class="fa fa-bar-chart"></i>
-                <div class="count"></div>
-                <div class="title">Estatísticas</div>
-            </div>
-            <!--/.info-box-->
-        </div>
+        <!--<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">-->
+            <!--<div class="info-box blue-bg">-->
+                <!--<i class="fa fa-bar-chart"></i>-->
+                <!--<div class="count"></div>-->
+                <!--<div class="title">Estatísticas</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;/.info-box&ndash;&gt;-->
+        <!--</div>-->
         <!--/.col-->
 
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -34,33 +34,33 @@
             <!--/.info-box-->
         </div>
         <!--/.col-->
-        <div class="row">
-            <div>
-                <div class="clearfix"></div>
-                <div class="box box-primary">
-                    <div class="box-body">
+        <!--<div class="row">-->
+            <!--<div>-->
+                <!--<div class="clearfix"></div>-->
+                <!--<div class="box box-primary">-->
+                    <!--<div class="box-body">-->
 
-                        <div v-if="isLoggedIn">
-                            <button @click="login" type="submit">Gráfico</button>
+                        <!--<div v-if="isLoggedIn">-->
+                            <!--<button @click="login" type="submit">Gráfico</button>-->
 
-                        </div>
-                        <div v-else>
-                            <button @click="login" type="submit">Tabela</button>
-                            <!--<div class="panel-group">-->
-                                <!--<div class="panel panel-default">-->
-                                    <!--<div class="panel-body">-->
-                                        <!--<canvas width="400" height="200"></canvas>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <!--<div class="panel panel-default">-->
-                                    <!--<div class="panel-body">Panel Content</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <!--</div>-->
+                        <!--<div v-else>-->
+                            <!--<button @click="login" type="submit">Tabela</button>-->
+                            <!--&lt;!&ndash;<div class="panel-group">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div class="panel panel-default">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="panel-body">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<canvas width="400" height="200"></canvas>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div class="panel panel-default">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="panel-body">Panel Content</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
     </div>
     <!--/.row-->

@@ -9,6 +9,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="row" style="padding-top: 7px!important;">
+                    <div class="col-md-10">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-success"> Seguir >> </button>
+                    </div>
+
+                </div>
                 <div class="row">
                     <div class="form-group">
                         <div class="searchable-container">
@@ -16,7 +24,7 @@
                                 <label v-bind:for="service.id" class="btn btn-default info-block block-info clearfix">
                                     <div  class="bizcontent">
                                         <input type="checkbox" v-bind:id="service.id" v-bind:value="service.id"
-                                               :disabled="limit_reached" data-toggle="buttons" v-model="checked_services">
+                                                data-toggle="buttons" v-model="checked_services">
                                         <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
                                         <h5 class="wordwrap">{{service.nome}}</h5>
                                     </div>
@@ -25,17 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="padding-top: 7px!important;">
-                    <div class="col-md-10">
-                        <div for="results" class="row">
-                            {{checked_services}}
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-success"> Seguir >> </button>
-                    </div>
 
-                </div>
             </div>
         </div>
     </form>

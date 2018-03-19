@@ -12,6 +12,17 @@
         <div v-if="error" class="error">
             {{ error }}
         </div>
+        <div class="row">
+            <div class="col-md-10 col-sm-8">
+                <!--<div for="results" class="row">-->
+                    <!--<span >{{ checkedBanks}}</span>-->
+                <!--</div>-->
+            </div>
+            <div class="col-md-2 col-sm-4">
+                <button class="btn btn-success"> Seguir >> </button>
+            </div>
+
+        </div>
         <div class="row" v-if="this.banks">
             <div class="searchable-container"><!--	A div a seguir percorre a lista de bancos para preencher os cards	-->
                 <div class="items col-xs-5 col-sm-5 col-lg-3 col-md-2" v-for="bank in banks">
@@ -19,12 +30,12 @@
                     <article class="post style2 clearfix info-block block-info ">
                         <label v-bind:for="bank.id"  class="btn btn-default  featured-post img-card" >
                             <div class="bizcontent post-image">
-                                <input type="checkbox" v-bind:id="bank.id" v-bind:value="bank.id" :disabled="limit_reached"
+                                <input type="checkbox" v-bind:id="bank.id" v-bind:value="bank.id"
                                        v-model="checkedBanks"
                                        autocomplete="off">
                                        <!-- onclick="handleClick(this);" -->
 
-                                <img :src="'storage/logos/' + bank.logo" width="175" height="175" title="" class="post-image" alt=""> <!--.bank.logo-->
+                                <img :src="'images/bancos/' + bank.logo|| 'images/bancos/default.png'" width="175" height="175" title="" class="post-image" alt=""> <!--.bank.logo-->
                                 <!--<span class="glyphicon glyphicon-check glyphicon-lg"></span>-->
                             </div>
                             <ul class="post-date">
@@ -45,17 +56,7 @@
                 </div><!-- /.col-md-2 -->
             </div>
         </div><!-- /.row -->
-        <div class="row">
-            <div class="col-md-10 col-sm-8">
-                <div for="results" class="row">
-                    <span >{{ checkedBanks}}</span>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <button class="btn btn-success"> Seguir >> </button>
-            </div>
 
-        </div>
     </form>
 </template>
 

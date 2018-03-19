@@ -66,7 +66,7 @@ class HomeFrontController extends Controller
                     $query->whereIn('banco_canal_servicos.banco_id',$this->bancos);
                 })
                 ->findOrFail($service_array);
-        return view('resultado_bs')->with(['servicos'=>$results,'lista_bancos'=>$this->bancos]);
+        return view('bs_canals')->with(['servicos'=>$results,'lista_bancos'=>$this->bancos]);
 
     }
     public function bindBankServiceResults(Request $request)

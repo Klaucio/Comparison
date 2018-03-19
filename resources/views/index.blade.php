@@ -98,9 +98,29 @@
 					<!-- MAIN IMAGE -->
 					<img src="images/slides/waw.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 
-					<!-- BACKGROUND VIDEO LAYER -->
-					</div>
+					<a href="/bancos" target="_self" class="tp-caption flat-button-slider bg-blue"
 
+					   data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+
+					   data-x="['left','left','left','left']" data-hoffset="['36','36','36','36']"
+					   data-y="['middle','middle','middle','middle']" data-voffset="['140','140','140','80']"
+					   data-fontsize="['14','14','14','14']"
+					   data-width="['auto']"
+					   data-height="['auto']" >Qual Banco?
+					</a><!-- END LAYER LINK -->
+
+					<a href="/servicos" target="_self" class="tp-caption flat-button-slider bg-transparent"
+
+					   data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+
+					   data-x="['left','left','left','left']" data-hoffset="['205','205','205','205']"
+					   data-y="['middle','middle','middle','middle']" data-voffset="['140','140','140','80']"
+					   data-fontsize="['14',14','14','14']"
+					   data-width="['auto']"
+					   data-height="['auto']">Qual serviço?
+					</a><!-- END LAYER LINK -->
+
+				</li>
 
 		<!-- LAYER NR. 12 -->
 		<div class="tp-caption title-slide color-white"
@@ -190,7 +210,7 @@
 
 								</div><!-- /.icon-rounded -->
 								<div class="box-title">
-									<a href="%27.html#" title="">Accumulation</a>
+									<a href="%27.html#" title="">Bancos Registados</a>
 								</div><!-- /.box-title -->
 							</div><!-- /.box-header -->
 							<div class="box-content">
@@ -210,7 +230,7 @@
 
 								</div>
 								<div class="box-title">
-									<a href="%27.html#" title="">Mutual Funds</a>
+									<a href="%27.html#" title="">Serviços</a>
 								</div>
 							</div><!-- /.box-header -->
 							<div class="box-content">
@@ -230,7 +250,7 @@
 
 								</div>
 								<div class="box-title">
-									<a href="%27.html#" title="">Risk Management</a>
+									<a href="%27.html#" title="">Categorias</a>
 								</div>
 							</div><!-- /.box-header -->
 							<div class="box-content">
@@ -259,7 +279,7 @@
 
 								</div>
 								<div class="box-title">
-									<a href="%27.html#" title="">Estate Planning</a>
+									<a href="%27.html#" title="">Canais</a>
 								</div>
 							</div><!-- /.box-header -->
 							<div class="box-content">
@@ -279,7 +299,7 @@
 
 								</div>
 								<div class="box-title">
-									<a href="%27.html#" title="">Retirement Planning</a>
+									<a href="%27.html#" title="">Serviços Por Banco</a>
 								</div>
 							</div><!-- /.box-header -->
 							<div class="box-content">
@@ -299,7 +319,7 @@
 
 								</div>
 								<div class="box-title">
-									<a href="%27.html#" title="">Business Planning</a>
+									<a href="%27.html#" title="">Banco por Serviço</a>
 								</div>
 							</div><!-- /.box-header -->
 							<div class="box-content">
@@ -314,54 +334,6 @@
 
 		</div><!-- /.container -->
 	</section><!-- /.flat-row-iconbox -->
-
-	<section class="flat-row flat-callback">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-md-4">
-					<div class="text-block-callback">
-						<h2>Get a Call Back</h2>
-						<div class="text-callback-content">
-							If you need to speak to us about a general query fill
-							in the form below and we will call you back within
-							the same working day.
-						</div>
-					</div><!-- /.text-block-callback -->
-				</div><!-- /.col-md-4 -->
-
-				<div class="col-md-8">
-					<div class="flat-callback-form">
-						<form action="#" method="post">
-							<div class="flat-field">
-								<div class="field-one-half">
-									<label>How can we help? *</label>
-									<select name="discuss">
-										<option value="I would like to discuss:">I would like to discuss:</option>
-										<option value="I would like to discuss:">I would like to discuss:</option>
-										<option value="I would like to discuss:">I would like to discuss:</option>
-									</select>
-								</div><!-- /.field-one-half -->
-								<div class="field-one-half field-email">
-									<input type="email" name="field-email" placeholder="You Email" />
-								</div><!-- /.field-one-half -->
-								<div class="clearfix"></div>
-							</div>
-							<div class="flat-field">
-								<div class="field-one-half field-phone">
-									<input type="text" name="field-phone" placeholder="You phone number" />
-								</div>
-								<div class="field-one-half field-submit">
-									<button type="button" class="button-submit-field">Submit Now</button>
-								</div>
-							</div><!-- /.flat-field -->
-						</form><!-- /.form -->
-					</div><!-- /.callback-form -->
-				</div><!-- /.col-md-8 -->
-
-			</div><!-- /.row -->
-		</div><!-- /.container -->
-	</section><!-- /.flat-callback -->
 
 	<!-- Carousel -->
 	<section class="flat-row flat-client">
