@@ -1191,6 +1191,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
 //
 //
 //
@@ -1384,6 +1387,7 @@ var densityCanvas = document.getElementsByClassName("densityChart");
             };
         },
         renderBar: function renderBar(list) {
+            var _axisLabel;
 
             this.bar = {
                 color: list.map(function (element) {
@@ -1400,18 +1404,10 @@ var densityCanvas = document.getElementsByClassName("densityChart");
                 },
                 xAxis: {
                     type: 'category',
-                    axisLabel: {
-<<<<<<< HEAD
+                    axisLabel: (_axisLabel = {
                         //                            inside: true,
                         rotate: 10
-=======
-                        //                            inside: true
-                        rotate: 10,
-                        align: 'right',
-                        fontSize: 10,
-                        width: '100%'
->>>>>>> 7bc3528869653955e48a7381156fd5032b657ec4
-                    },
+                    }, _defineProperty(_axisLabel, 'rotate', 10), _defineProperty(_axisLabel, 'align', 'right'), _defineProperty(_axisLabel, 'fontSize', 10), _defineProperty(_axisLabel, 'width', '100%'), _axisLabel),
                     data: this.lista_servicos.map(function (element) {
                         return element.nome;
                     })
@@ -1503,11 +1499,13 @@ var render = function() {
                     _vm._v(" "),
                     _vm._l(data.data, function(preco) {
                       return _c("td", [
-<<<<<<< HEAD
                         _vm._v(_vm._s(preco === 0 ? "Gratis" : preco))
-=======
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _vm._l(data.data, function(preco) {
+                      return _c("td", [
                         _vm._v(_vm._s(preco === 0 ? "Grátis" : preco))
->>>>>>> 7bc3528869653955e48a7381156fd5032b657ec4
                       ])
                     })
                   ],

@@ -21,11 +21,8 @@
                 <tr v-for="data in global_table_datasets">
                     <td><b>{{data.label}}</b> </td>
                     <td> {{data.canal}}</td>
-<<<<<<< HEAD
                     <td v-for="preco in data.data">{{preco === 0 ? 'Gratis': preco }}</td>
-=======
                     <td v-for="preco in data.data">{{preco === 0 ? 'Grátis' : preco }}</td>
->>>>>>> 7bc3528869653955e48a7381156fd5032b657ec4
                 </tr>
                 </tbody>
             </table>
@@ -220,16 +217,13 @@
                     xAxis: {
                         type: 'category',
                         axisLabel: {
-<<<<<<< HEAD
 //                            inside: true,
-                            rotate: 10
-=======
+                            rotate: 10,
 //                            inside: true
                             rotate: 10,
                             align: 'right',
                             fontSize: 10,
                             width: '100%'
->>>>>>> 7bc3528869653955e48a7381156fd5032b657ec4
                         },
                         data: this.lista_servicos.map((element) => element.nome)
                     },
